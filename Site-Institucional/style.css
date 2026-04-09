@@ -20,7 +20,7 @@ background: rgba(255,255,255,0.9);
 
 .hero {
 height: 500px;
-background: url('capa.png') no-repeat center/cover;
+background: url('./img/capa.png') no-repeat center/cover;
 display: flex;
 align-items: center;
 padding: 60px;
@@ -90,6 +90,17 @@ width: 240px;
 background: #F4E5D6;;
 padding: 70px 20px;
 text-align: center;
+}
+
+.beneficio {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.iconeB {
+  width: 45px;
+  height: 45px;
 }
 
 .beneficios h2 {
