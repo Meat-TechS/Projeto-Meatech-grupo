@@ -1,0 +1,197 @@
+/* Reset básico para remover espaçamentos padrão dos elementos */
+* {
+  margin: 0; /* remove margens padrão */
+  padding: 0; /* remove espaçamentos internos padrão */
+  box-sizing: border-box; /* inclui padding e borda no tamanho total */
+  font-family: Arial, sans-serif; /* define fonte padrão */
+}
+
+/* Estilo geral da página */
+body {
+  background: #ffffff; /* fundo branco */
+  color: #222; /* cor padrão do texto (cinza escuro) */
+}
+
+/* Cabeçalho do site */
+.cabecalho {
+  display: flex; /* ativa layout flexível */
+  justify-content: flex-end; /* joga conteúdo para a direita */
+  align-items: center; /* centraliza verticalmente */
+  padding: 10px 30px; /* espaçamento interno */
+  background: rgba(255,255,255,0.9); /* fundo branco com leve transparência */
+}
+
+/* Seção principal (hero/banner) */
+.hero {
+  height: 500px; /* altura fixa */
+  background: url('./img/capa.png') no-repeat center/cover; 
+  /* imagem de fundo centralizada e cobrindo tudo */
+  display: flex; /* ativa flexbox */
+  align-items: center; /* centraliza conteúdo verticalmente */
+  padding: 60px; /* espaçamento interno */
+}
+
+/* Container da logo */
+.logo {
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+}
+
+/* Imagem da logo */
+.logo img {
+  height: 75px; /* altura fixa */
+  width: auto; /* mantém proporção */
+  margin-right: 800px; /* empurra pra direita*/
+}
+
+/* Título principal do hero */
+.hero h1 {
+  font-size: 42px; /* tamanho grande */
+  margin-bottom: 20px; /* espaço abaixo */
+}
+
+/* Parágrafo do hero */
+.hero p {
+  margin-bottom: 20px; /* espaço abaixo */
+}
+
+/* Botão do hero */
+.hero button {
+  background: #6A0101; /* cor vinho */
+  color: #ffffff; /* texto branco */
+  border: none; /* remove borda */
+  padding: 12px 22px; /* tamanho interno */
+  border-radius: 18px; /* bordas arredondadas */
+}
+
+/* Seção de funcionalidades */
+.funcionalidades {
+  background: linear-gradient(#6A0101, #8B0000); 
+  /* degradê vinho */
+  
+  color: #ffffff; /* texto branco */
+  text-align: center; /* centraliza texto */
+  padding: 70px 20px; /* espaçamento interno */
+}
+
+/* Ícones das funcionalidades */
+.icone {
+  width: 95px; /* largura fixa */
+  height: auto; /* mantém proporção */
+  margin-bottom: 15px; /* espaço abaixo */
+}
+
+/* Título das funcionalidades */
+.funcionalidades h2 {
+  margin-bottom: 50px; /* espaço abaixo */
+}
+
+/* Container dos cards */
+.container-cards {
+  display: flex; /* layout flex */
+  gap: 20px; /* espaço entre cards */
+  justify-content: center; /* centraliza horizontalmente */
+  flex-wrap: wrap; /* quebra linha se necessário */
+}
+
+/* Cada card */
+.card {
+  background: rgba(255, 255, 255, 0.08); /* fundo transparente */
+  padding: 25px; /* espaçamento interno */
+  border-radius: 12px; /* bordas arredondadas */
+  width: 240px; /* largura fixa */
+}
+
+/* Seção de benefícios */
+.beneficios {
+  background: #F4E5D6; /* fundo bege */
+  padding: 70px 20px; /* espaçamento interno */
+  text-align: center; /* centraliza texto */
+}
+
+/* Cada item de benefício */
+.beneficio {
+  display: flex; /* layout flex */
+  align-items: center; /* alinha verticalmente */
+  gap: 15px; /* espaço entre ícone e texto */
+}
+
+/* Ícones dos benefícios */
+.iconeB {
+  width: 45px;
+  height: 45px;
+}
+
+/* Título da seção benefícios */
+.beneficios h2 {
+  margin-bottom: 30px;
+}
+
+/* Grid dos benefícios */
+.grid-beneficios {
+  display: grid; /* layout em grade */
+  grid-template-columns: repeat(2, 1fr); 
+  /* 2 colunas iguais */
+  
+  gap: 20px; /* espaço entre itens */
+  max-width: 900px; /* largura máxima */
+  margin: auto; /* centraliza */
+}
+
+/* Card de benefício */
+.beneficio {
+  background: #ffffff; /* fundo branco */
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Seção de contato */
+.contato {
+  display: flex; /* layout lado a lado */
+  padding: 70px 60px;
+  gap: 40px; /* espaço entre colunas */
+  background: #fff;
+}
+
+/* Parte esquerda do contato */
+.contato-esquerda {
+  max-width: 400px; /* limita largura */
+}
+
+/* Formulário */
+.formulario-contato {
+  display: flex;
+  flex-direction: column; /* empilha inputs */
+  gap: 12px; /* espaço entre campos */
+  width: 100%;
+}
+
+/* Inputs e textarea */
+.formulario-contato input,
+.formulario-contato textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd; /* borda cinza clara */
+}
+
+/* Altura da text area */
+.formulario-contato textarea {
+  height: 120px;
+}
+
+/* Botão do formulário */
+.formulario-contato button {
+  background: #6A0101;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Rodapé */
+.rodape {
+  background: #111; /* fundo escuro */
+  color: #ffffff; /* texto branco */
+  text-align: center;
+  padding: 20px;
+}
