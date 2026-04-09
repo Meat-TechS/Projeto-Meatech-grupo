@@ -62,8 +62,14 @@ text-align: center;
 padding: 70px 20px;
 }
 
+.icone {
+  width: 95px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
 .funcionalidades h2 {
-margin-bottom: 40px;
+margin-bottom: 50px;
 }
 
 .container-cards {
