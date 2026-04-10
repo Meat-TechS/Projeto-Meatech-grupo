@@ -17,7 +17,7 @@ void loop() {
 
 
 
-  if (distancia > 0 && distancia < 5) {
+  if (distancia > 0) {
     Serial.print(1);
   } else {
     Serial.print(0);
