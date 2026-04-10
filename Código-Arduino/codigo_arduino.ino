@@ -17,12 +17,12 @@ void loop() {
 
 
 
-  if (distancia > 0) {
-    Serial.println(1);
+  if (distancia > 0 && distancia < 5) {
+    Serial.print(1);
   } else {
-    Serial.println(0);
+    Serial.print(0);
   }
-
+  Serial.print(";");
   Serial.println(temperaturaCelsius);
 
   delay(1000);
