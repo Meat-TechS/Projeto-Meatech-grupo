@@ -166,6 +166,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     gap: 30px;
 }
 
@@ -273,6 +274,13 @@
     .primeiro-box p ,.segundo-box p{
         font-size: 15px;
         padding: 10px;
+    }
+
+
+    .kpi-main h2 {
+        color: #8C2434;
+        font-size: 28px;
+        margin-bottom: 5px;
     }
 
 }
