@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/camara.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="menu">
+            <div class="img-h1">
+                <img src="./image/logo.png" alt="logo da empresa">
+                <h1>Bem-vindo(a)!</h1>
+            </div>
+
+            <div class="nav-bar">
+                <a href="./painel.html" class="nav-item">
+                    <img src="./image/dash.png"> Painel
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/historico.png"> Historico
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/suporte.png"> Suporte
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/temp.png"> Câmaras frias
+                </a>
+            </div>
+
+            <button>Sair</button>
+        </div>
+
+
+        <div class="main">
+
+            <div class="info">
+                <h2>Total de câmaras: 13</h2>
+                <h3>Status alerta: <span class="alerta">3</span></h3>
+                <h3>Status seguro: <span  class="seguro">10</span></h3>
+            </div>
+
+            <div class="kpis">
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 1</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>-2º C</h2>
+                        <div class="status-div">
+                            <p class="status">Alerta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 2</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>7º C</h2>
+                        <div class="status-div">
+                            <p class="status">Alerta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 3</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>6º C</h2>
+                        <div class="status-div">
+                            <p class="status">Alerta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 4</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>3º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 5</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>1º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 6</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>0º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 7</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>3º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 8</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>4º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 9</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>2º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 10</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>3.4º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 11</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>2.9º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 12</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>3.7º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                        <h5>Câmara 13</h5>
+                        <img src="./image/cameras.png">
+                    </div>
+
+                    <div class="kpi-main">
+                        <h2>2.5º C</h2>
+                        <div>
+                            <p>Seguro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

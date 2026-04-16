@@ -1,0 +1,291 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+.container{
+    display: flex;
+}
+
+.menu{
+    width: 313px;
+    height: 100vh;
+    background-color: #8C2434;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.menu .img-h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu img {
+    width: 187px;
+    height: 187px;
+}
+
+.menu h1 {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar .nav-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.menu button{
+    width: 210px;
+    height: 43px;
+    align-self: center;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px #00000023;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+    background-color: #F5F5F5F5;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.box{
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-info {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.primeiro-box, .segundo-box{
+    height: 120px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.144);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.h5-img{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+}
+
+.h5-img img{
+    height: 30px;
+}
+
+.primeiro-box p, .segundo-box p {
+    margin: auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.primeiro-box h1, .segundo-box h1{
+    margin: auto;
+    font-size: 40px;
+}
+
+.grafico {
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.144);
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+}
+
+.tempAtual{
+    width: 100%;
+    height: 100%;
+}
+
+
+.primeiro-box .critico{
+    color: #FF383C;
+}
+
+.box-kpis{
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.camaras{
+    width: 100%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 20px;
+}
+
+.portas {
+    width: 100%;
+    height: 45%;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.144);
+    border-radius: 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-grafico{
+    margin: auto;
+}
+
+.grafico-portas {
+    width: 100%;
+    height: 100%;
+}
+
+
+.kpi{
+    width: 100%;
+    height: 88%;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.144);
+    background-color: #ffffff;
+}
+
+.kpi-header{
+    width: 100%;
+    height: 29px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #8C2434;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+}
+
+.kpi-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.kpi-main h2 {
+    color: #8C2434;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.kpi-main div{
+    width:80px;
+    height: 20px;
+    background-color:#10ca1042 ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #10CA10;
+    font-size: 13px;
+}
+
+.kpi-main .status-div{
+    background-color: #ff383b48;
+}
+
+.kpi-main .status{
+    color: #FF383C;
+}
+
+@media screen and (max-width: 1390px){
+   
+    .notebook{
+        display: none;
+    }
+
+    .kpi{
+        height: 86%;
+        margin-bottom: 0px;
+    }
+    .portas{
+        height: 70%;
+    }
+
+    .primeiro-box p ,.segundo-box p{
+        font-size: 15px;
+        padding: 10px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
