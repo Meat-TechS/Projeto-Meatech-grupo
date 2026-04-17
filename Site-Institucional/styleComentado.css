@@ -20,7 +20,6 @@ body {
   padding: 10px 30px; /* espaçamento interno */
   background: rgba(255,255,255,0.9); /* fundo branco com leve transparência */
 }
-
 /* Seção principal (hero/banner) */
 .hero {
   height: 500px; /* altura fixa */
