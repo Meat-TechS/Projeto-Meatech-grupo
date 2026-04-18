@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/portas.css">
+    <link rel="stylesheet" href="./style/menu.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="menu">
+            <div class="img-h1">
+                <img src="./image/logo.png" alt="logo da empresa">
+                <h1>Bem-vindo(a)!</h1>
+            </div>
+
+            <div class="nav-bar">
+                <a href="./painel.html" class="nav-item">
+                    <img src="./image/dash.png"> Painel
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/historico.png"> Historico
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/suporte.png"> Suporte
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/temp.png"> Câmaras frias
+                </a>
+                <a href="./camara.html" class="nav-item">
+                    <img src="./image/pessoa.png"> Cadastro do funcionario
+                </a>
+            </div>
+
+            <button>Sair</button>
+        </div>
+
+
+        <div class="main">
+
+            <div class="info">
+                <div class="sobre">
+                    <button class="voltar"><a href="./painel.html">Voltar</a></button>
+
+                    <h4>Total de portas abertas: 4</h4>
+                    <h4>Acima de 10 min: Crítico</h4>
+                </div>
+
+                <div class="portas-abertas">
+                    <p>Câmara: 1</p>
+                    <p>Tempo: <span class="critico">11min</span> </p>
+                </div>
+                <div class="linha"></div>
+
+                <div class="portas-abertas">
+                    <p>Câmara: 2</p>
+                    <p>Tempo: <span class="normal">8min</span> </p>
+                </div>
+                <div class="linha"></div>
+
+                <div class="portas-abertas">
+                    <p>Câmara: 6</p>
+                    <p>Tempo: <span class="normal">2min</span> </p>
+                </div>
+                <div class="linha"></div>
+
+                <div class="portas-abertas">
+                    <p>Câmara: 10</p>
+                    <p>Tempo: <span class="normal">5min</span> </p>
+                </div>
+                <div class="linha"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/painel.css">
+    <link rel="stylesheet" href="./style/menu.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
 
     <title>Dashboard</title>
 </head>
@@ -52,23 +53,45 @@
             <div class="box">
 
                 <div class="box-info">
-                    <div class="primeiro-box">
+                    <div class="kpi-box">
                         <div class="h5-img">
-                            <h5>Taxa de risco</h5>
+                            <h5>Métricas da temperatura</h5>
                             <img src="./image/taxa.png">
                         </div>
 
-                        <p>23% das câmaras em alerta</p>
-
+                        <span class="verde">0°C a 4°C</span>
+                        <span class="vermelho">Abaixo de 0°C</span>
+                        <span class="vermelho">Acima de 4°C</span>
+                        
                     </div>
 
-                    <div class="segundo-box">
+                    <div class="kpi-box">
                         <div class="h5-img">
-                            <h5>Portas abertas</h5>
+                            <h5>Portas abertas no momento</h5>
                             <img src="./image/porta.png">
                         </div>
 
                         <h1>4</h1>
+                        <a href="./portas.html">Visualizar portas</a>
+                    </div>
+
+                    <div class="kpi-box">
+                        <div class="h5-img">
+                            <h5>Câmaras críticas</h5>
+                            <img src="./image/temperatura.png">
+                        </div>
+
+                        <h1 class="critico">3</h1>
+                        <a href="./camara.html">Visualizar câmaras</a>
+                    </div>
+
+                    <div class="kpi-box">
+                        <div class="h5-img">
+                            <h5>Câmaras em faixa ideal - 0°C e 4°C</h5>
+                            <img src="./image/risco.png">
+                        </div>
+
+                        <h1>10/13</h1>
                     </div>
                 </div>
 
@@ -80,125 +103,6 @@
                 </div>
 
             </div>
-
-            <div class="box">
-                <div class="box-info">
-
-                    <div class="primeiro-box">
-                        <div class="h5-img">
-                            <h5>Câmaras críticas</h5>
-                            <img src="./image/temperatura.png">
-                        </div>
-
-                        <h1 class="critico">3</h1>
-                    </div>
-
-                    <div class="segundo-box">
-                        <div class="h5-img">
-                            <h5>Reincidência de problema</h5>
-                            <img src="./image/risco.png">
-                        </div>
-
-                        <p>Câmara 3 — 5 alertas hoje</p>
-                    </div>
-                </div>
-
-                <div class="box-kpis">
-
-                    <div class="portas">
-                        <h3 class="titulo-grafico">Portas abertas por câmera</h3>
-                        <div class="grafico-portas">
-                            <canvas id="portasPorCamera"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="camaras">
-                        <div class="kpi">
-                            <div class="kpi-header">
-                                <h5>Câmara 1</h5>
-                                <img src="./image/cameras.png">
-                            </div>
-
-                            <div class="kpi-main">
-                                <h2>-2º C</h2>
-                                <div class="status-div">
-                                    <p class="status">Alerta</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="kpi">
-                            <div class="kpi-header">
-                                <h5>Câmara 2</h5>
-                                <img src="./image/cameras.png">
-                            </div>
-
-                            <div class="kpi-main">
-                                <h2>7º C</h2>
-                                <div class="status-div">
-                                    <p class="status">Alerta</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="kpi">
-                            <div class="kpi-header">
-                                <h5>Câmara 3</h5>
-                                <img src="./image/cameras.png">
-                            </div>
-
-                            <div class="kpi-main">
-                                <h2>6º C</h2>
-                                <div class="status-div">
-                                    <p class="status">Alerta</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="kpi notebook">
-                            <div class="kpi-header">
-                                <h5>Câmara 4</h5>
-                                <img src="./image/cameras.png">
-                            </div>
-
-                            <div class="kpi-main">
-                                <h2>3º C</h2>
-                                <div>
-                                    <p>Seguro</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="kpi notebook">
-                            <div class="kpi-header">
-                                <h5>Câmara 5</h5>
-                                <img src="./image/cameras.png">
-                            </div>
-
-                            <div class="kpi-main">
-                                <h2>1º C</h2>
-                                <div>
-                                    <p>Seguro</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="kpi notebook">
-                            <div class="kpi-header">
-                                <h5>Câmara 6</h5>
-                                <img src="./image/cameras.png">
-                            </div>
-
-                            <div class="kpi-main">
-                                <h2>0º C</h2>
-                                <div>
-                                    <p>Seguro</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </body>
@@ -206,30 +110,24 @@
 </html>
 
 <script>
-    const labelsPortas = [
-        'Câmara 2',
-        'Câmara 1',
-        'Câmara 3',
-        'Câmara 4',
-        'Câmara 5',
-        'Câmara 6'
-    ];
+    const data2 = {
+        labels: ['Câmara 1', 'Câmara 2', 'Câmara 3', 'Câmara 4', 'Câmara 5', 'Câmara 6', 'Câmara 7', 'Câmara 8', 'Câmara 9', 'Câmara 10', 'Câmara 11', 'Câmara 12', 'Câmara 13'],
+        datasets: [{
+            label: 'Temperatura',
+            data: [-2, 7, 6, 1, 2, 0, 3, 4, 4, 3, 0, 3, 3],
+            borderColor: '#000000',
+            backgroundColor: '#000000',
+            tension: 0.3,
+            fill: false,
+            pointRadius: 6,
+            pointHoverRadius: 8
+        }]
+    };
 
-    const dadosPortas = [6, 0, 3, 2, 1, 1];
-
-    const configPortas = {
-        type: 'bar',
-        data: {
-            labels: labelsPortas,
-            datasets: [{
-                label: 'Aberturas',
-                data: dadosPortas,
-                backgroundColor: '#8C2434'
-            }]
-        },
+    const config2 = {
+        type: 'line',
+        data: data2,
         options: {
-            indexAxis: 'y', 
-
             responsive: true,
             maintainAspectRatio: false,
 
@@ -240,67 +138,19 @@
             },
 
             scales: {
-                x: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1
-                    },
-                    grid: {
-                        color: 'rgba(0,0,0,0.05)'
-                    }
-                },
                 y: {
-                    grid: {
-                        display: false
+                    min: -4,
+                    max: 8,
+                    ticks: {
+                        callback: function (value) {
+                            return value + '°C';
+                        },
+                        stepSize: 2
                     }
                 }
             }
         }
     };
-
-    const labels2 = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'];
-
-    const data2 = {
-    labels: labels2,
-    datasets: [{
-        label: 'Temperatura',
-        data: [-2, 7, 6, 3, 1, 0],
-        borderColor: '#8C2434',
-        backgroundColor: '#8C2434',
-        tension: 0.3,
-        fill: false,
-        pointRadius: 6,
-        pointHoverRadius: 8
-    }]
-};
-
-const config2 = {
-    type: 'line',
-    data: data2,
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-
-        plugins: {
-            legend: {
-                display: false
-            }
-        },
-
-        scales: {
-            y: {
-                min: -4,
-                max: 8,
-                ticks: {
-                    callback: function (value) {
-                        return value + '°C';
-                    },
-                    stepSize: 2
-                }
-            }
-        }
-    }
-};
 </script>
 
 <script>
@@ -310,46 +160,40 @@ const config2 = {
         config2
     );
 
-     let graficoPortas =  new Chart(
-        document.getElementById('portasPorCamera'),
-        configPortas
-    );
-
     var paginacao = {};
     var tempo = {};
 
-        function obterDados(grafico, endpoint) {
-            fetch('http://localhost:3300/sensores/' + endpoint)
-                .then(response => response.json())
-                .then(valores => {
-                    if (paginacao[endpoint] == null) {
-                        paginacao[endpoint] = 0;
+    function obterDados(grafico, endpoint) {
+        fetch('http://localhost:3300/sensores/' + endpoint)
+            .then(response => response.json())
+            .then(valores => {
+                if (paginacao[endpoint] == null) {
+                    paginacao[endpoint] = 0;
+                }
+                if (tempo[endpoint] == null) {
+                    tempo[endpoint] = 0;
+                }
+
+                var ultimaPaginacao = paginacao[endpoint];
+                paginacao[endpoint] = valores.length;
+                valores = valores.slice(ultimaPaginacao);
+
+                valores.forEach((valor) => {
+                    if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                        grafico.data.labels.shift();
+                        grafico.data.datasets[0].data.shift();
                     }
-                    if (tempo[endpoint] == null) {
-                        tempo[endpoint] = 0;
-                    }
 
-                    var ultimaPaginacao = paginacao[endpoint];
-                    paginacao[endpoint] = valores.length;
-                    valores = valores.slice(ultimaPaginacao);
+                    grafico.data.labels.push(tempo[endpoint]++);
+                    grafico.data.datasets[0].data.push(parseFloat(valor));
+                    grafico.update();
+                });
+            })
+            .catch(error => console.error('Erro ao obter dados:', error));
+    }
 
-                    valores.forEach((valor) => {
-                        if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                            grafico.data.labels.shift();
-                            grafico.data.datasets[0].data.shift();
-                        }
-
-                        grafico.data.labels.push(tempo[endpoint]++);
-                        grafico.data.datasets[0].data.push(parseFloat(valor));
-                        grafico.update();
-                    });
-                })
-                .catch(error => console.error('Erro ao obter dados:', error));
-        }
-
-        setInterval(() => {
-            obterDados(graficoLinha, 'digital');
-            obterDados(graficoPortas, 'analogico');
-        }, 1000);
+    setInterval(() => {
+        obterDados(graficoLinha, 'digital');
+    }, 1000);
 
 </script>
