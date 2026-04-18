@@ -25,6 +25,8 @@
             if (cnpj.length != 14) {
                 valido = false
                 document.getElementById('cnpj-invalid-error').style.display = "block";
+            }else {
+                document.getElementById('cnpj-invalid-error').style.display = "none";
             }
         }
 
