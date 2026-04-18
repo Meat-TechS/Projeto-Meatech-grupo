@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-cadastro.css">
+    <title>Meatech</title>
+</head>
+
+<body>
+<header class="cabecalho">
+
+    <div class="logo2">
+        <img src="./img/logo2.png" alt="Logo2">
+    </div>
+    
+    <nav class="menu">
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Simulação</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+    <div class="cadastro">
+
+        <div class="coluna_esquerda">
+            <div class="campo">
+                <h6>Digite o seu CNPJ</h6>
+                <input type="text" id="input_cnpj" placeholder="Ex.XX.XXX.XXX/0001-XX">
+            </div>
+
+            <div class="campo">
+                <h6>Digite a razão social</h6>
+                <input type="text" id="input_razaoSocial" placeholder="Digite a razão social da sua empresa">
+            </div>
+
+            <div class="campo">
+                <h6>Digite o nome fantasia</h6>
+                <input type="text" id="input_nomeFantasia" placeholder="Digite o nome fantasia da sua empresa">
+            </div>
+
+            <div class="campo">
+                <h6>Digite o cep</h6>
+                <input type="text" id="input_cep" placeholder="Ex.XXXXX-XXX">
+            </div>
+
+            <div class="campo">
+                <h6>Digite o número do endereço</h6>
+                <input type="text" id="input_numero" placeholder="Ex. XXX">
+            </div>
+
+            <div class="campo">
+                <h6>DIgite o e-mail</h6>
+                <input type="email" id="input_email" placeholder="Ex.exemplo@suaempresa.com">
+            </div>
+
+            <div class="campo">
+                <h6>Crie sua senha</h6>
+                <input type="password" id="input_criacaoSenha" placeholder="Mínimo 8 caracteres">
+                <small style="color: #f3f2f2;">* Deve conter pelo menos 1 letra maiúscula e
+                    minúscula, 1 caractere especial e 1 número</small>
+            </div>
+
+            <div class="campo">
+                <h6>Confirme sua senha:</h6>
+                <input type="password" id="input_confirmacaoSenha" placeholder="Mínimo de 8 caracteres">
+                <small style="color: #f3f2f2;">* As senhas devem ser iguais</small>
+            </div>
+
+            <div class="cadastrarbutton">
+                <button onclick="cadastrar()">Cadastrar</button>
+            </div>
+        </div>
+
+            
+        <div class="coluna_direita">    
+            <h2>Faça o cadastro de sua empresa!</h2>
+        <div class="logo1">
+            <img src="img/logo1.png" alt="Logo1">
+        </div>
+        </div>
+
+</div>   
+</div>
+
+</body>
+
+</html>
