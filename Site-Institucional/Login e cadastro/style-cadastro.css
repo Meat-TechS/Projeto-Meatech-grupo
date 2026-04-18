@@ -148,3 +148,18 @@ input {
     font-size: 40px; /* Define um tamanho de fonte grande para o título */
     color: #6A0101; /* Define a cor do título principal na direita */
 }
+
+.error{
+    color:red;
+    display:none;
+}
+.card_erro{
+   display:none;
+    background-color:  #fff;
+    color: black;
+    width:230px;
+    border:green 3px solid;
+    padding:10px;
+    margin-right: 10%;
+    font-size: 30px;
+}
