@@ -1,0 +1,181 @@
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Garante que a largura e altura incluam bordas e preenchimento */
+    font-family: Arial, sans-serif; /* Define a fonte padrão do documento */
+}
+
+body {
+    background-image: url(img/capa.png); /* Define a imagem de fundo da página */
+    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
+    /* Impede a duplicação */
+    background-size: cover; /* Faz a imagem ocupar todo o espaço disponível */
+    /* Faz a imagem esticar para cobrir toda a tela */
+    background-attachment: fixed; /* Fixa o fundo para que ele não role com o conteúdo */
+    /* Mantém o fundo parado ao rolar a página */
+    color: #222; /* Define a cor padrão do texto */
+    display: flex; /* Ativa o layout flexbox para alinhar o conteúdo */
+    justify-content: center; /* Centraliza os itens no eixo principal (vertical aqui) */
+    flex-direction: column; /* Organiza os elementos um abaixo do outro */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding-top: 80px; /* Cria um espaço no topo para compensar o cabeçalho fixo */
+}
+
+.cabecalho {
+    position: fixed; /* Mantém a barra de navegação sempre visível no topo */
+    /* Faz a barra "grudar" na tela */
+    top: 0; /* Alinha o cabeçalho ao topo da página */
+    /* Garante que ela grude no topo */
+    left: 0; /* Alinha o cabeçalho à esquerda da página */
+    /* Garante que comece do canto esquerdo */
+    width: 100%; /* Faz o cabeçalho ocupar toda a largura da tela */
+    /* Faz ela ocupar a largura toda da tela */
+    z-index: 1000; /* Garante que o cabeçalho fique sobreposto a outros elementos */
+    /* Garante que ela fique POR CIMA de todo o resto */
+    display: flex; /* Alinha os itens internos (logo e menu) com flexbox */
+    justify-content: space-between; /* Espaça a logo e o menu para as extremidades */
+    /* Logo na esquerda, Menu na direita */
+    align-items: center; /* Centraliza verticalmente os itens dentro da barra */
+    padding: 10px 10%; /* Adiciona preenchimento interno lateral e vertical */
+    background: white; /* Define a cor de fundo como branco */
+    width: 100%; /* Reforça a largura total da barra */
+    height: 50px; /* Define uma altura fixa para o cabeçalho */
+}
+
+.menu ul {
+    display: flex; /* Coloca os itens da lista em linha horizontal */
+    list-style: none; /* Remove as marcas (bolinhas) da lista */
+    /* Remove as bolinhas da lista */
+    gap: 20px; /* Define um espaçamento de 20px entre cada item do menu */
+    /* Cria o espaço entre os itens sem precisar de "|" */
+}
+
+.menu a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    /* Remove o sublinhado azul */
+    color: #333; /* Define a cor cinza escuro para o texto do link */
+    font-weight: 500; /* Define uma espessura de fonte média */
+    transition: 0.3s; /* Suaviza a transição de cores em efeitos de hover */
+}
+
+.logo2 {
+    display: flex; /* Ativa flexbox para alinhar a logo */
+    align-items: center; /* Centraliza a logo verticalmente */
+}
+
+.logo2 img {
+    height: 75px; /* Define a altura da imagem da logo */
+    width: auto; /* Ajusta a largura proporcionalmente à altura */
+}
+
+.login {
+    display: flex; /* Coloca as colunas esquerda e direita lado a lado */
+    flex-direction: row; /* Garante que as colunas fiquem em linha */
+    width: 60%; /* Ocupa 60% da largura da tela */
+    margin: 100px; /* Define um espaçamento externo ao redor do bloco */
+    border-radius: 25px; /* Arredonda os cantos do container de login */
+    overflow: hidden; /* Corta o conteúdo que ultrapassar os cantos arredondados */
+}
+
+.coluna_esquerda {
+    background-color: #6A0101; /* Define a cor de fundo vinho/avermelhado */
+    display: flex; /* Ativa flexbox para os elementos internos */
+    padding: 40px; /* Adiciona preenchimento interno */
+    flex-direction: column; /* Empilha os campos e títulos verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    text-align: center; /* Centraliza o alinhamento do texto */
+    gap: 30px; /* Define um espaço de 30px entre os elementos da coluna */
+}
+
+.cadastro_empresa_link p {
+    font-size: 13px; /* Define o tamanho da fonte do parágrafo */
+    color: #f3f2f2; /* Define a cor clara para o texto */
+}
+
+.cadastro_empresa_link a {
+    color: #f3f2f2; /* Define a cor clara para o link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    /* Remove o sublinhado azul */
+    font-weight: bold; /* Deixa o texto do link em negrito */
+}
+
+.cadastro_empresa_link {
+    text-decoration: none; /* Garante a remoção de decorações de texto */
+    color: #f3f2f2; /* Define a cor padrão para o container do link */
+    list-style: none; /* Garante que não haja marcas de lista */
+    transition: 0.3s; /* Define o tempo de transição para interações */
+}
+
+.campo {
+    display: flex; /* Ativa flexbox para o conjunto label + input */
+    flex-direction: column; /* Coloca o rótulo acima do campo de entrada */
+    width: 100%; /* Faz o campo ocupar toda a largura da coluna */
+}
+
+h6 {
+    margin-bottom: 6px; /* Adiciona espaço entre o título e o input */
+    display: flex; /* Permite usar alinhamento flex no título */
+    align-items: flex-start; /* Alinha o texto à esquerda do container */
+    color: #f3f2f2; /* Define a cor clara para o título */
+    font-size: 15px; /* Define o tamanho da fonte */
+}
+
+small {
+    margin-bottom: 6px; /* Espaço abaixo de textos informativos pequenos */
+    display: flex; /* Define o comportamento de exibição flexível */
+    align-items: flex-start; /* Alinha o conteúdo ao início */
+    font-size: 13px; /* Define um tamanho de fonte reduzido */
+}
+
+input {
+    padding: 9px; /* Adiciona preenchimento interno para o texto digitado */
+    border-radius: 10px; /* Arredonda os cantos da caixa de texto */
+    border: none; /* Remove a borda padrão do navegador */
+    width: 100%; /* Ocupa 100% da largura da div pai (.campo) */
+    box-sizing: border-box; /* Garante que o preenchimento não aumente o tamanho do input */
+}
+
+.loginbutton {
+    width: 100%; /* Ocupa toda a largura disponível */
+    display: flex; /* Ativa flexbox para posicionar o botão */
+    justify-content: center; /* Centraliza o botão dentro da div */
+    margin-top: 15px; /* Adiciona espaço acima da área do botão */
+}
+
+.loginbutton button {
+    width: 80%; /* O botão ocupa 80% da largura da área reservada */
+    padding: 9px; /* Define a altura interna do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 10px; /* Arredonda os cantos do botão */
+    background-color: #f3f2f2; /* Define a cor de fundo clara */
+    color: #6A0101; /* Define a cor do texto para combinar com o tema */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    font-size: 15px; /* Define o tamanho da fonte do texto do botão */
+}
+
+.coluna_direita {
+    background-color: #f3f2f2; /* Define a cor de fundo cinza claro */
+    display: flex; /* Ativa flexbox para a coluna da direita */
+    flex-direction: column; /* Organiza os itens verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    padding: 30px; /* Adiciona preenchimento interno */
+    text-align: center; /* Centraliza o texto */
+    gap: 9px; /* Define um pequeno espaço entre a imagem e o texto */
+}
+
+.logo1 {
+    display: flex; /* Ativa flexbox para o container da imagem principal */
+    align-items: center; /* Centraliza a imagem */
+}
+
+.logo1 img {
+    height: 400px; /* Define a altura da imagem decorativa */
+    width: auto; /* Ajusta a largura automaticamente */
+}
+
+.coluna_esquerda h2 {
+    font-size: 37px; /* Define um tamanho de fonte grande para o título principal */
+    color: #f3f2f2; /* Define a cor clara para o título */
+}

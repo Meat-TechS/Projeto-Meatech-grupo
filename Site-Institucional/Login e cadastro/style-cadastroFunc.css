@@ -1,0 +1,137 @@
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Faz com que bordas e preenchimentos não aumentem o tamanho total do elemento */
+    font-family: Arial, sans-serif; /* Define a fonte padrão para todo o projeto */
+}
+
+body {
+    background-image: url(img/capa.png); /* Define a imagem de fundo da página */
+    background-repeat: no-repeat; /* Impede a duplicação da imagem */
+    background-size: cover; /* Faz a imagem esticar para cobrir toda a tela */
+    background-attachment: fixed; /* Mantém o fundo parado ao rolar a página */
+    color: #222; /* Define a cor padrão do texto no corpo */
+    display: flex; /* Ativa o modo de layout Flexbox */
+    justify-content: center; /* Centraliza o conteúdo verticalmente (no eixo principal) */
+    flex-direction: column; /* Organiza os elementos em coluna (um abaixo do outro) */
+    align-items: center; /* Centraliza os elementos horizontalmente */
+    padding-top: 80px; /* Cria um espaço no topo para o conteúdo não ficar sob o cabeçalho fixo */
+}
+
+.cabecalho {
+    position: fixed; /* Faz a barra "grudar" na tela */
+    top: 0; /* Garante que ela grude no topo */
+    left: 0; /* Garante que comece do canto esquerdo */
+    width: 100%; /* Faz ela ocupar a largura toda da tela */
+    z-index: 1000; /* Garante que ela fique POR CIMA de todo o resto */
+    display: flex; /* Ativa o flexbox para alinhar os itens internos */
+    justify-content: space-between; /* Distribui os itens (logo e menu) para as extremidades */
+    align-items: center; /* Centraliza os itens verticalmente dentro da barra */
+    padding: 10px 10%; /* Adiciona respiro nas laterais e altura */
+    background: white; /* Define a cor de fundo como branco */
+    width: 100%; /* Reforça a largura total */
+    height: 50px; /* Define uma altura fixa para o cabeçalho */
+}
+
+.logo2 {
+    display: flex; /* Permite alinhar o conteúdo interno da logo */
+    align-items: center; /* Centraliza a imagem da logo verticalmente */
+}
+
+.logo2 img {
+    height: 75px; /* Define uma altura fixa para a imagem da logo */
+    width: auto; /* Mantém a proporção da largura automaticamente */
+}
+
+.cadastroFuncionario {
+    display: flex; /* Coloca as colunas (esquerda e direita) lado a lado */
+    flex-direction: row; /* Define a direção horizontal para as colunas */
+    width: 70%; /* Define que o formulário ocupará 70% da largura da página */
+    margin: 30px; /* Cria um distanciamento externo ao redor do bloco */
+    border-radius: 25px; /* Arredonda os cantos do container principal */
+    overflow: hidden; /* Garante que o fundo das colunas não ultrapasse o arredondamento */
+}
+
+.coluna_esquerda {
+    background-color: #6A0101; /* Define a cor de fundo bordô/vinho */
+    display: flex; /* Ativa o flexbox para organizar os campos */
+    padding: 40px; /* Espaçamento interno para os inputs não tocarem as bordas */
+    flex-direction: column; /* Organiza os campos um em cima do outro */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    text-align: center; /* Centraliza o alinhamento do texto */
+    gap: 15px; /* Cria um espaço padrão entre cada campo do formulário */
+}
+
+.campo {
+    display: flex; /* Ativa o flexbox no container do input */
+    flex-direction: column; /* Coloca o rótulo acima do campo de texto */
+    width: 100%; /* Faz o campo ocupar toda a largura disponível na coluna */
+}
+
+h6 {
+    margin-bottom: 6px; /* Espaço entre o título e o input */
+    display: flex; /* Define como bloco flexível */
+    align-items: flex-start; /* Alinha o texto ao início (esquerda) */
+    color: #f3f2f2; /* Define a cor do texto clara */
+    font-size: 13px; /* Define um tamanho de fonte pequeno */
+}
+
+small {
+    margin-bottom: 6px; /* Espaço abaixo do texto pequeno */
+    display: flex; /* Define como bloco flexível */
+    align-items: flex-start; /* Alinha ao início */
+    font-size: 13px; /* Define o tamanho da fonte */
+}
+
+input {
+    padding: 9px; /* Preenchimento interno para o texto não ficar apertado */
+    border-radius: 10px; /* Arredonda os cantos do campo de entrada */
+    border: none; /* Remove a borda padrão do navegador */
+    width: 100%; /* Faz o input ocupar toda a largura do container .campo */
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do input */
+}
+
+.cadastrarbutton {
+    width: 100%; /* Largura total da área do botão */
+    display: flex; /* Ativa flexbox */
+    justify-content: center; /* Centraliza o botão horizontalmente */
+    margin-top: 15px; /* Espaço acima do botão */
+}
+
+.cadastrarbutton button {
+    width: 80%; /* O botão ocupa 80% da largura da coluna */
+    padding: 9px; /* Espaçamento interno do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 10px; /* Arredonda os cantos do botão */
+    background-color: #f3f2f2; /* Cor de fundo clara para contraste */
+    color: #6A0101; /* Texto na cor vinho (mesma cor da coluna esquerda) */
+    cursor: pointer; /* Transforma a seta do mouse em "mãozinha" ao passar por cima */
+    font-size: 15px; /* Tamanho da fonte do texto do botão */
+}
+
+.coluna_direita {
+    background-color: #f3f2f2; /* Cor de fundo cinza claro/branco */
+    display: flex; /* Ativa o flexbox */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    padding: 30px; /* Espaçamento interno */
+    text-align: center; /* Centraliza os textos */
+    gap: 15px; /* Espaço entre a logo e o título */
+}
+
+.logo1 {
+    display: flex; /* Ativa o flexbox para a imagem */
+    align-items: center; /* Centraliza a imagem */
+}
+
+.logo1 img {
+    height: 500px; /* Define uma altura grande para a imagem da direita */
+    width: auto; /* Mantém a proporção da largura */
+}
+
+.coluna_direita h2 {
+    font-size: 40px; /* Define um título de destaque grande */
+    color: #6A0101; /* Cor do texto em vinho */
+}
