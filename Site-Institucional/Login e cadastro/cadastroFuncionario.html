@@ -16,28 +16,36 @@
     </div>
     
 </header>
-
+<div class="card_erro" id="cardErro">
+               Cadastro realizado com sucesso!
+  </div>
     <div class="cadastroFuncionario">
 
         <div class="coluna_esquerda">
             <div class="campo">
                 <h6>Digite o CNPJ</h6>
                 <input type="text" id="input_cnpj" placeholder="Ex.XX.XXX.XXX/0001-XX">
+                <div class="error" id="cnpj-required-error">Campo CNPJ não pode estar vazio.</div>
+                <div class="error" id="cnpj-invalid-error">Insira um CNPJ válido.</div>
             </div>
 
             <div class="campo">
                 <h6>Digite o seu nome completo</h6>
                 <input type="text" id="input_nome" placeholder="Ex.Rafael Aguir Britto">
+                <div class="error" id="nome-required-error">Campo nome completo não pode estar vazio.</div>
             </div>
 
             <div class="campo">
                 <h6>DIgite o e-mail</h6>
                 <input type="email" id="input_email" placeholder="Ex.exemplo@suaempresa.com">
+                 <div class="error" id="email-required-error">Campo e-mail não pode estar vazio</div>
+                <div class="error" id="email-invalid-error">Insira um e-mail válido.</div>
             </div>
 
             <div class="campo">
                 <h6>Digite a sua matricula</h6>
                 <input type="text" id="input_matricula" placeholder="Ex. XXXXX">
+                <div class="error" id="matricula-required-error">Campo matricula não pode estar vazio</div>
             </div>            
 
             <div class="campo">
@@ -45,12 +53,20 @@
                 <input type="password" id="input_criacaoSenha" placeholder="Mínimo 8 caracteres">
                 <small style="color: #f3f2f2;">* Deve conter pelo menos 1 letra maiúscula e
                     minúscula, 1 caractere especial e 1 número</small>
+                <div class="error" id="senha-required-error">Campo senha não pode estar vazio</div>
+                <div class="error" id="senha-comprimento-error">Sua senha deve conter pelo menos 8 caracteres.</div>
+                <div class="error" id="senha-numero-error">Sua senha deve conter pelo menos um número.</div>
+                <div class="error" id="senha-caractere-error">Sua senha deve conter pelo menos um caractere especial.</div>
+                <div class="error" id="senha-maiuscula-error">Sua senha deve conter pelo menos uma letra maiúscula.</div>
+                <div class="error" id="senha-minuscula-error">Sua senha deve conter pelo menos uma letra minúscula.</div>
             </div>
 
             <div class="campo">
                 <h6>Confirme sua senha:</h6>
                 <input type="password" id="input_confirmacaoSenha" placeholder="Mínimo de 8 caracteres">
                 <small style="color: #f3f2f2;">* As senhas devem ser iguais</small>
+                <div class="error" id="confirmacao-required-error">Campo de confirmação de senha não pode estar vazio</div>
+                <div class="error" id="confirmacao-invalid-error">As senhas não são compatíveis.</div>
             </div>
 
             <div class="cadastrarbutton">
@@ -68,7 +84,7 @@
 
 </div>   
 </div>
-
+<script src="cadastrofun.js"></script>
 </body>
 
 </html>
