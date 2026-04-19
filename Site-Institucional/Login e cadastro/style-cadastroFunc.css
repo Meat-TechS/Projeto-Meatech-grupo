@@ -139,13 +139,15 @@ input {
     color:red;
     display:none;
 }
-.card_erro{
-   display:none;
-    background-color:  #fff;
-    color: black;
-    width:230px;
-    border:green 3px solid;
-    padding:10px;
-    margin-right: 10%;
-    font-size: 30px;
+.card_erro{ /* Card de cadastro realizado*/
+   display:none;/* Deixa a mensagem oculta*/
+    position: fixed; /*Fixa o card na página sem afetar os outros elementos e visível na janela */
+    top:70px; /* Distancia do card em relação ao topo da página*/
+    right: 20px; /*Distancia do card em relação a margem direita da página*/
+    background-color:  #fff;/* Define cor de fundo do card*/
+    color: black;/* define cor da fonte da mensagem*/
+    width:230px;/* Define largura do card*/
+    border:green 3px solid;/* Define cor e espessura da borda do card*/
+    padding:10px;/* Define a altura interna do card */
+    font-size: 30px;/* Define tamanho da fonte do card */
 }

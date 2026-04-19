@@ -150,6 +150,9 @@
 
         if (valido) {
             cardErro.style.display = "block"
+        setTimeout(() => {
+            cardErro.style.display = "none";
+          }, "2000");
            
         }
         }
