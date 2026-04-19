@@ -1,11 +1,11 @@
-function login(inputValidacao, inputCriacaoSenha) {
-    const emailCnpj = inputValidacao.value;
-    const senha = inputCriacaoSenha.value;
+function login() {
+    let emailCnpj = input_validacao.value;
+    let senha = input_senha.value;
     
     let valido = true;
 
     // Validar se os campos estão preenchidos
-    if (emailCnpj === '' || senha === '') {
+    if (emailCnpj == '' || senha == '') {
         alert('Por favor, preencha todos os campos!');
         valido = false;
     }
