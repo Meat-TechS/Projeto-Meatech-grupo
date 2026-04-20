@@ -19,9 +19,9 @@ inputValidacaoEl.addEventListener('input', function(e) {
 });
 
 // Função principal de login
-function login(input_validacao, input_criacaoSenha) {
+function login() {
     let loginInput = input_validacao.value;
-    let senha = input_criacaoSenha.value;
+    let senha = input_senha.value;
 
     let caracteres = ['!', '@', '#', '$', '%', '&', '*', '?', '/'];
     let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
