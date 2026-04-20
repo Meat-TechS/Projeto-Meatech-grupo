@@ -1,63 +1,131 @@
-function login() {
-    let emailCnpj = input_validacao.value;
-    let senha = input_senha.value;
+// Event listener para aplicar máscara de CNPJ quando o usuário digitar
+const inputValidacaoEl = document.getElementById('input_validacao');
+
+inputValidacaoEl.addEventListener('input', function(e) {
+    let valor = e.target.value;
     
+    // Remove o que não é número
+    valor = valor.replace(/\D/g, '');
+    
+    // Aplica máscara de CNPJ: XX.XXX.XXX/XXXX-XX
+    if (valor.length > 0) {
+        valor = valor.replace(/^(\d{2})(\d)/, '$1.$2');
+        valor = valor.replace(/^(\d{2}\.\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/^(\d{2}\.\d{3}\.\d{3})(\d)/, '$1/$2');
+        valor = valor.replace(/^(\d{2}\.\d{3}\.\d{3}\/\d{4})(\d)/, '$1-$2');
+    }
+    
+    e.target.value = valor;
+});
+
+// Função principal de login
+function login(input_validacao, input_criacaoSenha) {
+    let loginInput = input_validacao.value;
+    let senha = input_criacaoSenha.value;
+
+    let caracteres = ['!', '@', '#', '$', '%', '&', '*', '?', '/'];
+    let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
     let valido = true;
 
-    // Validar se os campos estão preenchidos
-    if (emailCnpj == '' || senha == '') {
-        alert('Por favor, preencha todos os campos!');
+    // Validação do campo de login (email ou CNPJ)
+    if (loginInput === '') {
         valido = false;
-    }
-
-    // Validar senha (mínimo 8 caracteres?)
-    if (valido && senha.length < 8) {
-        alert('A senha deve ter no mínimo 8 caracteres!');
-        valido = false;
-    }
-
-    // Validar todos os requisitos da senha 
-    if (valido) {
-        const temMaiuscula = senha.includes('A') || senha.includes('B') || senha.includes('C') || 
-                             senha.includes('D') || senha.includes('E') || senha.includes('F') || 
-                             senha.includes('G') || senha.includes('H') || senha.includes('I') || 
-                             senha.includes('J') || senha.includes('K') || senha.includes('L') || 
-                             senha.includes('M') || senha.includes('N') || senha.includes('O') || 
-                             senha.includes('P') || senha.includes('Q') || senha.includes('R') || 
-                             senha.includes('S') || senha.includes('T') || senha.includes('U') || 
-                             senha.includes('V') || senha.includes('W') || senha.includes('X') || 
-                             senha.includes('Y') || senha.includes('Z');
+        document.getElementById('login-required-error').style.display = "block";
+    } else {
+        document.getElementById('login-required-error').style.display = "none";
         
-        const temMinuscula = senha.includes('a') || senha.includes('b') || senha.includes('c') || 
-                             senha.includes('d') || senha.includes('e') || senha.includes('f') || 
-                             senha.includes('g') || senha.includes('h') || senha.includes('i') || 
-                             senha.includes('j') || senha.includes('k') || senha.includes('l') || 
-                             senha.includes('m') || senha.includes('n') || senha.includes('o') || 
-                             senha.includes('p') || senha.includes('q') || senha.includes('r') || 
-                             senha.includes('s') || senha.includes('t') || senha.includes('u') || 
-                             senha.includes('v') || senha.includes('w') || senha.includes('x') || 
-                             senha.includes('y') || senha.includes('z');
-        
-        const temNumero = senha.includes('0') || senha.includes('1') || senha.includes('2') || 
-                          senha.includes('3') || senha.includes('4') || senha.includes('5') || 
-                          senha.includes('6') || senha.includes('7') || senha.includes('8') || 
-                          senha.includes('9');
-        
-        const temEspecial = senha.includes('!') || senha.includes('@') || senha.includes('#') || 
-                            senha.includes('$') || senha.includes('%') || senha.includes('&') || 
-                            senha.includes('*') || senha.includes('(') || senha.includes(')') || 
-                            senha.includes('-') || senha.includes('_') || senha.includes('.') || 
-                            senha.includes(',');
-
-        if (!temMaiuscula || !temMinuscula || !temNumero || !temEspecial) {
-            alert('A senha deve conter pelo menos 1 letra maiúscula, 1 letra minúscula, 1 caractere especial e 1 número!');
-            valido = false;
+        // Verifica se é email ou CNPJ
+        if (loginInput.includes('@')) {
+            // Validação de email
+            if (!loginInput.includes('@') || !loginInput.includes('.')) {
+                valido = false;
+                document.getElementById('login-invalid-error').style.display = "block";
+            } else {
+                document.getElementById('login-invalid-error').style.display = "none";
+            }
+        } else {
+            // Validação de CNPJ (sem máscara deve ter 14 dígitos)
+            let cnpjSemMascara = loginInput.replace(/\D/g, '');
+            if (cnpjSemMascara.length != 14) {
+                valido = false;
+                document.getElementById('login-invalid-error').style.display = "block";
+            } else {
+                document.getElementById('login-invalid-error').style.display = "none";
+            }
         }
     }
 
-    // Fazer login se tudo estiver certo
+    // Validações de senha
+    if (senha === '') {
+        valido = false;
+        document.getElementById('senha-required-error').style.display = "block";
+    } else {
+        document.getElementById('senha-required-error').style.display = "none";
+        
+        let contemNumero = false;
+        let contemCaractere = false;
+        
+        // Validação de comprimento (mínimo 8 caracteres)
+        if (senha.length < 8) {
+            valido = false;
+            document.getElementById('senha-comprimento-error').style.display = "block";
+        } else {
+            document.getElementById('senha-comprimento-error').style.display = "none";
+        }
+        
+        // Verifica se contém número
+        for (let cont = 0; cont < numeros.length; cont++) {
+            if (senha.includes(numeros[cont].toString())) {
+                contemNumero = true;
+                break;
+            }
+        }
+        if (!contemNumero) {
+            valido = false;
+            document.getElementById('senha-numero-error').style.display = "block";
+        } else {
+            document.getElementById('senha-numero-error').style.display = "none";
+        }
+        
+        // Verifica se contém caractere especial
+        for (let cont = 0; cont < caracteres.length; cont++) {
+            if (senha.includes(caracteres[cont])) {
+                contemCaractere = true;
+                break;
+            }
+        }
+        if (!contemCaractere) {
+            valido = false;
+            document.getElementById('senha-caractere-error').style.display = "block";
+        } else {
+            document.getElementById('senha-caractere-error').style.display = "none";
+        }
+        
+        // Verifica se contém letra maiúscula
+        if (senha == senha.toLowerCase()) {
+            valido = false;
+            document.getElementById('senha-maiuscula-error').style.display = "block";
+        } else {
+            document.getElementById('senha-maiuscula-error').style.display = "none";
+        }
+        
+        // Verifica se contém letra minúscula
+        if (senha == senha.toUpperCase()) {
+            valido = false;
+            document.getElementById('senha-minuscula-error').style.display = "block";
+        } else {
+            document.getElementById('senha-minuscula-error').style.display = "none";
+        }
+    }
+
+    // Se válido, prossegue com o login
     if (valido) {
-        console.log('Tentativa de login:', { emailCnpj, senha });
+        // Aqui você pode fazer a chamada para a API
         alert('Login realizado com sucesso!');
+        console.log('Dados de login:', {
+            login: loginInput,
+            senha: senha
+        });
     }
 }
