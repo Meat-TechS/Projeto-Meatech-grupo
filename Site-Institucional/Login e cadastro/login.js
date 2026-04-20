@@ -1,7 +1,3 @@
-// Event listener para aplicar máscara de CNPJ quando o usuário digitar
-const inputValidacaoEl = document.getElementById('input_validacao');
-
-
 
 // Função principal de login
 function login() {
