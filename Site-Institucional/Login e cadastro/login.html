@@ -43,14 +43,14 @@
 
         <div class="campo">
             <h6>Digite a sua senha</h6>
-            <input type="password" id="input_senha" placeholder="Mínimo de 8 caracteres">
+            <input type="password" id="input_criacaoSenha" placeholder="Mínimo de 8 caracteres">
             <small style="color: #f3f2f2;">*Deve conter pelo menos 1 letra maiúscula e
                 minúscula, 1 caractere especial e 1 número</small>
         </div>
 
 
         <div class="loginbutton">
-            <button onclick="login()">Login</button>
+            <button onclick="login(input_validacao, input_criacaoSenha)">Cadastrar</button>
         </div>
     </div>
 
@@ -63,9 +63,19 @@
 
     </div>
     </div>
+    <div class="validações">
+            <!-- Login -->
+            <span id="login-required-error" style="display:none;">Campo obrigatório</span>
+            <span id="login-invalid-error" style="display:none;">Email ou CNPJ inválido</span>
 
-<script src="login.js"></script>
-
+            <!-- Senha -->
+            <span id="senha-required-error" style="display:none;">Campo obrigatório</span>
+            <span id="senha-comprimento-error" style="display:none;">Mínimo 8 caracteres</span>
+            <span id="senha-numero-error" style="display:none;">Deve conter número</span>
+            <span id="senha-caractere-error" style="display:none;">Deve conter caractere especial</span>
+            <span id="senha-maiuscula-error" style="display:none;">Deve conter letra maiúscula</span>
+            <span id="senha-minuscula-error" style="display:none;">Deve conter letra minúscula</span>
+    </div>
 </body>
 
 </html>
