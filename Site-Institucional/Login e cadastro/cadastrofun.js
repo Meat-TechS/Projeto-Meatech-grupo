@@ -10,7 +10,7 @@ function cadastrar() {
         let caracteres = ['!', '@', '$', '%', '&', '*', '?', '/']
         let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-        let mensagem = ''
+    
         let valido = true
        
         // cnpj validacao
@@ -45,7 +45,7 @@ function cadastrar() {
              document.getElementById('email-required-error').style.display = "none";/*chama mensagem definida no html (e-mail não pode estar vazio) e a deixa invisivel*/
             if (!email.includes('@')) {/*verifica se o campo e-mail contém @*/
                 valido = false
-                valido = false
+              
             document.getElementById('email-invalid-error').style.display = "block";/*chama mensagem definida no html (e-mail inválido) e a deixa visivel*/
         }else {
            document.getElementById('email-invalid-error').style.display = "none";/*chama mensagem definida no html (e-mail inválido) e a deixa invisivel*/
@@ -66,7 +66,7 @@ function cadastrar() {
             valido = false
             document.getElementById('senha-required-error').style.display = "block";/*chama mensagem definida no html (campo senha não pode estar vazio) e a deixa visivel*/
         } 
-        } 
+         
         
         else {
             document.getElementById('senha-required-error').style.display = "none";/*chama mensagem definida no html (campo senha não pode estar vazio) e a deixa invisivel*/
@@ -132,4 +132,5 @@ function cadastrar() {
             cardErro.style.display = "none";
           }, "2000");
         } 
-        }
+    }
+        
