@@ -1,22 +1,7 @@
 // Event listener para aplicar máscara de CNPJ quando o usuário digitar
 const inputValidacaoEl = document.getElementById('input_validacao');
 
-inputValidacaoEl.addEventListener('input', function(e) {
-    let valor = e.target.value;
-    
-    // Remove o que não é número
-    valor = valor.replace(/\D/g, '');
-    
-    // Aplica máscara de CNPJ: XX.XXX.XXX/XXXX-XX
-    if (valor.length > 0) {
-        valor = valor.replace(/^(\d{2})(\d)/, '$1.$2');
-        valor = valor.replace(/^(\d{2}\.\d{3})(\d)/, '$1.$2');
-        valor = valor.replace(/^(\d{2}\.\d{3}\.\d{3})(\d)/, '$1/$2');
-        valor = valor.replace(/^(\d{2}\.\d{3}\.\d{3}\/\d{4})(\d)/, '$1-$2');
-    }
-    
-    e.target.value = valor;
-});
+
 
 // Função principal de login
 function login() {
@@ -46,8 +31,7 @@ function login() {
             }
         } else {
             // Validação de CNPJ (sem máscara deve ter 14 dígitos)
-            let cnpjSemMascara = loginInput.replace(/\D/g, '');
-            if (cnpjSemMascara.length != 14) {
+            if (loginInput.length != 14) {
                 valido = false;
                 document.getElementById('login-invalid-error').style.display = "block";
             } else {
@@ -121,11 +105,13 @@ function login() {
 
     // Se válido, prossegue com o login
     if (valido) {
-        // Aqui você pode fazer a chamada para a API
-        alert('Login realizado com sucesso!');
-        console.log('Dados de login:', {
-            login: loginInput,
-            senha: senha
-        });
-    }
-}
+           cardErro.style.display = "block"
+        setTimeout(() => {/*faz o card da mensagem desaparecer depois de 2 segundos*/
+            cardErro.style.display = "none";
+          }, "2000");
+           
+        }
+        }
+        
+    
+

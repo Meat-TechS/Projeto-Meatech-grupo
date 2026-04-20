@@ -26,6 +26,9 @@
 
         </nav>
     </header>
+    <div class="card_erro" id="cardErro"> 
+               Login realizado com sucesso! 
+            </div>
 
     <div class="login">
 
@@ -39,6 +42,8 @@
         <div class="campo">
             <h6>Digite o e-mail ou CNPJ</h6>
             <input type="text" id="input_validacao">
+            <div class="error" id="login-required-error">Campo obrigatório</div>
+            <div class="error" id="login-invalid-error">Email ou CNPJ inválido</div>
         </div>
 
         <div class="campo">
@@ -46,6 +51,12 @@
             <input type="password" id="input_senha" placeholder="Mínimo de 8 caracteres">
             <small style="color: #f3f2f2;">*Deve conter pelo menos 1 letra maiúscula e
                 minúscula, 1 caractere especial e 1 número</small>
+            <div class="error" id="senha-required-error">Campo obrigatório</div>
+            <div class="error" id="senha-comprimento-error">Mínimo 8 caracteres</div>
+            <div class="error" id="senha-numero-error">Deve conter número</div>
+            <div class="error" id="senha-caractere-error">Deve conter caractere especial</div>
+            <div class="error" id="senha-maiuscula-error">Deve conter letra maiúscula</div>
+            <div class="error" id="senha-minuscula-error">Deve conter letra minúscula</div>
         </div>
 
 
@@ -63,20 +74,7 @@
 
     </div>
     </div>
-    <div class="validacoes">
-            <!-- Login -->
-            <span id="login-required-error" style="display:none;">Campo obrigatório</span>
-            <span id="login-invalid-error" style="display:none;">Email ou CNPJ inválido</span>
-
-            <!-- Senha -->
-            <span id="senha-required-error" style="display:none;">Campo obrigatório</span>
-            <span id="senha-comprimento-error" style="display:none;">Mínimo 8 caracteres</span>
-            <span id="senha-numero-error" style="display:none;">Deve conter número</span>
-            <span id="senha-caractere-error" style="display:none;">Deve conter caractere especial</span>
-            <span id="senha-maiuscula-error" style="display:none;">Deve conter letra maiúscula</span>
-            <span id="senha-minuscula-error" style="display:none;">Deve conter letra minúscula</span>
-    </div>
-
+   
 <script src="login.js"></script>
 
 </body>
