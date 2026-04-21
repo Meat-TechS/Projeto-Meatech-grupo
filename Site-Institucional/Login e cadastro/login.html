@@ -10,22 +10,25 @@
 
 <body>
 
-    <header class="cabecalho">
+  <header class="cabecalho">
 
-        <div class="logo2">
-            <img src="./img/logo2.png" alt="Logo2">
-        </div>
+    <div class="logo2">
+        <img src="./img/logo2.png" alt="Logo2">
+    </div>
+    
+     <div class="menu">
+     <ul>
+            <li><a href="../site.html">Home  </a></li>
+   <li><a href="../../Simulador-Financeiro/Simulador-Financeiro/calculadora.html">Simulação </a></li>
+    <li><a href="login.html">Login </a></li>
+  
+     </ul>
+   </div>
+</header>
 
-        <nav class="menu">
-
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Simulação</a></li>
-                <li><a href="#" class="btn-destaque">Login</a></li>
-            </ul>
-
-        </nav>
-    </header>
+    <div class="card_erro" id="cardErro"> 
+               Login realizado com sucesso! 
+            </div>
 
     <div class="login">
 
@@ -33,12 +36,14 @@
             <h2>Faça o seu login!</h2>
 
             <div class="cadastro_empresa_link">
-                <p>A sua empresa ainda não tem conta? <a href="#">Cadastre sua empresa</a></p>
+                <p>A sua empresa ainda não tem conta? <a href="cadastro.html">Cadastre sua empresa</a></p>
             </div>
 
         <div class="campo">
             <h6>Digite o e-mail ou CNPJ</h6>
             <input type="text" id="input_validacao">
+            <div class="error" id="login-required-error">Campo obrigatório</div>
+            <div class="error" id="login-invalid-error">Email ou CNPJ inválido</div>
         </div>
 
         <div class="campo">
@@ -46,6 +51,12 @@
             <input type="password" id="input_senha" placeholder="Mínimo de 8 caracteres">
             <small style="color: #f3f2f2;">*Deve conter pelo menos 1 letra maiúscula e
                 minúscula, 1 caractere especial e 1 número</small>
+            <div class="error" id="senha-required-error">Campo obrigatório</div>
+            <div class="error" id="senha-comprimento-error">Mínimo 8 caracteres</div>
+            <div class="error" id="senha-numero-error">Deve conter número</div>
+            <div class="error" id="senha-caractere-error">Deve conter caractere especial</div>
+            <div class="error" id="senha-maiuscula-error">Deve conter letra maiúscula</div>
+            <div class="error" id="senha-minuscula-error">Deve conter letra minúscula</div>
         </div>
 
 
@@ -63,7 +74,7 @@
 
     </div>
     </div>
-
+   
 <script src="login.js"></script>
 
 </body>

@@ -9,14 +9,44 @@ body {
 background:#ffffff;;
 color:  #222;;
 }
-
 .cabecalho {
-display: flex;
-justify-content: flex-end;
-align-items: center;
-padding: 10px 30px;
-background: rgba(255,255,255,0.9);
+    position: fixed; /* Fixa o elemento na tela durante a rolagem */
+    top: 0; /* Alinha o elemento exatamente no topo do navegador */
+    left: 0; /* Alinha o elemento na extremidade esquerda */
+    width: 100%; /* Define que a barra ocupará toda a largura da tela */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de qualquer outro elemento */
+    display: flex; /* Ativa flexbox para alinhar logo e menu */
+    justify-content: space-between; /* Empurra a logo para a esquerda e o menu para a direita */
+    align-items: center; /* Centraliza verticalmente os itens dentro da barra */
+    padding: 10px 10%; /* Adiciona respiro interno: 10px vertical e 10% lateral */
+    background: white; /* Define a cor de fundo do cabeçalho */
+    width: 100%; /* Reafirma a largura total (redundante, mas seguro) */
+    height: 50px; /* Define uma altura fixa para a barra de navegação */
 }
+.menu ul {
+    display: flex; /* Coloca os itens da lista em linha horizontal */
+    list-style: none; /* Remove as "bolinhas" padrão da lista */
+    gap: 20px; /* Cria um espaçamento de 20px entre cada item do menu */
+}
+
+.menu a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: #333; /* Define a cor cinza escuro para os links */
+    font-weight: 500; /* Define uma espessura de fonte média */
+    transition: 0.3s; /* Suaviza mudanças de cor ou estilo em interações */
+}
+
+.logo2 {
+    display: flex; /* Permite alinhar o conteúdo interno da logo via flexbox */
+    align-items: center; /* Centraliza a imagem da logo verticalmente */
+}
+
+.logo2 img {
+    height: 75px; /* Define uma altura fixa para a imagem da logo */
+    width: auto; /* Mantém a proporção da largura automaticamente */
+}
+
+
 
 .hero {
 height: 500px;
@@ -47,12 +77,13 @@ margin-bottom: 20px;
 margin-bottom: 20px;
 }
 
-.hero button {
+.botao {
 background: #6A0101;;
 color: #ffffff;
 border: none;
 padding: 12px 22px;
 border-radius: 18px;
+ text-decoration: none;
 }
 
 .funcionalidades {
