@@ -157,10 +157,9 @@
           }, "2000");
 
           setTimeout(() => {
-             window.location.href = './login.html';
+             window.location.href = './login.html'; //Direciona para a pagina login
           }, "2000");
-
-          
+ 
         }
         }
         
