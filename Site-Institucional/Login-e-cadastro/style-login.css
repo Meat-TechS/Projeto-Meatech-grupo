@@ -3,6 +3,7 @@
     padding: 0; /* Remove o preenchimento padrão de todos os elementos */
     box-sizing: border-box; /* Garante que a largura e altura incluam bordas e preenchimento */
     font-family: Arial, sans-serif; /* Define a fonte padrão do documento */
+    overflow-y: hidden;
 }
 
 body {
@@ -72,7 +73,7 @@ body {
     display: flex; /* Coloca as colunas esquerda e direita lado a lado */
     flex-direction: row; /* Garante que as colunas fiquem em linha */
     width: 60%; /* Ocupa 60% da largura da tela */
-    margin: 100px; /* Define um espaçamento externo ao redor do bloco */
+    margin: 10px; /* Define um espaçamento externo ao redor do bloco */
     border-radius: 25px; /* Arredonda os cantos do container de login */
     overflow: hidden; /* Corta o conteúdo que ultrapassar os cantos arredondados */
 }
@@ -86,6 +87,7 @@ body {
     justify-content: center; /* Centraliza os itens verticalmente */
     text-align: center; /* Centraliza o alinhamento do texto */
     gap: 30px; /* Define um espaço de 30px entre os elementos da coluna */
+    flex: 1;
 }
 
 .cadastro_empresa_link p {
@@ -134,6 +136,7 @@ input {
     border: none; /* Remove a borda padrão do navegador */
     width: 100%; /* Ocupa 100% da largura da div pai (.campo) */
     box-sizing: border-box; /* Garante que o preenchimento não aumente o tamanho do input */
+    outline: none; /*Remove a border interna do input quando selecionado*/
 }
 
 .loginbutton {
@@ -163,6 +166,7 @@ input {
     padding: 30px; /* Adiciona preenchimento interno */
     text-align: center; /* Centraliza o texto */
     gap: 9px; /* Define um pequeno espaço entre a imagem e o texto */
+    flex: 1;
 }
 
 .logo1 {
@@ -171,7 +175,7 @@ input {
 }
 
 .logo1 img {
-    height: 400px; /* Define a altura da imagem decorativa */
+    height: 300px; /* Define a altura da imagem decorativa */
     width: auto; /* Ajusta a largura automaticamente */
 }
 
