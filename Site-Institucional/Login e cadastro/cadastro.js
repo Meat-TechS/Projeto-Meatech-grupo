@@ -155,7 +155,12 @@
         setTimeout(() => {/*faz o card da mensagem desaparecer depois de 2 segundos*/
             cardErro.style.display = "none";
           }, "2000");
-           
+
+          setTimeout(() => {
+             window.location.href = './login.html';
+          }, "2000");
+
+          
         }
         }
         
