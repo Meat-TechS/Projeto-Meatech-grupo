@@ -88,7 +88,7 @@ input {
     padding: 9px; /* Preenchimento interno para o texto não ficar apertado */
     border-radius: 10px; /* Arredonda os cantos do campo de entrada */
     border: none; /* Remove a borda padrão do navegador */
-    width: 100%; /* Faz o input ocupar toda a largura do container .campo */
+    max-width: 100%; /* Faz o input ocupar toda a largura do container .campo */
     box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do input */
 }
 
@@ -127,7 +127,7 @@ input {
 }
 
 .logo1 img {
-    height: 500px; /* Define uma altura grande para a imagem da direita */
+    height: 400px; /* Define uma altura grande para a imagem da direita */
     width: auto; /* Mantém a proporção da largura */
 }
 
