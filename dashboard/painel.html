@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.4.0"></script>
 
 
     <title>Dashboard</title>
@@ -121,8 +122,8 @@
             backgroundColor: '#000000',
             tension: 0.3,
             fill: false,
-            pointRadius: 6,
-            pointHoverRadius: 8
+            pointRadius: 5,
+            pointHoverRadius: 7
         }]
     };
 
@@ -136,7 +137,23 @@
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+
+                annotation: {
+    annotations: {
+        faixaIdeal: {
+            type: 'box',
+            yMin: 0,
+            yMax: 4,
+            backgroundColor: 'rgba(0, 255, 0, 0.1)',
+            borderWidth: 0,
+            label: {
+                enabled: true,
+                content: 'Faixa Ideal (0°C - 4°C)'
+            }
+        }
+    }
+}
             },
 
             scales: {
