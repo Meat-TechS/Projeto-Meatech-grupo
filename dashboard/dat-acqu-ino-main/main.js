@@ -19,11 +19,11 @@ const serial = async (
     // conexão com o banco de dados MySQL
     let poolBancoDados = mysql.createPool(
         {
-            host: 'HOST_DO_BANCO',
-            user: 'USUARIO_DO_BANCO',
-            password: 'SENHA_DO_BANCO',
-            database: 'DATABASE_DO_BANCO',
-            port: 3306
+            host: '127.0.0.1',
+            user: 'cliente',
+            password: 'Sptech2026*',
+            database: 'meatech',
+            port: 3307
         }
     ).promise();
 
@@ -42,7 +42,7 @@ const serial = async (
         }
     );
 
-    // evento quando a porta serial é aberta
+    // evento quando a porta serial é aberta, mudar a porta aqui!
     arduino.on('open', () => {
         console.log(`A leitura do arduino foi iniciada na porta ${portaArduino.path} utilizando Baud Rate de ${SERIAL_BAUD_RATE}`);
     });
@@ -54,8 +54,10 @@ const serial = async (
         const sensorDigital = parseInt(valores[0]);
         const sensorAnalogico = parseFloat(valores[1]);
 
+        let valorConvertido = sensorAnalogico-35.0
+
         // armazena os valores dos sensores nos arrays correspondentes
-        valoresSensorAnalogico.push(sensorAnalogico);
+        valoresSensorAnalogico.push(valorConvertido);
         valoresSensorDigital.push(sensorDigital);
 
         // insere os dados no banco de dados (se habilitado)
@@ -63,10 +65,17 @@ const serial = async (
 
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO medida (sensor_analogico, sensor_digital) VALUES (?, ?)',
-                [sensorAnalogico, sensorDigital]
+                'INSERT INTO Temperatura (valorTemperatura, dataHora, fkSensor) VALUES (?, NOW(), 1)',
+                [valorConvertido]
             );
-            console.log("valores inseridos no banco: ", sensorAnalogico + ", " + sensorDigital);
+
+               await poolBancoDados.execute(
+                'INSERT INTO Porta (statusPorta, dataHora, fkSensor) VALUES (?, NOW(), 2)',
+                [sensorDigital]
+            );
+
+
+            console.log("valores inseridos no banco: ", valorConvertido + ", " + sensorDigital);
 
         }
 
