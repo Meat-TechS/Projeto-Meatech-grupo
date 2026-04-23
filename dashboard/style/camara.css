@@ -114,6 +114,10 @@ a{
     color: #FF383C;
 }
 
+.kpi-main a {
+    margin-left: auto;
+    text-decoration: underline;
+}
 
 
 
