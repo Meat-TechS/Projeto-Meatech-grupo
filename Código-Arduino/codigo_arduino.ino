@@ -1,7 +1,7 @@
 #include <Ultrasonic.h>
 
-int pinoTrigger = 12;
-int pinoEcho = 13;
+int pinoTrigger = 13;
+int pinoEcho = 12;
 HC_SR04 sensor(pinoTrigger, pinoEcho);
 const int PINO_SENSOR_TEMPERATURA = A0;
 float temperaturaCelsius;
@@ -17,7 +17,7 @@ void loop() {
 
 
 
-  if (distancia > 0) {
+  if (distancia > 0 && distancia < 5) {
     Serial.print(1);
   } else {
     Serial.print(0);
