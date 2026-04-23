@@ -54,8 +54,10 @@ const serial = async (
         const sensorDigital = parseInt(valores[0]);
         const sensorAnalogico = parseFloat(valores[1]);
 
+        let sensorAnalogFormatado = sensorAnalogico - 20
+
         // armazena os valores dos sensores nos arrays correspondentes
-        valoresSensorAnalogico.push(sensorAnalogico);
+        valoresSensorAnalogico.push(sensorAnalogFormatado);
         valoresSensorDigital.push(sensorDigital);
 
         // insere os dados no banco de dados (se habilitado)
@@ -66,6 +68,8 @@ const serial = async (
                 'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
                 [1, sensorDigital, sensorAnalogico]
             );
+
+            
 
             console.log("valores inseridos no banco: ", sensorAnalogico + ", " + sensorDigital);
 

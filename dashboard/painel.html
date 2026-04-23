@@ -195,13 +195,7 @@
                 valores = valores.slice(ultimaPaginacao);
 
                 valores.forEach((valor) => {
-                    if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                        grafico.data.labels.shift();
-                        grafico.data.datasets[0].data.shift();
-                    }
-
-                    grafico.data.labels.push(tempo[endpoint]++);
-                    grafico.data.datasets[0].data.push(parseFloat(valor));
+                    grafico.data.datasets[0].data[12] = valor;
                     grafico.update();
                 });
             })
@@ -209,7 +203,7 @@
     }
 
     setInterval(() => {
-        obterDados(graficoLinha, 'digital');
+        obterDados(graficoLinha, 'analogico');
     }, 1000);
 
 </script>
