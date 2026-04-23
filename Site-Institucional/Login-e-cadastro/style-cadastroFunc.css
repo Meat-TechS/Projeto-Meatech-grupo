@@ -136,7 +136,7 @@ input {
     color: #6A0101; /* Cor do texto em vinho */
 }
 .error{
-    color:red;
+    color:yellow;
     display:none;
     font-size:12px;
 }
