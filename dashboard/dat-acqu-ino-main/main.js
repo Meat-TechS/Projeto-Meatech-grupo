@@ -54,10 +54,8 @@ const serial = async (
         const sensorDigital = parseInt(valores[0]);
         const sensorAnalogico = parseFloat(valores[1]);
 
-        let valorConvertido = sensorAnalogico-35.0
-
         // armazena os valores dos sensores nos arrays correspondentes
-        valoresSensorAnalogico.push(valorConvertido);
+        valoresSensorAnalogico.push(sensorAnalogico);
         valoresSensorDigital.push(sensorDigital);
 
         // insere os dados no banco de dados (se habilitado)
@@ -65,17 +63,11 @@ const serial = async (
 
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO Temperatura (valorTemperatura, dataHora, fkSensor) VALUES (?, NOW(), 1)',
-                [valorConvertido]
+                'INSERT INTO Registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [1, sensorDigital, sensorAnalogico]
             );
 
-               await poolBancoDados.execute(
-                'INSERT INTO Porta (statusPorta, dataHora, fkSensor) VALUES (?, NOW(), 2)',
-                [sensorDigital]
-            );
-
-
-            console.log("valores inseridos no banco: ", valorConvertido + ", " + sensorDigital);
+            console.log("valores inseridos no banco: ", sensorAnalogico + ", " + sensorDigital);
 
         }
 
