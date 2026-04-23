@@ -106,9 +106,10 @@
 }
 
 
-a {
-    text-decoration: none;
+.kpi-box a {
+    text-decoration: underline;
     color: #000000;
+    font-size: 14px;
 }
 
 
