@@ -23,26 +23,24 @@ body {
 }
 
 .cabecalho {
-    position: fixed; /* Mantém a barra de navegação sempre visível no topo */
-    /* Faz a barra "grudar" na tela */
-    top: 0; /* Alinha o cabeçalho ao topo da página */
-    /* Garante que ela grude no topo */
-    left: 0; /* Alinha o cabeçalho à esquerda da página */
-    /* Garante que comece do canto esquerdo */
-    width: 100%; /* Faz o cabeçalho ocupar toda a largura da tela */
-    /* Faz ela ocupar a largura toda da tela */
-    z-index: 1000; /* Garante que o cabeçalho fique sobreposto a outros elementos */
-    /* Garante que ela fique POR CIMA de todo o resto */
-    display: flex; /* Alinha os itens internos (logo e menu) com flexbox */
-    justify-content: space-between; /* Espaça a logo e o menu para as extremidades */
-    /* Logo na esquerda, Menu na direita */
+    position: fixed; /* Fixa o elemento na tela durante a rolagem */
+    top: 0; /* Alinha o elemento exatamente no topo do navegador */
+    left: 0; /* Alinha o elemento na extremidade esquerda */
+    width: 100%; /* Define que a barra ocupará toda a largura da tela */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de qualquer outro elemento */
+    display: flex; /* Ativa flexbox para alinhar logo e menu */
+    justify-content: space-between; /* Empurra a logo para a esquerda e o menu para a direita */
     align-items: center; /* Centraliza verticalmente os itens dentro da barra */
-    padding: 10px 10%; /* Adiciona preenchimento interno lateral e vertical */
-    background: white; /* Define a cor de fundo como branco */
-    width: 100%; /* Reforça a largura total da barra */
-    height: 50px; /* Define uma altura fixa para o cabeçalho */
+    padding: 10px 10%; /* Adiciona respiro interno: 10px vertical e 10% lateral */
+    background: white; /* Define a cor de fundo do cabeçalho */
+    width: 100%; /* Reafirma a largura total (redundante, mas seguro) */
+    height: 50px; /* Define uma altura fixa para a barra de navegação */
+    padding: 10px 20px;
 }
 
+.menu {
+  margin-right: 20px;
+}
 .menu ul {
     display: flex; /* Coloca os itens da lista em linha horizontal */
     list-style: none; /* Remove as marcas (bolinhas) da lista */
@@ -57,6 +55,7 @@ body {
     color: #333; /* Define a cor cinza escuro para o texto do link */
     font-weight: 500; /* Define uma espessura de fonte média */
     transition: 0.3s; /* Suaviza a transição de cores em efeitos de hover */
+    
 }
 
 .logo2 {

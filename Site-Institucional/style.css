@@ -22,6 +22,7 @@ color:  #222;;
     background: white; /* Define a cor de fundo do cabeçalho */
     width: 100%; /* Reafirma a largura total (redundante, mas seguro) */
     height: 50px; /* Define uma altura fixa para a barra de navegação */
+    padding: 10px 20px;
 }
 .menu ul {
     display: flex; /* Coloca os itens da lista em linha horizontal */
@@ -36,16 +37,9 @@ color:  #222;;
     transition: 0.3s; /* Suaviza mudanças de cor ou estilo em interações */
 }
 
-.logo2 {
-    display: flex; /* Permite alinhar o conteúdo interno da logo via flexbox */
-    align-items: center; /* Centraliza a imagem da logo verticalmente */
+.menu {
+  margin-right: 20px;
 }
-
-.logo2 img {
-    height: 75px; /* Define uma altura fixa para a imagem da logo */
-    width: auto; /* Mantém a proporção da largura automaticamente */
-}
-
 
 
 .hero {
@@ -64,10 +58,9 @@ position: relative;
 
 .logo img {
   height: 75px;
-  width: auto; 
-  margin-right: 800px; 
+  width: auto;
+  margin-right: 0;
 }
-
 .hero h1 {
 font-size: 42px;
 margin-bottom: 20px;
