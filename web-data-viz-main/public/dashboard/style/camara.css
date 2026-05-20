@@ -1,0 +1,128 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+    background-color: #F5F5F5F5;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.info{
+    width: 100%;
+    height: 50px;
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.144);
+    padding: 15px;
+}
+
+.info button{
+    width: 100px;
+    height: 30px;
+    align-self: center;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 1px 1px 4px #00000023;
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.info .alerta{
+    color: #FF383C;
+}
+
+.seguro{
+    color: #10CA10;
+}
+
+.kpis{
+    width: 100%;
+    height: 90%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+.kpi-camara{
+    height: 150px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.144);
+    margin-bottom: 6px;
+}
+
+.kpi-header{
+    width: 100%;
+    height: 29px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #8C2434;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+}
+
+.kpi-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.kpi-main h2 {
+    color: #8C2434;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.kpi-main div{
+    width:80px;
+    height: 20px;
+    background-color:#10ca1042 ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #10CA10;
+    font-size: 13px;
+}
+
+.kpi-main .status-div{
+    background-color: #ff383b48;
+}
+
+.kpi-main .status{
+    color: #FF383C;
+}
+
+.kpi-main a {
+    margin-left: auto;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+

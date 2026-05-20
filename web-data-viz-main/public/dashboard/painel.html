@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/painel.css">
+    <link rel="stylesheet" href="./style/menu.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="menu">
+            <div class="img-h1">
+                <img src="./image/logo3.png" alt="logo da empresa">
+                <h1>Bem-vindo(a)!</h1>
+            </div>
+
+            <div class="nav-bar">
+                <a href="#" class="nav-item">
+                    <img src="./image/dash.png"> Painel
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/suporte.png"> Suporte
+                </a>
+                <a href="./camara.html" class="nav-item">
+                    <img src="./image/temp.png"> Câmaras frias
+                </a>
+                <a href="../site-institucional/login-cadastro/cadastroFuncionario.html" class="nav-item">
+                    <img src="./image/pessoa.png"> Cadastro do funcionario
+                </a>
+            </div>
+
+            <button><a href="../site-institucional/site.html">Sair</a></button>
+        </div>
+
+        <div class="main">
+
+            <div class="box">
+
+                <div class="box-info">
+                    <div class="kpi-box">
+                        <div class="h5-img">
+                            <h5>Métricas da temperatura</h5>
+                            <img src="./image/taxa.png">
+                        </div>
+
+                        <span class="verde">0°C a 4°C</span>
+                        <span class="vermelho">Abaixo de 0°C</span>
+                        <span class="vermelho">Acima de 4°C</span>
+                        
+                    </div>
+
+                    <div class="kpi-box">
+                        <div class="h5-img">
+                            <h5>Portas abertas +10 min</h5>
+                            <img src="./image/porta.png">
+                        </div>
+
+                        <h1 class="critico">1</h1>
+                        <a href="./portas.html">Visualizar portas</a>
+                    </div>
+
+                    <div class="kpi-box">
+                        <div class="h5-img">
+                            <h5>Câmaras críticas</h5>
+                            <img src="./image/risco.png">
+                        </div>
+
+                        <h1 class="critico">3</h1>
+                        <a href="./camara.html">Visualizar câmaras</a>
+                    </div>
+
+                    <div class="kpi-box">
+                        <div class="h5-img">
+                            <h5>Câmaras em faixa ideal - 0°C e 4°C</h5>
+                            <img src="./image/temperatura.png">
+                        </div>
+
+                        <h1>10/13</h1>
+                    </div>
+
+                     <div class="kpi-box">
+                        <div class="h5-img">
+                            <h5>Câmaras com porta em tempo ideal</h5>
+                            <img src="./image/relogio.png">
+                        </div>
+
+                        <h1>12/13</h1>
+                    </div>
+                </div>
+
+                <div class="grafico">
+                    <h3>Temperatura das Câmaras Frias</h3>
+                    <div class="tempAtual">
+                        <canvas id="tempAtual"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    const data2 = {
+        labels: ['Câmara 1', 'Câmara 2', 'Câmara 3', 'Câmara 4', 'Câmara 5', 'Câmara 6', 'Câmara 7', 'Câmara 8', 'Câmara 9', 'Câmara 10', 'Câmara 11', 'Câmara 12', 'Câmara 13'],
+        datasets: [{
+            label: 'Temperatura',
+            data: [-2, 3, 1, 0, 7, 3, 4, 2, 3.4, 6, 2.9, 3.7, 2.5],
+            backgroundColor:[
+            '#8B0000',
+            '#006400',
+            '#006400',
+            '#006400',
+            '#8B0000',
+            '#006400',
+            '#006400',
+            '#006400',
+            '#006400',
+            '#8B0000',
+            '#006400',
+            '#006400',
+            '#006400'],
+            borderColor: '#000000',
+            tension: 0.3,
+            fill: false,
+            pointRadius: 4,
+            pointHoverRadius: 5
+        }]
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+            },
+
+            scales: {
+                y: {
+                    min: -4,
+                    max: 8,
+                    ticks: {
+                        callback: function (value) {
+                            return value + '°C';
+                        },
+                        stepSize: 2
+                    }
+                }
+            }
+        }
+    };
+</script>
+
+<script>
+
+    let graficoBarras = new Chart(
+        document.getElementById('tempAtual'),
+        config2
+    );
+
+    var paginacao = {};
+    var tempo = {};
+
+    function obterDados(grafico, endpoint) {
+        fetch('http://localhost:3300/sensores/' + endpoint)
+            .then(response => response.json())
+            .then(valores => {
+                if (paginacao[endpoint] == null) {
+                    paginacao[endpoint] = 0;
+                }
+                if (tempo[endpoint] == null) {
+                    tempo[endpoint] = 0;
+                }
+
+                var ultimaPaginacao = paginacao[endpoint];
+                paginacao[endpoint] = valores.length;
+                valores = valores.slice(ultimaPaginacao);
+
+                valores.forEach((valor) => {
+                    grafico.data.datasets[0].data[12] = valor;
+                    grafico.update();
+                });
+            })
+            .catch(error => console.error('Erro ao obter dados:', error));
+    }
+
+    setInterval(() => {
+        obterDados(graficoBarras, 'analogico');
+    }, 1000);
+
+</script>
