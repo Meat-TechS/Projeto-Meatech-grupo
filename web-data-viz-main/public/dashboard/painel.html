@@ -100,7 +100,10 @@
                             <img src="./image/relogio.png">
                         </div>
 
-                        <h1>12/13</h1>
+                        <div class="totalPortasFaixa">
+                            <h1 id="portaIdeal"></h1>
+                            <h1 id="totalPortasFaixa"></h1>
+                        </div>
                     </div>
                 </div>
 
@@ -117,72 +120,8 @@
 
 </html>
 
-<script>
-
-
-    const data2 = {
-        labels: ['Câmara 1', 'Câmara 2', 'Câmara 3', 'Câmara 4', 'Câmara 5', 'Câmara 6', 'Câmara 7', 'Câmara 8', 'Câmara 9', 'Câmara 10', 'Câmara 11', 'Câmara 12', 'Câmara 13'],
-        datasets: [{
-            label: 'Temperatura',
-            data: [-2, 3, 1, 0, 7, 3, 4, 2, 3.4, 6, 2.9, 3.7, 2.5],
-            backgroundColor:[
-            '#8B0000',
-            '#006400',
-            '#006400',
-            '#006400',
-            '#8B0000',
-            '#006400',
-            '#006400',
-            '#006400',
-            '#006400',
-            '#8B0000',
-            '#006400',
-            '#006400',
-            '#006400'],
-            borderColor: '#000000',
-            tension: 0.3,
-            fill: false,
-            pointRadius: 4,
-            pointHoverRadius: 5
-        }]
-    };
-
-    const config2 = {
-        type: 'bar',
-        data: data2,
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-
-            plugins: {
-                legend: {
-                    display: false
-                },
-
-            },
-
-            scales: {
-                y: {
-                    min: -4,
-                    max: 8,
-                    ticks: {
-                        callback: function (value) {
-                            return value + '°C';
-                        },
-                        stepSize: 2
-                    }
-                }
-            }
-        }
-    };
-</script>
 
 <script>
-
-    let graficoBarras = new Chart(
-        document.getElementById('tempAtual'),
-        config2
-    );
 
     var paginacao = {};
     var tempo = {};

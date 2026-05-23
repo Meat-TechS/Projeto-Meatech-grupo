@@ -36,18 +36,44 @@ function camarasIdeal(req, res){
 function totalCamaras(req, res){
   dashboardModel.totalCamaras()
   .then(resultado => {
-    res.json(resultado)
+    res.json(resultado);
   }) 
   .catch(erro => {
-    console.log(erro)
-    res.status(500).send("Erro ao buscar o total de Câmaras")
+    console.log(erro);
+    res.status(500).send("Erro ao buscar o total de Câmaras");
   })
 }
+
+function portaIdeal(req, res){
+  dashboardModel.portaIdeal()
+  .then(resultado => {
+    res.json(resultado);
+  })
+  .catch(erro => {
+    console.log(erro);
+    res.status(500).send("Erro ao buscar o total de portas");
+
+  })
+}
+
+function buscarTemperaturasCamaras(req, res) {
+    dashboardModel.buscarTemperaturasCamaras()
+        .then(resultado => {
+            res.json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).send("Erro ao buscar temperaturas");
+        });
+}
+
 
 
 module.exports = {
   contarPortasAbertasMais10Min,
   contarCamarasCriticas,
   camarasIdeal,
-  totalCamaras
+  totalCamaras,
+  portaIdeal,
+  buscarTemperaturasCamaras
 }

@@ -19,4 +19,12 @@ router.get("/totalCamaras", function(req, res){
     dashboardController.totalCamaras(req, res)
 })
 
+router.get("/portaIdeal", function(req, res){
+    dashboardController.portaIdeal(req, res)
+})
+
+router.get("/temperaturas", function (req, res) {
+    dashboardController.buscarTemperaturasCamaras(req, res);
+});
+
 module.exports = router;
