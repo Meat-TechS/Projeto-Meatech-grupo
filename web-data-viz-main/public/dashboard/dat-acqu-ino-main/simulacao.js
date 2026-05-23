@@ -1,6 +1,4 @@
-// importa bibliotecas
-console.log("🚀 ARQUIVO CARREGADO");
-// const serialport = require('serialport');
+// const serialport = require('serialport'); // só ativa se for usar Arduino
 const express = require('express');
 const mysql = require('mysql2');
 
@@ -8,103 +6,69 @@ const mysql = require('mysql2');
 const SERIAL_BAUD_RATE = 9600;
 const SERVIDOR_PORTA = 3300;
 
-// 🔥 LIGA/DESLIGA SIMULAÇÃO
 const MODO_SIMULACAO = true;
 
-// conexão com banco (GLOBAL - CORRETO)
+// conexão banco
 const poolBancoDados = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
-    password: 'Emma150490*',
+    password: 'Emma150490@',
     database: 'meatech',
-    port: 3307
+    port: 3306
 }).promise();
 
 
 // =========================
-// 🔥 SIMULAÇÃO DE SENSOR
+// 🔥 SIMULAÇÃO
 // =========================
 function iniciarSimulacao() {
 
-    console.log("🔥 Modo SIMULAÇÃO ativado");
+    console.log("🔥 SIMULAÇÃO INICIADA");
 
     setInterval(async () => {
 
-        // simula 13 câmaras
-        for (let sensorId = 1; sensorId <= 13; sensorId++) {
+        try {
 
-            const temperatura = (Math.random() * 10 - 2).toFixed(1); // -2 a 8
+            console.log("⏱ rodando simulação...");
 
-            await poolBancoDados.execute(
-                `INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora)
-                 VALUES (?, NULL, ?, NOW())`,
-                [sensorId, temperatura]
-            );
+            // 🔵 TEMPERATURA (câmaras 1–13)
+            for (let sensorId = 1; sensorId <= 13; sensorId++) {
+
+                const temperatura = (Math.random() * 10 - 2).toFixed(1);
+
+                await poolBancoDados.execute(
+                    `INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora)
+                     VALUES (?, NULL, ?, NOW())`,
+                    [sensorId, temperatura]
+                );
+            }
+
+            // 🟢 PORTA (câmaras 14–26)
+            for (let sensorId = 14; sensorId <= 26; sensorId++) {
+
+                const porta = Math.random() > 0.5 ? 1 : 0;
+
+                await poolBancoDados.execute(
+                    `INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora)
+                     VALUES (?, ?, NULL, NOW())`,
+                    [sensorId, porta]
+                );
+            }
+
+            console.log("✔ dados inseridos no banco");
+
+        } catch (erro) {
+            console.log("❌ ERRO NO MYSQL:", erro);
         }
-
-        // simula portas (14–26)
-        for (let sensorId = 14; sensorId <= 26; sensorId++) {
-
-            const porta = Math.random() > 0.5 ? 1 : 0;
-
-            await poolBancoDados.execute(
-                `INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora)
-                 VALUES (?, ?, NULL, NOW())`,
-                [sensorId, porta]
-            );
-        }
-
-        console.log("📡 Dados simulados inseridos");
 
     }, 5000);
 }
 
 
 // =========================
-// 🔌 ARDUINO (REAL)
-// =========================
-const serial = async (valoresSensorAnalogico, valoresSensorDigital) => {
-
-    const portas = await serialport.SerialPort.list();
-    const portaArduino = portas.find(p => p.vendorId == 2341 && p.productId == 43);
-
-    if (!portaArduino) {
-        throw new Error("Arduino não encontrado");
-    }
-
-    const arduino = new serialport.SerialPort({
-        path: portaArduino.path,
-        baudRate: SERIAL_BAUD_RATE
-    });
-
-    arduino.on('open', () => {
-        console.log(`Arduino conectado em ${portaArduino.path}`);
-    });
-
-    arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' }))
-        .on('data', async (data) => {
-
-            const valores = data.split(';');
-            const sensorDigital = parseInt(valores[0]);
-            const sensorAnalogico = parseFloat(valores[1]);
-
-            valoresSensorAnalogico.push(sensorAnalogico);
-            valoresSensorDigital.push(sensorDigital);
-
-            await poolBancoDados.execute(
-                `INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora)
-                 VALUES (?, ?, ?, NOW())`,
-                [1, sensorDigital, sensorAnalogico]
-            );
-
-        });
-};
-
-
-// =========================
 // 🌐 SERVIDOR
 // =========================
-const servidor = (valoresSensorAnalogico, valoresSensorDigital) => {
+const servidor = () => {
 
     const app = express();
 
@@ -117,40 +81,18 @@ const servidor = (valoresSensorAnalogico, valoresSensorDigital) => {
     app.listen(SERVIDOR_PORTA, () => {
         console.log(`API rodando na porta ${SERVIDOR_PORTA}`);
     });
-
-    app.get('/sensores/analogico', (_, res) => {
-        res.json(valoresSensorAnalogico);
-    });
-
-    app.get('/sensores/digital', (_, res) => {
-        res.json(valoresSensorDigital);
-    });
 };
 
 
 // =========================
-// 🚀 START DO SISTEMA
+// 🚀 START
 // =========================
 (async () => {
 
-    function iniciarSimulacao() {
-
-    console.log("🔥 SIMULAÇÃO INICIOU");
-
-    setInterval(() => {
-        console.log("⏱ rodando simulação...");
-    }, 2000);
-}
-
-    const valoresSensorAnalogico = [];
-    const valoresSensorDigital = [];
-
     if (MODO_SIMULACAO) {
         iniciarSimulacao();
-    } else {
-        await serial(valoresSensorAnalogico, valoresSensorDigital);
     }
 
-    servidor(valoresSensorAnalogico, valoresSensorDigital);
+    servidor();
 
 })();
