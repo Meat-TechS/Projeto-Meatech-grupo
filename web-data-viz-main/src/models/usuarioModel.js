@@ -86,9 +86,23 @@ function cadastrarFuncionario(
     return database.executar(instrucaoSql);
 }
 
+function contarPortasAbertasMais10Min() {
+    const sql = `
+        SELECT COUNT(*) AS portas_abertas_10min
+        FROM registro r
+        JOIN sensor s ON s.idSensor = r.fkSensor
+        WHERE s.tipoSensor = 'porta'
+          AND r.registroPorta = 1
+          AND TIMESTAMPDIFF(MINUTE, r.dtHora, NOW()) >= 10;
+    `;
+
+    return database.executar(sql);
+}
+
 
 module.exports = {
     autenticar,
     cadastrarEmpresa,
-    cadastrarFuncionario
+    cadastrarFuncionario,
+     contarPortasAbertasMais10Min,
 };

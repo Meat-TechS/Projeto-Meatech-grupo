@@ -68,7 +68,7 @@
                             <img src="./image/porta.png">
                         </div>
 
-                        <h1 class="critico">1</h1>
+                        <h1 class="critico" id="kpiPortas"></h1>
                         <a href="./portas.html">Visualizar portas</a>
                     </div>
 
@@ -78,7 +78,7 @@
                             <img src="./image/risco.png">
                         </div>
 
-                        <h1 class="critico">3</h1>
+                        <h1 class="critico" id="kpiCamaras"></h1>
                         <a href="./camara.html">Visualizar câmaras</a>
                     </div>
 
@@ -88,7 +88,10 @@
                             <img src="./image/temperatura.png">
                         </div>
 
-                        <h1>10/13</h1>
+                        <div class="totalCamarasFaixa">
+                            <h1 id="faixaIdeal"></h1>
+                            <h1 id="totalCamarasIdeal"></h1>
+                        </div>
                     </div>
 
                      <div class="kpi-box">
@@ -184,31 +187,33 @@
     var paginacao = {};
     var tempo = {};
 
-    function obterDados(grafico, endpoint) {
-        fetch('http://localhost:3300/sensores/' + endpoint)
-            .then(response => response.json())
-            .then(valores => {
-                if (paginacao[endpoint] == null) {
-                    paginacao[endpoint] = 0;
-                }
-                if (tempo[endpoint] == null) {
-                    tempo[endpoint] = 0;
-                }
+    // function obterDados(grafico, endpoint) {
+    //     fetch('http://localhost:3300/sensores/' + endpoint)
+    //         .then(response => response.json())
+    //         .then(valores => {
+    //             if (paginacao[endpoint] == null) {
+    //                 paginacao[endpoint] = 0;
+    //             }
+    //             if (tempo[endpoint] == null) {
+    //                 tempo[endpoint] = 0;
+    //             }
 
-                var ultimaPaginacao = paginacao[endpoint];
-                paginacao[endpoint] = valores.length;
-                valores = valores.slice(ultimaPaginacao);
+    //             var ultimaPaginacao = paginacao[endpoint];
+    //             paginacao[endpoint] = valores.length;
+    //             valores = valores.slice(ultimaPaginacao);
 
-                valores.forEach((valor) => {
-                    grafico.data.datasets[0].data[12] = valor;
-                    grafico.update();
-                });
-            })
-            .catch(error => console.error('Erro ao obter dados:', error));
-    }
+    //             valores.forEach((valor) => {
+    //                 grafico.data.datasets[0].data[12] = valor;
+    //                 grafico.update();
+    //             });
+    //         })
+    //         .catch(error => console.error('Erro ao obter dados:', error));
+    // }
 
-    setInterval(() => {
-        obterDados(graficoBarras, 'analogico');
-    }, 1000);
+    // setInterval(() => {
+    //     obterDados(graficoBarras, 'analogico');
+    // }, 1000);
 
 </script>
+
+<script src="./js/painel.js"></script>

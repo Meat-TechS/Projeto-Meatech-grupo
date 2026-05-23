@@ -36,6 +36,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
+    align-items: center;
 }
 
 .kpi-box a {
@@ -67,7 +68,7 @@
 }
 
 .kpi-box h1 {
-    margin: auto;
+    
     font-size: 40px;
 }
 
@@ -110,6 +111,10 @@
     text-decoration: underline;
     color: #000000;
     font-size: 14px;
+}
+
+.totalCamarasFaixa{
+    display: flex;
 }
 
 
