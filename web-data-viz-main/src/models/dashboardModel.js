@@ -67,18 +67,9 @@ function totalCamaras() {
 }
 
 function portaIdeal() {
-    const instrucaoSql =
-        `
-    SELECT 
-    COUNT(*) AS portas_ideais
-FROM registro r
-JOIN sensor s ON s.idSensor = r.fkSensor
-WHERE s.tipoSensor = 'porta'
-  AND r.registroPorta = 1
-  AND TIMESTAMPDIFF(MINUTE, r.dtHora, NOW()) < 10;
-    `
+    // const instrucaoSql = ;
 
-    return database.executar(instrucaoSql)
+    // return database.executar(instrucaoSql);
 }
 
 function buscarTemperaturasCamaras() {
