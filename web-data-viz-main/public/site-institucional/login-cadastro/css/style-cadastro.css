@@ -1,36 +1,36 @@
 * {
-    margin: 0; /* Remove a margem padrão de todos os elementos */
-    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
-    box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho total do elemento */
-    font-family: Arial, sans-serif; /* Define a fonte padrão para o documento */
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
 }
 
 body {
-    background-image: url(../img/capa.png); /* Define a imagem de fundo da página */
-    background-repeat: no-repeat; /* Impede que a imagem de fundo se repita */
-    background-size: cover; /* Faz a imagem cobrir toda a área disponível sem distorcer */
-    background-attachment: fixed; /* Mantém o fundo fixo enquanto o conteúdo rola */
-    color: #222; /* Define a cor do texto principal */
-    display: flex; /* Ativa o modelo flexbox para organizar os itens do corpo */
-    justify-content: center; /* Centraliza os itens verticalmente (no eixo principal aqui) */
-    flex-direction: column; /* Organiza os elementos em coluna (um abaixo do outro) */
-    align-items: center; /* Centraliza os elementos horizontalmente */
-    padding-top: 80px; /* Cria um espaço no topo para o conteúdo não ficar sob o cabeçalho fixo */
+    background-image: url(../img/capa.png); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed; 
+    color: #222; 
+    display: flex; 
+    justify-content: center;
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 80px; 
 }
 
 .cabecalho {
-    position: fixed; /* Fixa o elemento na tela durante a rolagem */
-    top: 0; /* Alinha o elemento exatamente no topo do navegador */
-    left: 0; /* Alinha o elemento na extremidade esquerda */
-    width: 100%; /* Define que a barra ocupará toda a largura da tela */
-    z-index: 1000; /* Garante que o cabeçalho fique acima de qualquer outro elemento */
-    display: flex; /* Ativa flexbox para alinhar logo e menu */
-    justify-content: space-between; /* Empurra a logo para a esquerda e o menu para a direita */
-    align-items: center; /* Centraliza verticalmente os itens dentro da barra */
-    padding: 10px 10%; /* Adiciona respiro interno: 10px vertical e 10% lateral */
-    background: white; /* Define a cor de fundo do cabeçalho */
-    width: 100%; /* Reafirma a largura total (redundante, mas seguro) */
-    height: 50px; /* Define uma altura fixa para a barra de navegação */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    z-index: 1000; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 10%; 
+    background: white; 
+    width: 100%;
+    height: 50px; 
     padding: 10px 20px;
 }
 
@@ -39,9 +39,9 @@ body {
 }
 
 .menu ul {
-    display: flex; /* Coloca os itens da lista em linha horizontal */
-    list-style: none; /* Remove as "bolinhas" padrão da lista */
-    gap: 20px; /* Cria um espaçamento de 20px entre cada item do menu */
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
 }
 
 .menu a {
