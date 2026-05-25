@@ -22,7 +22,7 @@ function obterdados(idAquario) {
 
 function alertar(resposta, idAquario) {
     var temp = resposta[0].temperatura;
-
+// joao quebro o cod
     var grauDeAviso = '';
 
     var limites = {
