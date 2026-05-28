@@ -229,11 +229,13 @@ function cadastrar() {
               window.location.href = "./login.html";
             }, 2000);
           } else {
+            console.log(resposta)
             throw "Houve um erro ao tentar realizar o cadastro!";
           }
         })
         .catch(function (erro) {
           console.log(`#ERRO: ${erro}`);
+    
         });
     }
   }
