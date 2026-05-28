@@ -3,11 +3,12 @@ var database = require("../database/config")
 function contarPortasAbertasMais10Min() {
     const instrucaoSql = `
         SELECT COUNT(*) AS portas_abertas_10min
-        FROM registro r
-        JOIN sensor s ON s.idSensor = r.fkSensor
-        WHERE s.tipoSensor = 'porta'
-          AND r.registroPorta = 1
-          AND TIMESTAMPDIFF(MINUTE, r.dtHora, NOW()) >= 10;
+FROM registro r
+JOIN sensor s 
+    ON s.idSensor = r.fkSensor
+WHERE s.tipoSensor = 'porta'
+  AND r.registroPorta = 1
+  AND r.dtHora + INTERVAL 10 MINUTE <= NOW();
     `;
     return database.executar(instrucaoSql);
 }
@@ -67,29 +68,35 @@ function totalCamaras() {
 }
 
 function portaIdeal() {
-    // const instrucaoSql = ;
+    const instrucaoSql = `SELECT COUNT(*) AS portasIdeais
+FROM registro r
+JOIN sensor s 
+    ON r.fkSensor = s.idSensor
+WHERE s.tipoSensor = 'porta'
+AND r.registroPorta = 0;`;
 
-    // return database.executar(instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 function buscarTemperaturasCamaras() {
     const instrucaoSql = `
-        SELECT 
-        c.idCamara,
-        c.identificacao,
-        COALESCE(r.registroTemp, 0) AS registroTemp
-        FROM camarafria c
-        LEFT JOIN sensor s 
-            ON s.fkCamara = c.idCamara 
-            AND s.tipoSensor = 'temperatura'
-        LEFT JOIN registro r 
-            ON r.fkSensor = s.idSensor
-            AND r.dtHora = (
-                SELECT MAX(r2.dtHora)
-                FROM registro r2
-                JOIN sensor s2 ON s2.idSensor = r2.fkSensor
-                WHERE s2.fkCamara = c.idCamara
-            );
+     SELECT 
+    c.idCamara,
+    c.identificacao,
+    r.registroTemp
+FROM camarafria c
+
+LEFT JOIN sensor s
+    ON s.fkCamara = c.idCamara
+    AND s.tipoSensor = 'temperatura'
+
+LEFT JOIN registro r
+    ON r.fkSensor = s.idSensor
+    AND r.idRegistro = (
+        SELECT MAX(r2.idRegistro)
+        FROM registro r2
+        WHERE r2.fkSensor = s.idSensor
+    );
         `;
 
     return database.executar(instrucaoSql);

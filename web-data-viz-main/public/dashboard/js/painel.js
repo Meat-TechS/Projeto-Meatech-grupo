@@ -65,7 +65,7 @@ function portaIdeal() {
             console.log("Total de portas", data)
 
             document.getElementById("portaIdeal").innerHTML =
-                `${data[0].portas_ideais}`;
+                `${data[0].portasIdeais}`;
         })
         .catch(erro => {
             console.log("Erro ao buscar KPI", erro)
