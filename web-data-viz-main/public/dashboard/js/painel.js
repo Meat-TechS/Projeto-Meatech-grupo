@@ -11,6 +11,21 @@ function carregarKpiPortas10() {
         })
 }
 
+function infoCamarasAbertas10 (){
+    fetch("/infoCamarasAbertas10")
+    .then(res => res.json())
+    .then(data => {
+        
+        for(let i = 0; i < data.length; i++){
+            document.getElementById("camara").innerHTML = data[i].idCamara;
+        }  
+    })
+    .catch(erro => {
+        console.log(erro)
+        
+    })
+}
+
 function carregarCamarasCriticas() {
     fetch("contarCamarasCriticas")
         .then(res => res.json())
