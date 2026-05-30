@@ -53,24 +53,24 @@ a{
     color: #000000;
 }
 
-.portas-abertas {
+
+#listaCamaras {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.portas-abertas .critico {
-   color: #FF383C;
-}
-
-.portas-abertas .normal {
-   color: #10CA10;;
+    flex-direction: column;
 }
 
 .linha {
-    border: 1px solid rgba(0, 0, 0, 0.178);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    border-top: 1px solid #cfcfcf;
+    padding: 12px 0;
+}
+
+.tempo-vermelho {
+    color: red;
 }
 
 

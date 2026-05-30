@@ -3,12 +3,17 @@ var database = require("../database/config")
 function contarPortasAbertasMais10Min() {
     const instrucaoSql = `
         SELECT COUNT(*) AS portas_abertas_10min
-FROM registro r
-JOIN sensor s 
-    ON s.idSensor = r.fkSensor
+FROM sensor s
+JOIN registro r
+    ON r.fkSensor = s.idSensor
 WHERE s.tipoSensor = 'porta'
+  AND r.idRegistro IN (
+      SELECT MAX(idRegistro)
+      FROM registro
+      GROUP BY fkSensor
+  )
   AND r.registroPorta = 1
-  AND r.dtHora + INTERVAL 10 MINUTE <= NOW();
+  AND TIMESTAMPDIFF(MINUTE, r.dtHora, NOW()) > 10;
     `;
     return database.executar(instrucaoSql);
 }
