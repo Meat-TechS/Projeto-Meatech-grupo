@@ -22,6 +22,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 .menu .img-h1 {
