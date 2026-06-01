@@ -31,25 +31,25 @@ body {
 }
 
 .menu ul {
-    display: flex; /* Coloca os itens da lista em linha horizontal */
-    list-style: none; /* Remove as "bolinhas" padrão da lista */
-    gap: 20px; /* Cria um espaçamento de 20px entre cada item do menu */
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
 }
 .menu a {
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    color: #333; /* Define a cor cinza escuro para os links */
-    font-weight: 500; /* Define uma espessura de fonte média */
-    transition: 0.3s; /* Suaviza mudanças de cor ou estilo em interações */
+    text-decoration: none; 
+    color: #333; 
+    font-weight: 500; 
+    transition: 0.3s; 
 }
 
 .logo2 {
-    display: flex; /* Permite alinhar o conteúdo interno da logo via flexbox */
-    align-items: center; /* Centraliza a imagem da logo verticalmente */
+    display: flex; 
+    align-items: center;
 }
 
 .logo2 img {
-    height: 75px; /* Define uma altura fixa para a imagem da logo */
-    width: auto; /* Mantém a proporção da largura automaticamente */
+    height: 75px; 
+    width: auto;
 }
 
 

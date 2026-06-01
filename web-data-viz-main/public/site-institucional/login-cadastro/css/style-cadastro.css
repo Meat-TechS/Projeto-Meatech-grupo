@@ -45,69 +45,69 @@ body {
 }
 
 .menu a {
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    color: #333; /* Define a cor cinza escuro para os links */
-    font-weight: 500; /* Define uma espessura de fonte média */
-    transition: 0.3s; /* Suaviza mudanças de cor ou estilo em interações */
+    text-decoration: none; 
+    color: #333; 
+    font-weight: 500; 
+    transition: 0.3s; 
 }
 
 .logo2 {
-    display: flex; /* Permite alinhar o conteúdo interno da logo via flexbox */
-    align-items: center; /* Centraliza a imagem da logo verticalmente */
+    display: flex; 
+    align-items: center; 
 }
 
 .logo2 img {
-    height: 75px; /* Define uma altura fixa para a imagem da logo */
-    width: auto; /* Mantém a proporção da largura automaticamente */
+    height: 75px; 
+    width: auto; 
 }
 
 .cadastro {
-    display: flex; /* Coloca as colunas esquerda e direita lado a lado */
-    flex-direction: row; /* Garante que o fluxo seja horizontal */
-    width: 70%; /* Define que o container ocupará 70% da largura da tela */
-    margin: 40px; /* Adiciona margem externa ao redor do bloco de cadastro */
-    border-radius: 25px; /* Arredonda as bordas do container principal */
-    overflow: hidden; /* Garante que as cores internas respeitem o arredondamento das bordas */
+    display: flex; 
+    flex-direction: row; 
+    width: 70%; 
+    margin: 40px; 
+    border-radius: 25px; 
+    overflow: hidden; 
 }
 
 .coluna_esquerda {
-    background-color: #6A0101; /* Define o fundo vinho/avermelhado */
-    display: flex; /* Ativa flexbox para os elementos internos */
-    padding: 40px; /* Adiciona espaçamento interno generoso */
-    flex-direction: column; /* Empilha os campos de input verticalmente */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    text-align: center; /* Centraliza o alinhamento do texto */
-    gap: 15px; /* Cria espaço entre os campos do formulário */
+    background-color: #6A0101; 
+    display: flex; 
+    padding: 40px; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    gap: 15px; 
 }
 
 .campo {
-    display: flex; /* Ativa flexbox no container de cada input */
-    flex-direction: column; /* Coloca o rótulo (h6) acima do input */
-    width: 100%; /* Faz o campo ocupar toda a largura da coluna */
+    display: flex; 
+    flex-direction: column; 
+    width: 100%;
 }
 
 h6 {
-    margin-bottom: 6px; /* Espaço entre o título e o campo de entrada */
-    display: flex; /* Permite usar alinhamento flex no título */
-    align-items: flex-start; /* Alinha o texto ao início do container */
-    color: #f3f2f2; /* Define a cor do texto como branco acinzentado */
-    font-size: 13px; /* Define um tamanho de fonte pequeno */
+    margin-bottom: 6px;
+    display: flex; 
+    align-items: flex-start; 
+    color: #f3f2f2;
+    font-size: 13px; 
 }
 
 small {
-    margin-bottom: 6px; /* Espaço inferior para o texto de suporte */
-    display: flex; /* Define como bloco flexível */
-    align-items: flex-start; /* Alinha ao início */
-    font-size: 13px; /* Tamanho de fonte reduzido */
+    margin-bottom: 6px; 
+    display: flex; 
+    align-items: flex-start; 
+    font-size: 13px; 
 }
 
 input {
-    padding: 9px; /* Adiciona preenchimento interno para o texto não encostar nas bordas */
-    border-radius: 10px; /* Arredonda os cantos da caixa de entrada */
-    border: none; /* Remove a borda padrão do navegador */
-    width: 100%; /* Faz o input ocupar 100% da largura do seu container .campo */
-    box-sizing: border-box; /* Garante que o padding não estoure a largura de 100% */
+    padding: 9px; 
+    border-radius: 10px; 
+    border: none;
+    width: 100%;
+    box-sizing: border-box; 
 }
 
 .cadastrarbutton {
