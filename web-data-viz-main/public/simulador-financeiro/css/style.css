@@ -1,8 +1,8 @@
 * {
-    margin: 0; /* Remove a margem padrão de todos os elementos */
-    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
-    box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho total do elemento */
-    font-family: Arial, sans-serif; /* Define a fonte padrão para o documento */
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
 }
 body {
     background-color: #f5e6d3;
@@ -11,18 +11,18 @@ body {
 }
 
 .cabecalho {
-    position: fixed; /* Fixa o elemento na tela durante a rolagem */
-    top: 0; /* Alinha o elemento exatamente no topo do navegador */
-    left: 0; /* Alinha o elemento na extremidade esquerda */
-    width: 100%; /* Define que a barra ocupará toda a largura da tela */
-    z-index: 1000; /* Garante que o cabeçalho fique acima de qualquer outro elemento */
-    display: flex; /* Ativa flexbox para alinhar logo e menu */
-    justify-content: space-between; /* Empurra a logo para a esquerda e o menu para a direita */
-    align-items: center; /* Centraliza verticalmente os itens dentro da barra */
-    padding: 10px 10%; /* Adiciona respiro interno: 10px vertical e 10% lateral */
-    background: white; /* Define a cor de fundo do cabeçalho */
-    width: 100%; /* Reafirma a largura total (redundante, mas seguro) */
-    height: 50px; /* Define uma altura fixa para a barra de navegação */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 10%; 
+    background: white; 
+    width: 100%; 
+    height: 50px; 
     padding: 10px 20px;
 }
 
