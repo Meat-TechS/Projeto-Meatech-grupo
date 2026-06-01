@@ -146,57 +146,57 @@ input {
 }
 
 .loginbutton button {
-    width: 80%; /* O botão ocupa 80% da largura da área reservada */
-    padding: 9px; /* Define a altura interna do botão */
-    border: none; /* Remove a borda padrão */
-    border-radius: 10px; /* Arredonda os cantos do botão */
-    background-color: #f3f2f2; /* Define a cor de fundo clara */
-    color: #6A0101; /* Define a cor do texto para combinar com o tema */
-    cursor: pointer; /* Altera o cursor para indicar que é clicável */
-    font-size: 15px; /* Define o tamanho da fonte do texto do botão */
+    width: 80%; 
+    padding: 9px; 
+    border: none; 
+    border-radius: 10px;
+    background-color: #f3f2f2; 
+    color: #6A0101; 
+    cursor: pointer; 
+    font-size: 15px; 
 }
 
 .coluna_direita {
-    background-color: #f3f2f2; /* Define a cor de fundo cinza claro */
-    display: flex; /* Ativa flexbox para a coluna da direita */
-    flex-direction: column; /* Organiza os itens verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: center; /* Centraliza verticalmente */
-    padding: 30px; /* Adiciona preenchimento interno */
-    text-align: center; /* Centraliza o texto */
-    gap: 9px; /* Define um pequeno espaço entre a imagem e o texto */
+    background-color: #f3f2f2; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    padding: 30px;
+    text-align: center; 
+    gap: 9px;
     flex: 1;
 }
 
 .logo1 {
-    display: flex; /* Ativa flexbox para o container da imagem principal */
-    align-items: center; /* Centraliza a imagem */
+    display: flex; 
+    align-items: center; 
 }
 
 .logo1 img {
-    height: 300px; /* Define a altura da imagem decorativa */
-    width: auto; /* Ajusta a largura automaticamente */
+    height: 300px; 
+    width: auto; 
 }
 
 .coluna_esquerda h2 {
-    font-size: 37px; /* Define um tamanho de fonte grande para o título principal */
-    color: #f3f2f2; /* Define a cor clara para o título */
+    font-size: 37px; 
+    color: #f3f2f2; 
 }
 
-.error{ /*mensagem de erro nos campos do login*/
-    color:red; /* define cor da fonte*/
-    display:none; /* deixa a mensagem oculta*/
-    font-size: 12px; /* define tamanho da fonte*/
+.error{ 
+    color: yellow; 
+    display:none; 
+    font-size: 12px; 
 }
-.card_erro{ /* Card de login realizado*/
-    position: fixed; /*Fixa o card na página sem afetar os outros elementos e visível na janela */
-    top:70px; /* Distancia do card em relação ao topo da página*/
-    right: 20px; /*Distancia do card em relação a margem direita da página*/
-   display:none;/* Deixa a mensagem oculta*/
-    background-color:  #fff; /* Define cor de fundo do card*/
-    color: black;/* define cor da fonte da mensagem*/
-    width:230px;/* Define largura do card*/
-    border:green 3px solid;/* Define cor e espessura da borda do card*/
-    padding:10px;/* Define a altura interna do card */
-    font-size: 30px;/* Define tamanho da fonte do card */
+.card_erro{ 
+    position: fixed; 
+    top:70px; 
+    right: 20px; 
+   display:none;
+    background-color:  #fff; 
+    color: black;
+    width:230px;
+    border:green 3px solid;
+    padding:10px;
+    font-size: 30px;
 }
