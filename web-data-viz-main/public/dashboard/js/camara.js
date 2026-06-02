@@ -55,37 +55,36 @@ function listarCamaras() {
                 let camara = camaras[i];
                 let status = "Seguro";
 
-                if (camara.temperatura < 0 || camara.temperatura > 5) {
+                if (camara.temperatura < 0 || camara.temperatura > 4) {
                     container.innerHTML += `
                 <div class="kpi-camara">
                     <div class="kpi-header">
-            <h5>${camara.identificacao}</h5>
-            <img src="./image/cameras.png">
-        </div>
+                 <h5>${camara.identificacao}</h5>
+                <img src="./image/cameras.png">
+                 </div>
 
-        <div class="kpi-main">
-            <h2>${camara.temperatura}º C</h2>
+                <div class="kpi-main">
+                <h2>${camara.temperatura}º C</h2>
 
-            <div class="status-div">
+                <div class="status-div">
                 <p class="status">Alerta</p>
-            </div>
+                </div>
 
             <a href="./infocamaras.html?id=${camara.idCamara}">
                 Informações da câmara
             </a>
-        </div>
-    </div>`;
+                </div>
+            </div>`;
                 } else {
                     container.innerHTML += `
-    <div class="kpi-camara">
-        <div class="kpi-header">
-            <h5>${camara.identificacao}</h5>
-            <img src="./image/cameras.png">
-        </div>
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+                <h5>${camara.identificacao}</h5>
+               <img src="./image/cameras.png">
+                </div>
 
-        <div class="kpi-main">
+             <div class="kpi-main">
             <h2>${camara.temperatura}º C</h2>
-
             <div>
                 <p>Seguro</p>
             </div>
