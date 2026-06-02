@@ -7,7 +7,6 @@ function listar() {
             c.idCamara,
             c.identificacao,
             r.registroTemp AS temperatura
-
         FROM camarafria c
         JOIN sensor s
             ON s.fkCamara = c.idCamara
@@ -15,9 +14,9 @@ function listar() {
             ON r.fkSensor = s.idSensor
 
         WHERE r.dtHora = (
-            SELECT MAX(r2.dtHora)
-            FROM registro r2
-            WHERE r2.fkSensor = s.idSensor
+            SELECT MAX(re.dtHora)
+            FROM registro re
+            WHERE re.fkSensor = s.idSensor
         );
     `;
 
