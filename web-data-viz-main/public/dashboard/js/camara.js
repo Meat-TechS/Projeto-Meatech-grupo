@@ -41,6 +41,68 @@ function camarasFaixaIdeal() {
         })
 }
 
+function listarCamaras() {
+    fetch('/camara/listar')
+        .then(function (resposta) {
+            return resposta.json();
+        }).then(function (camaras) {
+            let container = document.getElementById('kpisContainer');
+            container.innerHTML = ''
+
+            let totalAlerta = 0;
+            let totalSeguro = 0;
+
+        for (let i = 0; i < camaras.length; i++) {
+
+    let camara = camaras[i];
+
+    let statusHtml = "";
+
+    if (camara.status == "Alerta") {
+        statusHtml = `
+            <div class="status-div">
+                <p class="status">Alerta</p>
+            </div>
+        `;
+    } else {
+        statusHtml = `
+            <div>
+                <p>Seguro</p>
+            </div>
+        `;
+    }
+
+    container.innerHTML += `
+        <div class="kpi-camara">
+
+            <div class="kpi-header">
+                <h5>${camara.nome}</h5>
+                <img src="./image/cameras.png">
+            </div>
+
+            <div class="kpi-main">
+                <h2>${camara.temperatura}º C</h2>
+
+                ${statusHtml}
+
+                <a href="./infocamaras.html?id=${camara.idCamara}">
+                    Informações da câmara
+                </a>
+
+            </div>
+
+        </div>
+    `;
+}
+            document.getElementById('totalCamaras').innerHTML = camaras.length
+            document.getElementById('alerta').innerHTML = totalAlerta;
+            document.getElementById('seguro').innerHTML = totalSeguro;
+        })
+        .catch(function (erro){
+            console.log('erro ao listar camaras:', erro);
+        })
+}
+
 totalCamarasFrias()
 carregarCamarasCriticas()
 camarasFaixaIdeal()
