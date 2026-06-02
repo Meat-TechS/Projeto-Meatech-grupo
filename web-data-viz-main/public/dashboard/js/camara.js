@@ -42,7 +42,7 @@ function camarasFaixaIdeal() {
 }
 
 function listarCamaras() {
-    fetch('/camara/listar')
+    fetch('/camaras/listar')
         .then(function (resposta) {
             return resposta.json();
         }).then(function (camaras) {
@@ -51,58 +51,63 @@ function listarCamaras() {
 
             let totalAlerta = 0;
             let totalSeguro = 0;
+            for (let i = 0; i < camaras.length; i++) {
+                let camara = camaras[i];
+                let status = "Seguro";
 
-        for (let i = 0; i < camaras.length; i++) {
+                if (camara.temperatura < 0 || camara.temperatura > 5) {
+                    container.innerHTML += `
+                <div class="kpi-camara">
+                    <div class="kpi-header">
+            <h5>${camara.identificacao}</h5>
+            <img src="./image/cameras.png">
+        </div>
 
-    let camara = camaras[i];
+        <div class="kpi-main">
+            <h2>${camara.temperatura}º C</h2>
 
-    let statusHtml = "";
-
-    if (camara.status == "Alerta") {
-        statusHtml = `
             <div class="status-div">
                 <p class="status">Alerta</p>
             </div>
-        `;
-    } else {
-        statusHtml = `
+
+            <a href="./infocamaras.html?id=${camara.idCamara}">
+                Informações da câmara
+            </a>
+        </div>
+    </div>`;
+                } else {
+                    container.innerHTML += `
+    <div class="kpi-camara">
+        <div class="kpi-header">
+            <h5>${camara.identificacao}</h5>
+            <img src="./image/cameras.png">
+        </div>
+
+        <div class="kpi-main">
+            <h2>${camara.temperatura}º C</h2>
+
             <div>
                 <p>Seguro</p>
             </div>
-        `;
-    }
 
-    container.innerHTML += `
-        <div class="kpi-camara">
-
-            <div class="kpi-header">
-                <h5>${camara.nome}</h5>
-                <img src="./image/cameras.png">
-            </div>
-
-            <div class="kpi-main">
-                <h2>${camara.temperatura}º C</h2>
-
-                ${statusHtml}
-
-                <a href="./infocamaras.html?id=${camara.idCamara}">
-                    Informações da câmara
-                </a>
-
-            </div>
-
+            <a href="./infocamaras.html?id=${camara.idCamara}">
+                Informações da câmara
+            </a>
         </div>
-    `;
-}
+    </div>`;
+                }
+            }
             document.getElementById('totalCamaras').innerHTML = camaras.length
             document.getElementById('alerta').innerHTML = totalAlerta;
             document.getElementById('seguro').innerHTML = totalSeguro;
         })
-        .catch(function (erro){
-            console.log('erro ao listar camaras:', erro);
+        .catch(function (erro) {
+            console.log('erro ao listar camaras');
         })
 }
 
-totalCamarasFrias()
-carregarCamarasCriticas()
-camarasFaixaIdeal()
+// totalCamarasFrias()
+// carregarCamarasCriticas()
+// camarasFaixaIdeal()
+
+listarCamaras()
