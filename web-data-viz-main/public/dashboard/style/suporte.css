@@ -32,3 +32,6 @@
     color: #000000;
     font-weight: 600;
 }
+.main-item:hover {
+    transform: scale(1.05);
+}
