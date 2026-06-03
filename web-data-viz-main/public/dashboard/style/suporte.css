@@ -4,3 +4,12 @@
 .container{
     display: flex;
 }
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex:1;
+    gap: 40px;
+    padding: 20px;
+}
