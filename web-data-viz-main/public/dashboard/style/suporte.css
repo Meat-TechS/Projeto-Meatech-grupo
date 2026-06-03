@@ -20,11 +20,12 @@
     border: 2px solid #000000;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     border-left: 20px solid  #8C2434;
+    gap: 20px;
 }
 .main a {
     font-size: 26px;
@@ -34,4 +35,10 @@
 }
 .main-item:hover {
     transform: scale(1.05);
+}
+.main-item img {
+    display: flex;
+    justify-content: flex-start;
+     width: 40px;
+    height: 40px;
 }
