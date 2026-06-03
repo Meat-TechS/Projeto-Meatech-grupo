@@ -31,7 +31,7 @@ function listarCamaras() {
                 <p class="status">Critico</p>
                 </div>
 
-            <a href="./infocamaras.html?id=${camara.idCamara}">
+            <a href="./infocamaras.html">
                 Informações da câmara
             </a>
                 </div>
@@ -52,7 +52,7 @@ function listarCamaras() {
                 <p class="statusalert">Alerta</p>
                 </div>
 
-            <a href="./infocamaras.html?id=${camara.idCamara}">
+            <a href="./infocamaras.html">
                 Informações da câmara
             </a>
                 </div>
@@ -73,7 +73,7 @@ function listarCamaras() {
                 <p>Seguro</p>
             </div>
 
-            <a href="./infocamaras.html?id=${camara.idCamara}">
+            <a href="./infocamaras.html">
                 Informações da câmara
             </a>
         </div>
