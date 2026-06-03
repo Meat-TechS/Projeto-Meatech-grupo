@@ -118,6 +118,13 @@ a{
     color: #FF383C;
 }
 
+.kpi-main .status-divA{
+    background-color: #f4bb1f48;
+}
+.kpi-main .statusalert{
+    color: orange;
+}
+
 .kpi-main a {
     margin-left: auto;
     text-decoration: underline;
