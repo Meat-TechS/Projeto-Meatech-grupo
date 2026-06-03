@@ -43,11 +43,14 @@ a{
 }
 
 .info #alerta{
-    color: #FF383C;
+    color: orange;
 }
 
 #seguro{
     color: #10CA10;
+}
+#critico{
+    color: #FF383C;
 }
 
 .kpis{
