@@ -1,14 +1,45 @@
 var idCamara = localStorage.ID_CAMARA;
 
-function infoCamaras(){
+function infoCamaras() {
+  let numeroCamara = document.getElementById("numCamara");
 
-  let numeroCamara = document.getElementById('numCamara')
+  let situacao = document.getElementById("situacao");
 
-  numeroCamara.innerHTML = idCamara
+  numeroCamara.innerHTML = idCamara;
 
+  fetch("/camaras/listar")
+    .then((resposta) => {
+      return resposta.json();
+    })
+    .then((camaras) => {
+
+      for (let i = 0; i < camaras.length; i++) {
+
+        if (camaras[i].idCamara == idCamara) {
+
+          let seguro = camaras[i].temperatura >= 0 && camaras[i].temperatura <= 4
+
+          let alerta = camaras[i].temperatura > 4 && camaras[i].temperatura <= 7
+
+          if (seguro) {
+            situacao.innerHTML = 'SEGURO';
+             situacao.style.color = 'green';
+          } else if (alerta) {
+            situacao.innerHTML = "ALERTA";
+             situacao.style.color = 'orange';
+          } else {
+            situacao.innerHTML = "CRÍTICO";
+             situacao.style.color = 'red';
+          }
+
+          break;
+        }
+      }
+    })
+    .catch((erro) => {
+      console.log(erro);
+    });
 }
-
-
 
 function criarGrafico() {
   const data2 = {
@@ -105,6 +136,5 @@ function criarGrafico() {
   let graficoBarras = new Chart(document.getElementById("tempAtual"), config2);
 }
 
-
-criarGrafico()
-infoCamaras()
+criarGrafico();
+infoCamaras();
