@@ -59,6 +59,7 @@ function login() {
             });
           } else {
             console.log("Houve um erro ao tentar realizar o login!");
+            document.getElementById("login-invalid-error").style.display = "block";
 
             resposta.text().then((texto) => {
               console.error(texto);
