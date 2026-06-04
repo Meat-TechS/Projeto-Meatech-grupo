@@ -94,3 +94,22 @@ CONSTRAINT chkstatuss
      )
     )
  );
+
+ -- Tabela Atendimento
+CREATE TABLE atendimento(
+ idatendimento INT PRIMARY KEY AUTO_INCREMENT,
+ fkchamado INT,
+ fKfuncionario INT,
+ FOREIGN KEY (fkchamado) REFERENCES chamado (idchamado),
+ FOREIGN KEY (fkfuncionario) REFERENCES funcionario (idfuncionario),
+ dataAtendimento DATETIME DEFAULT CURRENT_TIMESTAMP(),
+ nivelAtendimento INT,
+ CONSTRAINT chknivelatendimento
+ CHECK(
+ nivelAtendimento IN (
+ 1,
+ 2,
+ 3
+ )
+ )
+ );
