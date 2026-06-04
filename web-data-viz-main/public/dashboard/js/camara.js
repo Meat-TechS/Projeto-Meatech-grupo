@@ -31,7 +31,7 @@ function listarCamaras() {
                 <p class="status">Critico</p>
                 </div>
 
-            <a onclick="abrirCamara(${camara.idCamara})">
+            <a style="cursor: pointer;" onclick="abrirCamara(${camara.idCamara})">
                 Informações da câmara
             </a>
                 </div>
@@ -52,7 +52,7 @@ function listarCamaras() {
                 <p class="statusalert">Alerta</p>
                 </div>
 
-            <a onclick="abrirCamara(${camara.idCamara})">
+            <a style="cursor: pointer;" onclick="abrirCamara(${camara.idCamara})">
                 Informações da câmara
             </a>
                 </div>
@@ -73,7 +73,7 @@ function listarCamaras() {
                 <p>Seguro</p>
             </div>
 
-            <a onclick="abrirCamara(${camara.idCamara})">
+            <a style="cursor: pointer;" onclick="abrirCamara(${camara.idCamara})">
                 Informações da câmara
             </a>
         </div>

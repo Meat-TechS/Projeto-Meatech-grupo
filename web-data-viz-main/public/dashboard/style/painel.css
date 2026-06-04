@@ -9,6 +9,19 @@
     overflow-y: auto;
 }
 
+.menu .sair{
+    margin: auto;
+    background-color: #fff;
+    width: 70%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
 .box {
     flex: 1;
     height: 100%;

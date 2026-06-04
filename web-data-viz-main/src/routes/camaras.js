@@ -7,4 +7,12 @@ router.get("/listar", function (req, res) {
     camaraController.listar(req, res);
 });
 
+router.get('/detalhes/:idCamara', function(req, res){
+    camaraController.buscarDetalhesCamara(req, res);
+});
+
+router.get('/historico/:idCamara', function(req, res){
+    camaraController.historicoTemperatura(req, res);
+});
+
 module.exports = router;

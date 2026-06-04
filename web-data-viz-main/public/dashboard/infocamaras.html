@@ -42,7 +42,7 @@
                 </a>
             </div>
 
-            <button>Sair</button>
+              <a class="sair" href="./../site-institucional/site.html">Sair</a>
         </div>
 
 
@@ -50,7 +50,7 @@
 
             <div class="info">
                 <div class="sobre">
-                    <button class="voltar"><a href="./camara.html">Voltar</a></button>
+                    <a href="./camara.html">Voltar</a>
 
                     <h4>Informações da Câmara: <span id="numCamara"></span> </h4>
                 </div>
@@ -59,8 +59,8 @@
                 <div class="grafico">
                     <h3>Temperatura da Câmara Fria</h3>
                     <p>Temperatura ideal: <span>0°C a 4°C</span></p>
-                    <div class="tempAtual">
-                        <canvas id="tempAtual"></canvas>
+                    <div class="graficoTemperatura">
+                        <canvas id="temperaturaAtual"></canvas>
                     </div>
                 </div>
 
@@ -72,37 +72,25 @@
 
                 <div class="informacao">
                     <p>Temperatura atual:</p>
-                    <p id="temp"></p>
+                    <p id="tempeAtual"></p>
                 </div>
                 <div class="linha"></div>
 
                 <div class="informacao">
                     <p>Temperatura minima registrada hoje:</p>
-                    <p>-2°C</p>
+                    <p id="tempMinima"></p>
                 </div>
                 <div class="linha"></div>
 
                 <div class="informacao">
                     <p>Temperatura maxima registrada hoje:</p>
-                    <p>6°C</p>
-                </div>
-                <div class="linha"></div>
-
-                <div class="informacao">
-                    <p>Tempo total de porta aberta no dia:</p>
-                    <p>18 min</p>
-                </div>
-                <div class="linha"></div>
-
-                <div class="informacao">
-                    <p>Tempo máximo de abertura da porta:</p>
-                    <p>7 min</p>
+                    <p id="tempMaxima"></p>
                 </div>
                 <div class="linha"></div>
 
                 <div class="informacao">
                     <p>Quantidade de vezes que a a porta foi aberta:</p>
-                    <p>5 vezes</p>
+                    <p id="qtdAberturas"></p>
                 </div>
                 <div class="linha"></div>
             </div>
