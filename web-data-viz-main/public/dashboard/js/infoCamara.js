@@ -5,6 +5,8 @@ function infoCamaras() {
 
   let situacao = document.getElementById("situacao");
 
+  let temp = document.getElementById("temp")
+
   numeroCamara.innerHTML = idCamara;
 
   fetch("/camaras/listar")
@@ -24,12 +26,15 @@ function infoCamaras() {
           if (seguro) {
             situacao.innerHTML = 'SEGURO';
              situacao.style.color = 'green';
+             temp.innerHTML = `${Number(camaras[i].temperatura).toFixed(1)}°C`
           } else if (alerta) {
             situacao.innerHTML = "ALERTA";
              situacao.style.color = 'orange';
+             temp.innerHTML = `${Number(camaras[i].temperatura).toFixed(1)}°C`
           } else {
             situacao.innerHTML = "CRÍTICO";
              situacao.style.color = 'red';
+             temp.innerHTML = `${Number(camaras[i].temperatura).toFixed(1)}°C`
           }
 
           break;
