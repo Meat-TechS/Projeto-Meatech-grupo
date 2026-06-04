@@ -11,6 +11,19 @@
     overflow-y: auto;
 }
 
+.sair{
+    margin: auto;
+    background-color: #fff;
+    width: 70%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
 .info{
     width: 90%;
     height: auto;
