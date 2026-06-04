@@ -35,10 +35,9 @@
     margin-bottom: 20px;
 }
 
-.sobre button{
+.sobre a{
     width: 100px;
     height: 30px;
-    align-self: center;
     border-radius: 5px;
     border: none;
     font-size: 14px;
@@ -46,12 +45,15 @@
     box-shadow: 1px 1px 4px #00000023;
     border: 1px solid rgb(0, 0, 0);
     cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-a{
-    text-decoration: none;
-    color: #000000;
-}
+
 
 .informacao {
     width: 100%;
