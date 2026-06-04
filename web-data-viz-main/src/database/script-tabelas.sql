@@ -75,3 +75,22 @@ CREATE TABLE alerta (
             )
         )
 );
+
+-- Tabela Chamado
+CREATE TABLE chamado(
+idchamado INT PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(45),
+descricao VARCHAR (250),
+dataAbertura DATETIME DEFAULT CURRENT_TIMESTAMP(),
+statuss VARCHAR (25),
+fKFuncionario INT,
+CONSTRAINT funchamado FOREIGN KEY (fkFuncionario) REFERENCES funcionario(idFuncionario),
+CONSTRAINT chkstatuss
+ CHECK(
+ statuss IN(
+ 'pendente',
+ 'em andamento',
+ 'concluído'
+     )
+    )
+ );
