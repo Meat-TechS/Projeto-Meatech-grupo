@@ -4,20 +4,20 @@ function listar() {
 
     var instrucaoSql = `
         SELECT
-            c.idCamara,
-            c.identificacao,
-            r.registroTemp AS temperatura
-        FROM camarafria c
-        JOIN sensor s
-            ON s.fkCamara = c.idCamara
-        JOIN registro r
-            ON r.fkSensor = s.idSensor
-
-        WHERE r.dtHora = (
-            SELECT MAX(re.dtHora)
-            FROM registro re
-            WHERE re.fkSensor = s.idSensor
-        );
+    c.idCamara,
+    c.identificacao,
+    r.registroTemp AS temperatura
+    FROM camarafria c
+    JOIN sensor s
+        ON s.fkCamara = c.idCamara
+    JOIN registro r
+        ON r.fkSensor = s.idSensor
+    WHERE s.tipoSensor = 'temperatura'
+    AND r.dtHora = (
+        SELECT MAX(re.dtHora)
+        FROM registro re
+        WHERE re.fkSensor = s.idSensor
+);
     `;
 
     return database.executar(instrucaoSql);

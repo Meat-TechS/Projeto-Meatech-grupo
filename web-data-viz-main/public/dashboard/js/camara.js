@@ -25,7 +25,7 @@ function listarCamaras() {
                  </div>
 
                 <div class="kpi-main">
-                <h2>${camara.temperatura}º C</h2>
+                <h2>${Number(camara.temperatura).toFixed(1)}º C</h2>
 
                 <div class="status-div">
                 <p class="status">Critico</p>
@@ -46,7 +46,7 @@ function listarCamaras() {
                  </div>
 
                 <div class="kpi-main">
-                <h2>${camara.temperatura}º C</h2>
+                <h2>${Number(camara.temperatura).toFixed(1)}º C</h2>
 
                 <div class="status-divA">
                 <p class="statusalert">Alerta</p>
@@ -68,7 +68,7 @@ function listarCamaras() {
                 </div>
 
              <div class="kpi-main">
-            <h2>${camara.temperatura}º C</h2>
+            <h2>${Number(camara.temperatura).toFixed(1)}º C</h2>
             <div>
                 <p>Seguro</p>
             </div>
