@@ -13,6 +13,36 @@ function listar(req, res) {
         });
 }
 
+function buscarDetalhesCamara(req, res) {
+
+    const idCamara = req.params.idCamara;
+
+    camaraModel.buscarDetalhesCamara(idCamara)
+        .then(resultado => {
+            res.json(resultado[0]);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function historicoTemperatura(req, res) {
+
+    const idCamara = req.params.idCamara;
+
+    camaraModel.historicoTemperatura(idCamara)
+        .then(resultado => {
+            res.status(200).json(resultado);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
-    listar
+    listar,
+    buscarDetalhesCamara,
+    historicoTemperatura
 };
