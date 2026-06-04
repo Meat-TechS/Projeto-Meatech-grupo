@@ -5,6 +5,15 @@ function carregarKpiPortas10() {
             console.log("KPI portas:", data);
 
             document.getElementById("kpiPortas").innerHTML = data[0].portas_abertas_10min;
+
+            if (data[0].portas_abertas_10min > 0) {
+                mostrarAlertaUnico(
+                    `porta_aberta,
+                    Portas abertas há mais de 10 minutos,
+                    ${data[0].portas_abertas_10min} porta(s) em situação crítica,
+                    alerta`
+                );
+            }
         })
         .catch(erro => {
             console.log("Erro ao carregar KPI", erro)
@@ -102,6 +111,22 @@ function atualizarGraficoTemperaturas(dados) {
         );
     });
 
+    if (item.registroTemp < 0) {
+        mostrarAlertaUnico(
+            item.identificacao + `_frio,
+            Câmara em temperatura crítica,
+            ${item.identificacao} está com ${item.registroTemp}°C,
+            perigo`
+        );
+    } else if (item.registroTemp > 7) {
+        mostrarAlertaUnico(
+            item.identificacao + `_quente,
+            Câmara em temperatura crítica,
+            ${item.identificacao} está com ${item.registroTemp}°C,
+            perigo`
+        );
+    }
+
     graficoTemperatura.data.labels = labels;
     graficoTemperatura.data.datasets[0].data = temperaturas;
     graficoTemperatura.data.datasets[0].backgroundColor = cores;
@@ -150,3 +175,28 @@ setInterval(() => {
 
 }, 5000);
 
+function criarAlerta(titulo, mensagem, tipo = "perigo") {
+
+    const container = document.getElementById("containerAlertas");
+
+    const alerta = document.createElement("div");
+    alerta.classList.add("toast-alerta");
+
+    alerta.innerHTML = `
+        <div class="toast-info">
+            <div class="toast-bolinha ${tipo}"></div>
+
+            <div class="toast-texto">
+                <h3>${titulo}</h3>
+                <p>${mensagem}</p>
+            </div>
+        </div>
+
+        <div class="toast-icone">🔔</div> `;
+
+    container.appendChild(alerta);
+
+    setTimeout(() => {
+        alerta.remove();
+    }, 5000);
+}
