@@ -94,13 +94,19 @@
 
 .verde {
     color: #2ecc71;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .vermelho {
     color: #FF383C;
+    font-size: 14px;
+    font-weight: bold;
 }
 .amarelo {
     color: orange;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .grafico {
