@@ -96,7 +96,9 @@ function atualizarGraficoTemperaturas(dados) {
         cores.push(
             item.registroTemp >= 0 && item.registroTemp <= 4
                 ? "#006400"
-                : "#8B0000"
+                : item.registroTemp > 4 && item.registroTemp <= 7
+                    ? "#FFA500"
+                    : "#8B0000"
         );
     });
 
