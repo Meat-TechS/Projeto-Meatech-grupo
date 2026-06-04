@@ -1,3 +1,6 @@
+let alertasAtivos = [];
+let graficoTemperatura;
+
 function carregarKpiPortas10() {
     fetch("contarPortasAbertasMais10Min")
         .then(res => res.json())
@@ -109,23 +112,24 @@ function atualizarGraficoTemperaturas(dados) {
                     ? "#FFA500"
                     : "#8B0000"
         );
-    });
 
-    if (item.registroTemp < 0) {
-        mostrarAlertaUnico(
-            item.identificacao + `_frio,
-            Câmara em temperatura crítica,
-            ${item.identificacao} está com ${item.registroTemp}°C,
-            perigo`
-        );
-    } else if (item.registroTemp > 7) {
-        mostrarAlertaUnico(
-            item.identificacao + `_quente,
-            Câmara em temperatura crítica,
-            ${item.identificacao} está com ${item.registroTemp}°C,
-            perigo`
-        );
-    }
+        if (item.registroTemp < 0) {
+            mostrarAlertaUnico(
+                `${item.identificacao}_frio`,
+                "Câmara em temperatura crítica",
+                `${item.identificacao} está com ${item.registroTemp}°C`,
+                "perigo"
+            );
+        } else if (item.registroTemp > 7) {
+            mostrarAlertaUnico(
+                `${item.identificacao}_quente`,
+                "Câmara em temperatura crítica",
+                `${item.identificacao} está com ${item.registroTemp}°C`,
+                "perigo"
+            );
+        }
+
+    });
 
     graficoTemperatura.data.labels = labels;
     graficoTemperatura.data.datasets[0].data = temperaturas;
@@ -198,7 +202,7 @@ function criarAlerta(titulo, mensagem, tipo = "perigo") {
 
     setTimeout(() => {
         alerta.remove();
-    }, 5000);
+    }, 10000);
 }
 
 function mostrarAlertaUnico(idAlerta, titulo, mensagem, tipo) {
@@ -214,12 +218,10 @@ function mostrarAlertaUnico(idAlerta, titulo, mensagem, tipo) {
         mensagem,
         tipo
     );
-
+    
     setTimeout(() => {
-
         alertasAtivos = alertasAtivos.filter(
             item => item !== idAlerta
         );
-
     }, 30000);
 }
