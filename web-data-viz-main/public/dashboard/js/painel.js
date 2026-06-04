@@ -8,10 +8,10 @@ function carregarKpiPortas10() {
 
             if (data[0].portas_abertas_10min > 0) {
                 mostrarAlertaUnico(
-                    `porta_aberta,
-                    Portas abertas há mais de 10 minutos,
-                    ${data[0].portas_abertas_10min} porta(s) em situação crítica,
-                    alerta`
+                    "porta_aberta",
+                    "Portas abertas há mais de 10 minutos",
+                    `${data[0].portas_abertas_10min} porta(s) em situação crítica`,
+                    "alerta"
                 );
             }
         })
@@ -199,4 +199,27 @@ function criarAlerta(titulo, mensagem, tipo = "perigo") {
     setTimeout(() => {
         alerta.remove();
     }, 5000);
+}
+
+function mostrarAlertaUnico(idAlerta, titulo, mensagem, tipo) {
+
+    if (alertasAtivos.includes(idAlerta)) {
+        return;
+    }
+
+    alertasAtivos.push(idAlerta);
+
+    criarAlerta(
+        titulo,
+        mensagem,
+        tipo
+    );
+
+    setTimeout(() => {
+
+        alertasAtivos = alertasAtivos.filter(
+            item => item !== idAlerta
+        );
+
+    }, 30000);
 }
