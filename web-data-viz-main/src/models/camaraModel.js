@@ -1,23 +1,24 @@
 var database = require("../database/config");
 
-function listar() {
+function listar(idEmpresa) {
 
     var instrucaoSql = `
         SELECT
-    c.idCamara,
-    c.identificacao,
-    r.registroTemp AS temperatura
-    FROM camarafria c
-    JOIN sensor s
-        ON s.fkCamara = c.idCamara
-    JOIN registro r
-        ON r.fkSensor = s.idSensor
-    WHERE s.tipoSensor = 'temperatura'
-    AND r.dtHora = (
-        SELECT MAX(re.dtHora)
-        FROM registro re
-        WHERE re.fkSensor = s.idSensor
-);
+            c.idCamara,
+            c.identificacao,
+            r.registroTemp AS temperatura
+        FROM camarafria c
+        JOIN sensor s
+            ON s.fkCamara = c.idCamara
+        JOIN registro r
+            ON r.fkSensor = s.idSensor
+        WHERE s.tipoSensor = 'temperatura'
+          AND c.fkEmpresa = ${idEmpresa}
+          AND r.dtHora = (
+              SELECT MAX(re.dtHora)
+              FROM registro re
+              WHERE re.fkSensor = s.idSensor
+          );
     `;
 
     return database.executar(instrucaoSql);
@@ -33,7 +34,7 @@ function buscarDetalhesCamara(idCamara) {
                 JOIN sensor s
                     ON s.idSensor = r.fkSensor
                 WHERE s.fkCamara = ${idCamara}
-                AND s.tipoSensor = 'temperatura'
+                  AND s.tipoSensor = 'temperatura'
                 ORDER BY r.dtHora DESC
                 LIMIT 1
             ) AS temperaturaAtual,
@@ -44,7 +45,7 @@ function buscarDetalhesCamara(idCamara) {
                 JOIN sensor s
                     ON s.idSensor = r.fkSensor
                 WHERE s.fkCamara = ${idCamara}
-                AND s.tipoSensor = 'temperatura'
+                  AND s.tipoSensor = 'temperatura'
             ) AS temperaturaMinima,
 
             (
@@ -53,7 +54,7 @@ function buscarDetalhesCamara(idCamara) {
                 JOIN sensor s
                     ON s.idSensor = r.fkSensor
                 WHERE s.fkCamara = ${idCamara}
-                AND s.tipoSensor = 'temperatura'
+                  AND s.tipoSensor = 'temperatura'
             ) AS temperaturaMaxima,
 
             (
@@ -62,8 +63,8 @@ function buscarDetalhesCamara(idCamara) {
                 JOIN sensor s
                     ON s.idSensor = r.fkSensor
                 WHERE s.fkCamara = ${idCamara}
-                AND s.tipoSensor = 'porta'
-                AND r.registroPorta = 1
+                  AND s.tipoSensor = 'porta'
+                  AND r.registroPorta = 1
             ) AS quantidadeAberturas;
     `;
 
@@ -80,14 +81,13 @@ function historicoTemperatura(idCamara) {
         JOIN sensor s 
             ON s.idSensor = r.fkSensor
         WHERE s.fkCamara = ${idCamara}
-        AND s.tipoSensor = 'temperatura'
+          AND s.tipoSensor = 'temperatura'
         ORDER BY r.dtHora DESC
         LIMIT 24;
     `;
 
     return database.executar(instrucaoSql);
 }
-
 module.exports = {
     listar,
     buscarDetalhesCamara,

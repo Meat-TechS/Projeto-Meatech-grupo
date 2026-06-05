@@ -4,7 +4,7 @@ let graficoTemperatura;
 const idEmpresa = sessionStorage.FK_EMPRESA;
 
 function carregarKpiPortas10() {
-    fetch("contarPortasAbertasMais10Min")
+    fetch(`/dashboard/contarPortasAbertasMais10Min/${idEmpresa}`)
         .then(res => res.json())
         .then(data => {
             console.log("KPI portas:", data);
@@ -27,7 +27,7 @@ function carregarKpiPortas10() {
 
 
 function carregarCamarasCriticas() {
-    fetch("contarCamarasCriticas")
+    fetch(`/dashboard/contarCamarasCriticas/${idEmpresa}`)
         .then(res => res.json())
         .then(data => {
             console.log("KPI camaras", data);
@@ -40,7 +40,7 @@ function carregarCamarasCriticas() {
 }
 
 function camarasFaixaIdeal() {
-    fetch("camarasIdeal")
+    fetch(`/dashboard/camarasIdeal/${idEmpresa}`)
         .then(res => res.json())
         .then(data => {
             console.log("KPI Faixa Ideal", data);
@@ -73,7 +73,7 @@ function totalCamarasFrias() {
 }
 
 function portaIdeal() {
-    fetch("portaIdeal")
+    fetch(`/dashboard/portaIdeal/${idEmpresa}`)
         .then(res => res.json())
         .then(data => {
 
@@ -89,7 +89,7 @@ function portaIdeal() {
 }
 
 function buscarGraficoTemperaturas() {
-    fetch("/dashboard/temperaturas")
+    fetch(`/dashboard/temperaturas/${idEmpresa}`)
         .then(res => res.json())
         .then(dados => {
             atualizarGraficoTemperaturas(dados);

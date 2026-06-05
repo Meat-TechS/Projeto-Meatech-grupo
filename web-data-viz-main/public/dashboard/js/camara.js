@@ -1,5 +1,7 @@
+const idEmpresa = sessionStorage.FK_EMPRESA;
+
 function listarCamaras() {
-    fetch('/camaras/listar')
+    fetch(`/camaras/listar/${idEmpresa}`)
         .then(function (resposta) {
             return resposta.json();
         }).then(function (camaras) {

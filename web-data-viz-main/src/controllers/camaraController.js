@@ -2,7 +2,9 @@ var camaraModel = require("../models/camaraModel");
 
 function listar(req, res) {
 
-    camaraModel.listar()
+    var idEmpresa = req.params.idEmpresa;
+
+    camaraModel.listar(idEmpresa)
         .then(function (resultado) {
             res.status(200).json(resultado);
 

@@ -3,27 +3,33 @@ var router = express.Router();
 
 var dashboardController = require("../controllers/dashboardController");
 
-router.get("/contarPortasAbertasMais10Min", function(req, res){
-    dashboardController.contarPortasAbertasMais10Min(req, res)
-})
+// PORTAS ABERTAS
+router.get("/contarPortasAbertasMais10Min/:idEmpresa", function(req, res){
+    dashboardController.contarPortasAbertasMais10Min(req, res);
+});
 
-router.get("/contarCamarasCriticas", function(req, res){
-    dashboardController.contarCamarasCriticas(req, res)
-})
+// CÂMARAS CRÍTICAS
+router.get("/contarCamarasCriticas/:idEmpresa", function(req, res){
+    dashboardController.contarCamarasCriticas(req, res);
+});
 
-router.get("/camarasIdeal", function(req, res){
-    dashboardController.camarasIdeal(req, res)
-})
+// CÂMARAS IDEAL
+router.get("/camarasIdeal/:idEmpresa", function(req, res){
+    dashboardController.camarasIdeal(req, res);
+});
 
+// TOTAL CÂMARAS
 router.get("/totalCamaras/:idEmpresa", function(req, res) {
     dashboardController.totalCamaras(req, res);
 });
 
-router.get("/portaIdeal", function(req, res){
-    dashboardController.portaIdeal(req, res)
-})
+// PORTA IDEAL
+router.get("/portaIdeal/:idEmpresa", function(req, res){
+    dashboardController.portaIdeal(req, res);
+});
 
-router.get("/temperaturas", function (req, res) {
+// TEMPERATURAS
+router.get("/temperaturas/:idEmpresa", function (req, res) {
     dashboardController.buscarTemperaturasCamaras(req, res);
 });
 
