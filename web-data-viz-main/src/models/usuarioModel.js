@@ -87,8 +87,6 @@ function cadastrarFuncionario(
 }
 
 
-
-
 module.exports = {
     autenticar,
     cadastrarEmpresa,

@@ -15,9 +15,9 @@ router.get("/camarasIdeal", function(req, res){
     dashboardController.camarasIdeal(req, res)
 })
 
-router.get("/totalCamaras", function(req, res){
-    dashboardController.totalCamaras(req, res)
-})
+router.get("/totalCamaras/:idEmpresa", function(req, res) {
+    dashboardController.totalCamaras(req, res);
+});
 
 router.get("/portaIdeal", function(req, res){
     dashboardController.portaIdeal(req, res)

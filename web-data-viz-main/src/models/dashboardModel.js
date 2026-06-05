@@ -61,16 +61,18 @@ WHERE s.tipoSensor = 'temperatura'
     return database.executar(instrucaoSql)
 }
 
-function totalCamaras() {
+function totalCamaras(idEmpresa) {
     const instrucaoSql =
         `
     SELECT
     COUNT(*) AS total_camaras
-    FROM camarafria;
+    FROM camarafria 
+    WHERE fkEmpresa = ${idEmpresa};
     `
 
     return database.executar(instrucaoSql)
 }
+
 
 function portaIdeal() {
     const instrucaoSql =

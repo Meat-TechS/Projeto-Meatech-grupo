@@ -1,6 +1,8 @@
 let alertasAtivos = [];
 let graficoTemperatura;
 
+const idEmpresa = sessionStorage.FK_EMPRESA;
+
 function carregarKpiPortas10() {
     fetch("contarPortasAbertasMais10Min")
         .then(res => res.json())
@@ -52,7 +54,7 @@ function camarasFaixaIdeal() {
 
 function totalCamarasFrias() {
 
-    fetch("totalCamaras") // chama a rota no backend
+    fetch(`totalCamaras/${idEmpresa}`) // chama a rota no backend
         .then(res => res.json()) // converte resposta para JSON
         .then(data => { // recebe o resultado do backend
 

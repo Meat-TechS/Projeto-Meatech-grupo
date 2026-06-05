@@ -34,7 +34,9 @@ function camarasIdeal(req, res){
 }
 
 function totalCamaras(req, res){
-  dashboardModel.totalCamaras()
+  var idEmpresa = req.params.idEmpresa;
+  
+  dashboardModel.totalCamaras(idEmpresa)
   .then(resultado => {
     res.json(resultado);
   }) 
@@ -43,6 +45,7 @@ function totalCamaras(req, res){
     res.status(500).send("Erro ao buscar o total de Câmaras");
   })
 }
+
 
 function portaIdeal(req, res){
   dashboardModel.portaIdeal()
