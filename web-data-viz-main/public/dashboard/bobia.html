@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BobIA</title>
+    <link rel="stylesheet" href="./style/bobia.css">
+    <link rel="stylesheet" href="./style/menu.css">
+    <link rel="stylesheet" href="./style/suporte.css">
+</head>
+<body>
+
+     <div class="container">
+
+        <div class="menu">
+            <div class="img-h1">
+                <img src="./image/logo3.png" alt="logo da empresa">
+                <h1>Bem-vindo(a)!</h1>
+            </div>
+
+            <div class="nav-bar">
+                <a href="#" class="nav-item">
+                    <img src="./image/dash.png"> Painel
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/suporte.png"> Suporte
+                </a>
+                <a href="./camara.html" class="nav-item">
+                    <img src="./image/temp.png"> Câmaras frias
+                </a>
+                <a href="../site-institucional/login-cadastro/cadastroFuncionario.html" class="nav-item">
+                    <img src="./image/pessoa.png"> Cadastro do funcionario
+                </a>
+            </div>
+
+            <button><a href="../site-institucional/site.html">Sair</a></button>
+        </div>
+
+    <div  class="box">
+        <h1>BobIA</h1>
+        <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
+        <br><br>
+        <button onclick="gerarResposta()">Gerar Resposta</button>
+        <h3>Resposta da IA:</h3>
+        <div id="resposta"></div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        
+        async function gerarResposta() {
+            const pergunta = document.getElementById('pergunta').value;
+
+            const response = await fetch('/perguntar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ pergunta })
+            });
+
+            const data = await response.json();
+
+            resposta.style.display = 'block';
+            document.getElementById('resposta').innerText = data.resultado;
+        }
+
+    </script>
+    
+</body>
+</html>
