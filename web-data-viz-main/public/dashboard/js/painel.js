@@ -1,4 +1,3 @@
-let alertasAtivos = [];
 let graficoTemperatura;
 
 const idEmpresa = sessionStorage.FK_EMPRESA;
@@ -140,6 +139,53 @@ function atualizarGraficoTemperaturas(dados) {
     graficoTemperatura.update();
 }
 
+function criarAlerta(idAlerta, titulo, mensagem) {
+
+    const container = document.getElementById("containerAlertas");
+
+    const alerta = document.createElement("div");
+    alerta.classList.add("alerta");
+
+    // guarda o ID no próprio elemento (importante pra remover depois)
+    alerta.dataset.id = idAlerta;
+
+    alerta.innerHTML = `
+        <div class="alerta-info">
+            <div class="alerta-texto">
+                <h3>${titulo}</h3>
+                <p>${mensagem}</p>
+            </div>
+        </div>
+        <div class="alerta-icone">🔔</div>
+    `;
+
+    container.appendChild(alerta);
+}
+
+function mostrarAlertaUnico(idAlerta, titulo, mensagem) {
+
+    if (alertasAtivos.includes(idAlerta)) {
+        return;
+    }
+
+    alertasAtivos.push(idAlerta);
+
+    criarAlerta(idAlerta, titulo, mensagem);
+}
+
+function removerAlerta(idAlerta) {
+
+    // remove da lista de ativos
+    alertasAtivos = alertasAtivos.filter(item => item !== idAlerta);
+
+    // remove da tela
+    const alerta = document.querySelector(`[data-id='${idAlerta}']`);
+
+    if (alerta) {
+        alerta.remove();
+    }
+}
+
 function iniciarGrafico() {
 
     const ctx = document.getElementById("tempAtual").getContext("2d");
@@ -180,50 +226,3 @@ setInterval(() => {
     buscarGraficoTemperaturas();
 
 }, 5000);
-
-function criarAlerta(titulo, mensagem, tipo = "perigo") {
-
-    const container = document.getElementById("containerAlertas");
-
-    const alerta = document.createElement("div");
-    alerta.classList.add("toast-alerta");
-
-    alerta.innerHTML = `
-        <div class="toast-info">
-            <div class="toast-bolinha ${tipo}"></div>
-
-            <div class="toast-texto">
-                <h3>${titulo}</h3>
-                <p>${mensagem}</p>
-            </div>
-        </div>
-
-        <div class="toast-icone">🔔</div> `;
-
-    container.appendChild(alerta);
-
-    setTimeout(() => {
-        alerta.remove();
-    }, 10000);
-}
-
-function mostrarAlertaUnico(idAlerta, titulo, mensagem, tipo) {
-
-    if (alertasAtivos.includes(idAlerta)) {
-        return;
-    }
-
-    alertasAtivos.push(idAlerta);
-
-    criarAlerta(
-        titulo,
-        mensagem,
-        tipo
-    );
-    
-    setTimeout(() => {
-        alertasAtivos = alertasAtivos.filter(
-            item => item !== idAlerta
-        );
-    }, 30000);
-}
