@@ -8,9 +8,6 @@ const pTempAtual = document.getElementById("tempeAtual");
 const pTempMinima = document.getElementById("tempMinima");
 const pTempMaxima = document.getElementById("tempMaxima");
 const pQtdAberturas = document.getElementById("qtdAberturas");
-const numCaramas = document.getElementById("numCamara");
-
-numCaramas.innerHTML = idCamara
 
 
 fetch(`/camaras/detalhes/${idCamara}`)
