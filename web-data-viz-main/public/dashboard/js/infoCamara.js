@@ -2,7 +2,6 @@ var idCamara = localStorage.ID_CAMARA;
 
 function infoCamaras(){
 
-
 const pSituacao = document.getElementById("situacao");
 const pTempAtual = document.getElementById("tempeAtual");
 const pTempMinima = document.getElementById("tempMinima");

@@ -46,6 +46,7 @@ function buscarDetalhesCamara(idCamara) {
                     ON s.idSensor = r.fkSensor
                 WHERE s.fkCamara = ${idCamara}
                   AND s.tipoSensor = 'temperatura'
+                  AND DATE(r.dtHora) = CURDATE()
             ) AS temperaturaMinima,
 
             (
@@ -55,6 +56,7 @@ function buscarDetalhesCamara(idCamara) {
                     ON s.idSensor = r.fkSensor
                 WHERE s.fkCamara = ${idCamara}
                   AND s.tipoSensor = 'temperatura'
+                  AND DATE(r.dtHora) = CURDATE() 
             ) AS temperaturaMaxima,
 
             (
@@ -65,6 +67,7 @@ function buscarDetalhesCamara(idCamara) {
                 WHERE s.fkCamara = ${idCamara}
                   AND s.tipoSensor = 'porta'
                   AND r.registroPorta = 1
+                  AND DATE(r.dtHora) = CURDATE()
             ) AS quantidadeAberturas;
     `;
 
@@ -82,12 +85,13 @@ function historicoTemperatura(idCamara) {
             ON s.idSensor = r.fkSensor
         WHERE s.fkCamara = ${idCamara}
           AND s.tipoSensor = 'temperatura'
-        ORDER BY r.dtHora DESC
-        LIMIT 24;
+          AND DATE(r.dtHora) = CURDATE()
+        ORDER BY r.dtHora ASC; 
     `;
 
     return database.executar(instrucaoSql);
 }
+
 module.exports = {
     listar,
     buscarDetalhesCamara,
