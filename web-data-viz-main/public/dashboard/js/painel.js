@@ -15,7 +15,6 @@ function carregarKpiPortas10() {
                     "porta_aberta",
                     "Portas abertas há mais de 10 minutos",
                     `${data[0].portas_abertas_10min} porta(s) em situação crítica`,
-                    "alerta"
                 );
             }
         })
@@ -139,6 +138,19 @@ function atualizarGraficoTemperaturas(dados) {
     graficoTemperatura.update();
 }
 
+let alertasAtivos = [];
+
+function mostrarAlertaUnico(idAlerta, titulo, mensagem) {
+
+    if (alertasAtivos.includes(idAlerta)) {
+        return;
+    }
+
+    alertasAtivos.push(idAlerta);
+
+    criarAlerta(idAlerta, titulo, mensagem);
+}
+
 function criarAlerta(idAlerta, titulo, mensagem) {
 
     const container = document.getElementById("containerAlertas");
@@ -146,7 +158,6 @@ function criarAlerta(idAlerta, titulo, mensagem) {
     const alerta = document.createElement("div");
     alerta.classList.add("alerta");
 
-    // guarda o ID no próprio elemento (importante pra remover depois)
     alerta.dataset.id = idAlerta;
 
     alerta.innerHTML = `
@@ -160,17 +171,6 @@ function criarAlerta(idAlerta, titulo, mensagem) {
     `;
 
     container.appendChild(alerta);
-}
-
-function mostrarAlertaUnico(idAlerta, titulo, mensagem) {
-
-    if (alertasAtivos.includes(idAlerta)) {
-        return;
-    }
-
-    alertasAtivos.push(idAlerta);
-
-    criarAlerta(idAlerta, titulo, mensagem);
 }
 
 function removerAlerta(idAlerta) {
