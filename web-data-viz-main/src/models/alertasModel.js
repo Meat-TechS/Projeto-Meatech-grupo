@@ -2,9 +2,10 @@ var database = require("../database/config");
 
 function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
     // Usando exatamente os nomes das suas colunas do print
+    const fkValidado = (fkRegistro === undefined || fkRegistro === null || fkRegistro == 0 || fkRegistro == 'undefined') ? "NULL" : fkRegistro;
     const instrucaoSql = `
         INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
-        VALUES ('${tipoAlerta}', '${descricao}', NOW(), ${fkRegistro});
+        VALUES ('${tipoAlerta}', '${descricao}', NOW(), ${fkValidado});
     `;
     console.log("Executando SQL Salvar Alerta: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

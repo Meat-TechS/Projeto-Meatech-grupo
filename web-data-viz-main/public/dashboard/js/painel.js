@@ -15,6 +15,7 @@ function carregarKpiPortas10() {
                     "porta_aberta",
                     "Portas abertas há mais de 10 minutos",
                     `${data[0].portas_abertas_10min} porta(s) em situação crítica`,
+                    `${data[0].idRegistro}`
                 );
             }
         })
@@ -118,14 +119,14 @@ function atualizarGraficoTemperaturas(dados) {
                 `${item.identificacao}_frio`,
                 "Câmara em temperatura crítica",
                 `${item.identificacao} está com ${item.registroTemp}°C`,
-                "perigo"
+                `${item.idRegistro}`
             );
         } else if (item.registroTemp > 7) {
             mostrarAlertaUnico(
                 `${item.identificacao}_quente`,
                 "Câmara em temperatura crítica",
                 `${item.identificacao} está com ${item.registroTemp}°C`,
-                "perigo"
+                `${item.idRegistro}`
             );
         }
 

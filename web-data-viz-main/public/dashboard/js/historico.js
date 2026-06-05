@@ -1,10 +1,13 @@
 // 1. FUNÇÃO QUE COLOGA O ALERTA NO BANCO (Chamada automaticamente pelo alertas.js)
 function salvarHistorico(dadosAlerta) {
+
     const novoAlerta = {
         tipoAlerta: dadosAlerta.titulo,    // Ajustado para bater com a coluna tipoAlerta do seu banco
         descricao: dadosAlerta.mensagem,   // Ajustado para bater com a coluna descricao do seu banco
         fkRegistro: dadosAlerta.fkRegistro // Recebe o id do registro que veio lá do painel.js
     };
+
+    console.log(novoAlerta);
 
     // Mudamos a rota de '/dashboard/salvarAlerta' para '/alertas/salvarAlerta' para bater com a rota nova que criamos
     fetch("/alertas/salvarAlerta", {

@@ -81,7 +81,7 @@ function portaIdeal(idEmpresa) {
 function buscarTemperaturasCamaras(idEmpresa) {
 
     const instrucaoSql = `
-    SELECT idCamara, identificacao, registroTemp
+    SELECT idRegistro, idCamara, identificacao, registroTemp
         FROM vw_temperatura_atual_grafico
         WHERE fkEmpresa = ${idEmpresa};
     `;
