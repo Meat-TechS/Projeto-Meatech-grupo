@@ -1,6 +1,7 @@
+const idEmpresa = sessionStorage.FK_EMPRESA;
 
 function carregarKpiPortas10() {
-    fetch("contarPortasAbertasMais10Min")
+    fetch(`contarPortasAbertasMais10Min/${idEmpresa}`)
         .then(res => res.json())
         .then(data => {
             console.log("KPI portas:", data);
@@ -14,7 +15,7 @@ function carregarKpiPortas10() {
 
 function infoCamarasAbertas10() {
     console.log("Função executada");
-    fetch("/portas/infoCamarasAbertas10")
+    fetch(`/portas/infoCamarasAbertas10/${idEmpresa}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)

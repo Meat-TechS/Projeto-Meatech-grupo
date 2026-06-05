@@ -1,8 +1,11 @@
 var portasModel = require("../models/portasModel")
 
 function infoCamarasAbertas10(req, res){
+
+    var idEmpresa = req.params.idEmpresa;
+    
      console.log("Entrou na rota");
-    portasModel.infoCamarasAbertas10()
+    portasModel.infoCamarasAbertas10(idEmpresa)
     .then(resultado => {
         console.log(resultado)
         res.json(resultado)
