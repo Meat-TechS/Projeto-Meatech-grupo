@@ -207,6 +207,7 @@ function iniciarGrafico() {
     });
 }
 
+
 iniciarGrafico();
 buscarGraficoTemperaturas();
 carregarKpiPortas10();
