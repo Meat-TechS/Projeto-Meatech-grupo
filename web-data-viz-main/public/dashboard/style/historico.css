@@ -1,0 +1,117 @@
+/* Customização e Ajuste do Espaço Principal */
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 25px;
+    width: 100%;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.historico-top h2 {
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.historico-top p {
+    font-family: 'Inter', sans-serif;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Container da Grade de Alertas (Grid elástico) */
+.mural-alertas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Estilização do Card de Alerta (Copiando o padrão visual das câmaras do seu projeto) */
+.card-alerta {
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #8d8585;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 160px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+}
+
+.card-alerta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-alerta-header h3 {
+    font-size: 14px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card-alerta-header .icone {
+    font-size: 22px;
+}
+
+.card-alerta-body {
+    font-size: 14px;
+    color: #333;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.card-alerta-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+/* Badges Dinâmicas para combinar com o padrão (Crítico / Alerta) */
+.status-tag {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.status-tag.vermelho {
+    background-color: #ffebee;
+    color: #FF383C;
+}
+
+.status-tag.laranja {
+    background-color: #fff3e0;
+    color: orange;
+}
+
+.status-tag.azul {
+    background-color: #e3f2fd;
+    color: #2196f3;
+}
+
+.alerta-data {
+    font-size: 11px;
+    color: #8d8585;
+    font-weight: 600;
+}
+
+.vazio {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #8d8585;
+    padding: 50px 0;
+    font-style: italic;
+}

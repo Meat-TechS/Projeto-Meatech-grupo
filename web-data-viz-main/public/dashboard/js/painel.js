@@ -138,54 +138,6 @@ function atualizarGraficoTemperaturas(dados) {
     graficoTemperatura.update();
 }
 
-let alertasAtivos = [];
-
-function mostrarAlertaUnico(idAlerta, titulo, mensagem) {
-
-    if (alertasAtivos.includes(idAlerta)) {
-        return;
-    }
-
-    alertasAtivos.push(idAlerta);
-
-    criarAlerta(idAlerta, titulo, mensagem);
-}
-
-function criarAlerta(idAlerta, titulo, mensagem) {
-
-    const container = document.getElementById("containerAlertas");
-
-    const alerta = document.createElement("div");
-    alerta.classList.add("alerta");
-
-    alerta.dataset.id = idAlerta;
-
-    alerta.innerHTML = `
-        <div class="alerta-info">
-            <div class="alerta-texto">
-                <h3>${titulo}</h3>
-                <p>${mensagem}</p>
-            </div>
-        </div>
-        <div class="alerta-icone">🔔</div>
-    `;
-
-    container.appendChild(alerta);
-}
-
-function removerAlerta(idAlerta) {
-
-    // remove da lista de ativos
-    alertasAtivos = alertasAtivos.filter(item => item !== idAlerta);
-
-    // remove da tela
-    const alerta = document.querySelector(`[data-id='${idAlerta}']`);
-
-    if (alerta) {
-        alerta.remove();
-    }
-}
-
 function iniciarGrafico() {
 
     const ctx = document.getElementById("tempAtual").getContext("2d");

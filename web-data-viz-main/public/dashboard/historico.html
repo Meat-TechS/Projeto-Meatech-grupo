@@ -1,79 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico de Alertas</title>
-
+    <link rel="stylesheet" href="./style/menu.css">
     <link rel="stylesheet" href="./style/historico.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <title>Meatech | Histórico de Alertas</title>
 </head>
 
 <body>
-
     <div class="container">
 
-        <h1>Histórico de Alertas</h1>
+        <div class="menu">
+            <div class="img-h1">
+                <img src="./image/logo3.png" alt="logo da empresa">
+                <h1>Bem-vindo(a)!</h1>
+            </div>
 
-        <div class="filtros">
-            <input type="date" id="dataInicio">
-            <input type="date" id="dataFim">
-
-            <select id="tipoAlerta">
-                <option value="">Todos</option>
-                <option value="temperatura_alta">Temperatura Alta</option>
-                <option value="temperatura_baixa">Temperatura Baixa</option>
-                <option value="porta_aberta">Porta Aberta</option>
-            </select>
-
-            <button>Filtrar</button>
+            <div class="nav-bar">
+                <a href="./painel.html" class="nav-item">
+                    <img src="./image/dash.png"> Painel
+                </a>
+                <a href="./camara.html" class="nav-item">
+                    <img src="./image/temp.png"> Câmaras frias
+                </a>
+                <a href="./historico.html" class="nav-item active">
+                    <img src="./image/dash.png"> Histórico
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="./image/suporte.png"> Suporte
+                </a>
+                <a href="../site-institucional/login-cadastro/cadastroFuncionario.html" class="nav-item">
+                    <img src="./image/pessoa.png"> Cadastro do funcionario
+                </a>
+            </div>
+            
+            <a class="sair" href="./../site-institucional/site.html">Sair</a>
         </div>
 
-        <table>
+        <div class="main">
+            <div class="historico-top">
+                <h2>Histórico de Alertas Ocorridos</h2>
+                <p>Eventos críticos registrados automaticamente com base nas variações dos sensores.</p>
+            </div>
 
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Câmara</th>
-                    <th>Tipo</th>
-                    <th>Descrição</th>
-                    <th>Data/Hora</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-
-            <tbody id="tbodyAlertas">
-
-                <tr>
-                    <td>1</td>
-                    <td>Câmara 01</td>
-                    <td>Temperatura Alta</td>
-                    <td>Temperatura acima de 7°C</td>
-                    <td>04/06/2026 14:32</td>
-                    <td>
-                        <span class="status perigo">
-                            Perigo
-                        </span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>Câmara 03</td>
-                    <td>Porta Aberta</td>
-                    <td>Porta aberta há mais de 10 minutos</td>
-                    <td>04/06/2026 15:05</td>
-                    <td>
-                        <span class="status alerta">
-                            Alerta
-                        </span>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
+            <div id="listaAlertas" class="mural-alertas"></div>
+        </div>
 
     </div>
-
 </body>
+
+</html>
+
+<script src="./js/historico.js"></script>
