@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Histórico de Alertas</title>
+
+    <link rel="stylesheet" href="./style/historico.css">
 </head>
+
 <body>
-    
+
+    <div class="container">
+
+        <h1>Histórico de Alertas</h1>
+
+        <div class="filtros">
+            <input type="date" id="dataInicio">
+            <input type="date" id="dataFim">
+
+            <select id="tipoAlerta">
+                <option value="">Todos</option>
+                <option value="temperatura_alta">Temperatura Alta</option>
+                <option value="temperatura_baixa">Temperatura Baixa</option>
+                <option value="porta_aberta">Porta Aberta</option>
+            </select>
+
+            <button>Filtrar</button>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Câmara</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>Data/Hora</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="tbodyAlertas">
+
+                <tr>
+                    <td>1</td>
+                    <td>Câmara 01</td>
+                    <td>Temperatura Alta</td>
+                    <td>Temperatura acima de 7°C</td>
+                    <td>04/06/2026 14:32</td>
+                    <td>
+                        <span class="status perigo">
+                            Perigo
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Câmara 03</td>
+                    <td>Porta Aberta</td>
+                    <td>Porta aberta há mais de 10 minutos</td>
+                    <td>04/06/2026 15:05</td>
+                    <td>
+                        <span class="status alerta">
+                            Alerta
+                        </span>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
 </body>
-</html>
