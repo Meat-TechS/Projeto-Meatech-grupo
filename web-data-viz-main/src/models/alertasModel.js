@@ -1,31 +1,48 @@
 var database = require("../database/config");
 
 function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
-    // Usando exatamente os nomes das suas colunas do print
     const fkValidado = (fkRegistro === undefined || fkRegistro === null || fkRegistro == 0 || fkRegistro == 'undefined') ? "NULL" : fkRegistro;
+    
+    // Se não tiver fkRegistro, faz o insert normal
+    if (fkValidado === "NULL") {
+        const instrucaoSql = `
+            INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
+            VALUES ('${tipoAlerta}', '${descricao}', NOW(), NULL);
+        `;
+        console.log("Executando SQL Salvar Alerta (Sem FK): \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+    }
+
+    // Se tiver fkRegistro, só insere se já não existir um alerta para este mesmo registro
     const instrucaoSql = `
-        INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
-        VALUES ('${tipoAlerta}', '${descricao}', NOW(), ${fkValidado});
+        INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro)
+        SELECT '${tipoAlerta}', '${descricao}', NOW(), ${fkValidado}
+        WHERE NOT EXISTS (
+            SELECT 1 FROM Alerta WHERE fkRegistro = ${fkValidado}
+        );
     `;
-    console.log("Executando SQL Salvar Alerta: \n" + instrucaoSql);
+    
+    console.log("Executando SQL Salvar Alerta Preventivo: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
 function buscarHistorico(idEmpresa) {
-    // Fazendo a ponte de relacionamentos do seu banco para filtrar por empresa
     const instrucaoSql = `
-            SELECT 
+        SELECT 
             a.tipoAlerta, 
             a.descricao, 
             DATE_FORMAT(a.dataHora, '%d/%m/%Y %H:%i:%s') AS data 
-        FROM alerta a
-        JOIN registro r ON a.fkRegistro = r.idRegistro
-        JOIN sensor s ON r.fkSensor = s.idSensor
-        JOIN camarafria c ON s.fkCamara = c.idCamara
-        WHERE c.fkEmpresa = ${idEmpresa}
+        FROM Alerta a
+        LEFT JOIN registro r ON a.fkRegistro = r.idRegistro
+        LEFT JOIN sensor s ON r.fkSensor = s.idSensor
+        LEFT JOIN camarafria c ON s.fkCamara = c.idCamara
+        
+        WHERE (c.fkEmpresa = ${idEmpresa} OR a.fkRegistro IS NULL)
+          AND DATE(a.dataHora) = CURDATE()
+        
         ORDER BY a.idAlerta DESC;
     `;
-    console.log("Executando SQL Buscar Histórico: \n" + instrucaoSql);
+    console.log("Executando SQL Buscar Histórico (Apenas Hoje): \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 

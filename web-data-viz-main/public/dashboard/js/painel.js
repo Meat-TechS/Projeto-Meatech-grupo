@@ -17,11 +17,14 @@ function carregarKpiPortas10() {
                     `${data[0].portas_abertas_10min} porta(s) em situação crítica`,
                     `${data[0].idRegistro}`
                 );
+            } else {
+                // Se não há mais portas críticas, libera o estado para futuros alertas
+                limparEstadoAlerta("porta_aberta");
             }
         })
         .catch(erro => {
-            console.log("Erro ao carregar KPI", erro)
-        })
+            console.log("Erro ao carregar KPI", erro);
+        });
 }
 
 
@@ -97,7 +100,6 @@ function buscarGraficoTemperaturas() {
 }
 
 function atualizarGraficoTemperaturas(dados) {
-
     const labels = [];
     const temperaturas = [];
     const cores = [];
@@ -114,22 +116,32 @@ function atualizarGraficoTemperaturas(dados) {
                     : "#8B0000"
         );
 
+        const idAlertaFrio = `${item.identificacao}_frio`;
+        const idAlertaQuente = `${item.identificacao}_quente`;
+
         if (item.registroTemp < 0) {
+            // Se está crítico (frio), emite o alerta e limpa o estado oposto
+            limparEstadoAlerta(idAlertaQuente);
             mostrarAlertaUnico(
-                `${item.identificacao}_frio`,
+                idAlertaFrio,
                 "Câmara em temperatura crítica",
                 `${item.identificacao} está com ${item.registroTemp}°C`,
                 `${item.idRegistro}`
             );
         } else if (item.registroTemp > 7) {
+            // Se está crítico (quente), emite o alerta e limpa o estado oposto
+            limparEstadoAlerta(idAlertaFrio);
             mostrarAlertaUnico(
-                `${item.identificacao}_quente`,
+                idAlertaQuente,
                 "Câmara em temperatura crítica",
                 `${item.identificacao} está com ${item.registroTemp}°C`,
                 `${item.idRegistro}`
             );
+        } else {
+            // Se a temperatura está IDEAL, limpa os estados de alerta dessa câmara
+            limparEstadoAlerta(idAlertaFrio);
+            limparEstadoAlerta(idAlertaQuente);
         }
-
     });
 
     graficoTemperatura.data.labels = labels;
