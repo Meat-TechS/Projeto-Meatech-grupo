@@ -36,6 +36,8 @@
     border-radius: 10px;
     border: 1px solid black;
     font-weight: bold;
+    text-decoration: none;
+    color: black;
 }
 
 .menu .img-h1 {
@@ -78,23 +80,6 @@
     margin-right: 15px;
 }
 
-.menu button{
-    width: 210px;
-    height: 43px;
-    align-self: center;
-    border-radius: 10px;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 1px 1px 4px #00000023;
-    border: 1px solid rgb(0, 0, 0);
-    cursor: pointer;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #000000;
-}
 
 
 
