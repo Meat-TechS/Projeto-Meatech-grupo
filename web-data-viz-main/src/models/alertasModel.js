@@ -1,13 +1,28 @@
 var database = require("../database/config");
 
 function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
-    // Usando exatamente os nomes das suas colunas do print
     const fkValidado = (fkRegistro === undefined || fkRegistro === null || fkRegistro == 0 || fkRegistro == 'undefined') ? "NULL" : fkRegistro;
+    
+    // Se não tiver fkRegistro, faz o insert normal
+    if (fkValidado === "NULL") {
+        const instrucaoSql = `
+            INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
+            VALUES ('${tipoAlerta}', '${descricao}', NOW(), NULL);
+        `;
+        console.log("Executando SQL Salvar Alerta (Sem FK): \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+    }
+
+    // Se tiver fkRegistro, só insere se já não existir um alerta para este mesmo registro
     const instrucaoSql = `
-        INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
-        VALUES ('${tipoAlerta}', '${descricao}', NOW(), ${fkValidado});
+        INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro)
+        SELECT '${tipoAlerta}', '${descricao}', NOW(), ${fkValidado}
+        WHERE NOT EXISTS (
+            SELECT 1 FROM Alerta WHERE fkRegistro = ${fkValidado}
+        );
     `;
-    console.log("Executando SQL Salvar Alerta: \n" + instrucaoSql);
+    
+    console.log("Executando SQL Salvar Alerta Preventivo: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
