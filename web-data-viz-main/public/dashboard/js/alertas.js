@@ -15,6 +15,8 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
     const container = document.getElementById("containerAlertas");
     if (!container) return; // Evita erros se a página atual não tiver o container
 
+    if (document.querySelector(`[data-id='${idAlerta}']`)) return
+
     const alerta = document.createElement("div");
     alerta.classList.add("alerta");
     alerta.dataset.id = idAlerta;
@@ -35,15 +37,13 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
 
     // Espera 10 segundos para sumir com o pop-up da tela e salvar no banco
     setTimeout(() => {
-        removerAlerta(idAlerta);
+        const elementoAlerta = document.querySelector(`[data-id='${idAlerta}']`);
+        if (elementoAlerta) {
+            elementoAlerta.remove(); // Remove apenas o HTML da tela
+        }
     }, 10000);
 }
 
-function removerAlerta(idAlerta) {
+function limparEstadoAlerta(idAlerta) {
     alertasAtivos = alertasAtivos.filter(item => item !== idAlerta);
-    const alerta = document.querySelector(`[data-id='${idAlerta}']`);
-    
-    if (alerta) {
-        alerta.remove();
-    }
 }
