@@ -23,6 +23,8 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
 
     if (document.querySelector(`[data-id='${idAlerta}']`)) return
 
+    salvarHistorico({ titulo, mensagem, fkRegistro });
+
     const alerta = document.createElement("div");
     alerta.classList.add("alerta");
     alerta.dataset.id = idAlerta;
@@ -37,9 +39,7 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
         <div class="alerta-icone">🔔</div>
     `;
 
-    container.appendChild(alerta);
-
-    salvarHistorico({ titulo, mensagem, fkRegistro });
+    container.appendChild(alerta); 
 
     // Espera 10 segundos para sumir com o pop-up da tela e salvar no banco
     setTimeout(() => {
@@ -52,4 +52,5 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
 
 function limparEstadoAlerta(idAlerta) {
     alertasAtivos = alertasAtivos.filter(item => item !== idAlerta);
+    atualizarMemoriaAlertas(); // Atualiza a memória do navegador sem o ID removido
 }
