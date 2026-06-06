@@ -31,12 +31,11 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
 
     container.appendChild(alerta);
 
+    salvarHistorico({ titulo, mensagem, fkRegistro });
+
     // Espera 10 segundos para sumir com o pop-up da tela e salvar no banco
     setTimeout(() => {
         removerAlerta(idAlerta);
-        
-        // Dispara a função que faz o POST (ela estará disponível globalmente se ambos scripts forem importados)
-        salvarHistorico({ titulo, mensagem, fkRegistro });
     }, 10000);
 }
 
