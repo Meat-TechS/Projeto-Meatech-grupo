@@ -1,13 +1,19 @@
-let alertasAtivos = [];
+let alertasAtivos = JSON.parse(sessionStorage.getItem("alertasAtivos")) || [];
+
+function atualizarMemoriaAlertas() {
+    sessionStorage.setItem("alertasAtivos", JSON.stringify(alertasAtivos));
+}
 
 // Adicionamos o fkRegistro para ele passear pelo código até salvar no banco
 function mostrarAlertaUnico(idAlerta, titulo, mensagem, fkRegistro) {
     
     if (alertasAtivos.includes(idAlerta)) {
-        return;
+        return; // Se já foi disparado antes (mesmo em outra sessão de página), não faz nada
     }
 
     alertasAtivos.push(idAlerta);
+    atualizarMemoriaAlertas(); // Grava na memória do navegador que este ID já foi alertado
+    
     criarAlerta(idAlerta, titulo, mensagem, fkRegistro);
 }
 
