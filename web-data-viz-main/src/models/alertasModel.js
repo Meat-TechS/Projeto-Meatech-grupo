@@ -1,9 +1,15 @@
 var database = require("../database/config");
 
 function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
-    const fkValidado = (fkRegistro === undefined || fkRegistro === null || fkRegistro == 0 || fkRegistro == 'undefined') ? "NULL" : fkRegistro;
+
+    const fkValidado = (
+        fkRegistro === undefined || 
+        fkRegistro === null || 
+        fkRegistro == 0 || 
+        fkRegistro == 'undefined') 
+        ? "NULL" 
+        : fkRegistro;
     
-    // Se não tiver fkRegistro, faz o insert normal
     if (fkValidado === "NULL") {
         const instrucaoSql = `
             INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
@@ -13,7 +19,6 @@ function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
         return database.executar(instrucaoSql);
     }
 
-    // Se tiver fkRegistro, só insere se já não existir um alerta para este mesmo registro
     const instrucaoSql = `
         INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro)
         SELECT '${tipoAlerta}', '${descricao}', NOW(), ${fkValidado}
