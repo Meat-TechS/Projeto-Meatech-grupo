@@ -1,3 +1,5 @@
+
+const { GoogleGenAI } = require("@google/genai");
 // var ambiente_processo = 'producao';
 var ambiente_processo = 'desenvolvimento';
 
@@ -6,6 +8,8 @@ var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 // A sintaxe do operador ternário é: condição ? valor_se_verdadeiro : valor_se_falso
 
 require("dotenv").config({ path: caminho_env });
+// configurando o gemini (IA)
+const chatIA = new GoogleGenAI({ apiKey: process.env.MINHA_CHAVE });
 
 var express = require("express");
 var cors = require("cors");
@@ -32,6 +36,43 @@ app.use("/dashboard", dashboardRouter);
 app.use("/portas", portasRouter);
 app.use("/camaras", camaraRouter);
 app.use("/alertas", alertasRouter);
+
+
+// rota para receber perguntas e gerar respostas
+app.post("/perguntar", async (req, res) => {
+    const pergunta = req.body.pergunta;
+
+    try {
+        const resultado = await gerarResposta(pergunta);
+        res.json({ resultado });
+    } catch (error) {
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+
+});
+
+// função para gerar respostas usando o gemini
+async function gerarResposta(mensagem) {
+
+    try {
+        // gerando conteúdo com base na pergunta
+        const modeloIA = chatIA.models.generateContent({
+            model: "gemini-2.0-flash",
+            contents: `Em um paragráfo responda: ${mensagem}`
+
+        });
+        const resposta = (await modeloIA).text;
+        const tokens = (await modeloIA).usageMetadata;
+
+        console.log(resposta);
+        console.log("Uso de Tokens:", tokens);
+
+        return resposta;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
 
 app.listen(PORTA_APP, function () {
     console.log(`
