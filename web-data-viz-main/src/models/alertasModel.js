@@ -12,7 +12,7 @@ function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
     
     if (fkValidado === "NULL") {
         const instrucaoSql = `
-            INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
+            INSERT INTO alerta (tipoAlerta, descricao, dataHora, fkRegistro) 
             VALUES ('${tipoAlerta}', '${descricao}', NOW(), NULL);
         `;
         console.log("Executando SQL Salvar Alerta (Sem FK): \n" + instrucaoSql);
@@ -20,7 +20,7 @@ function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
     }
 
     const instrucaoSql = `
-        INSERT INTO Alerta (tipoAlerta, descricao, dataHora, fkRegistro)
+        INSERT INTO alerta (tipoAlerta, descricao, dataHora, fkRegistro)
         SELECT '${tipoAlerta}', '${descricao}', NOW(), ${fkValidado}
         WHERE NOT EXISTS (
             SELECT 1 FROM Alerta WHERE fkRegistro = ${fkValidado}

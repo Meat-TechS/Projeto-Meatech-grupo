@@ -56,6 +56,14 @@ const serial = async (
         const sensorAnalogico = parseFloat(valores[1]);
 
         let sensorAnalogFormatado = sensorAnalogico - 22
+        let sensorAnalogFormatado2 = sensorAnalogico - 28
+        let sensorAnalogFormatado3 = sensorAnalogico - 21
+        let sensorAnalogFormatado4 = sensorAnalogico - 20
+        let sensorAnalogFormatado5 = sensorAnalogico - 18
+        let sensorAnalogFormatado6 = sensorAnalogico - 17
+        let sensorAnalogFormatado7 = sensorAnalogico - 20
+        let sensorAnalogFormatado8 = sensorAnalogico - 18
+
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresSensorAnalogico.push(sensorAnalogFormatado);
@@ -66,9 +74,42 @@ const serial = async (
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
                 'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
-                [2
-                    , sensorDigital, sensorAnalogico]
+                [2, sensorDigital, sensorAnalogFormatado]
             );
+              await poolBancoDados.execute(
+                'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [1, sensorDigital, sensorAnalogFormatado2]
+            );
+             await poolBancoDados.execute(
+                'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [3, sensorDigital, sensorAnalogFormatado3]
+            );
+             await poolBancoDados.execute(
+                'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [4, sensorDigital, sensorAnalogFormatado4]
+            );
+             await poolBancoDados.execute(
+                'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [5, sensorDigital, sensorAnalogFormatado5]
+            );
+             await poolBancoDados.execute(
+                'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [6, sensorDigital, sensorAnalogFormatado6]
+            );
+              await poolBancoDados.execute(
+                'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [7, sensorDigital, sensorAnalogFormatado7]
+            );
+              await poolBancoDados.execute(
+                'INSERT INTO registro (fkSensor, registroPorta, registroTemp, dtHora) VALUES (?, ?, ?, NOW())',
+                [8, sensorDigital, sensorAnalogFormatado8]
+            );
+
+
+
+
+
+
 
             
 
