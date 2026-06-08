@@ -4,7 +4,6 @@ function atualizarMemoriaAlertas() {
     sessionStorage.setItem("alertasAtivos", JSON.stringify(alertasAtivos));
 }
 
-// Adicionamos o fkRegistro para ele passear pelo código até salvar no banco
 function mostrarAlertaUnico(idAlerta, titulo, mensagem, fkRegistro) {
     
     if (alertasAtivos.includes(idAlerta)) {

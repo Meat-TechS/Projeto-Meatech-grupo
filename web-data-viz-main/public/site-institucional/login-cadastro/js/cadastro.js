@@ -71,7 +71,7 @@ function cadastrar() {
     document.getElementById("cep-required-error").style.display =
       "none"; /*chama mensagem definida no html (cep não pode estar vazio) e a deixa invisivel*/
     if (cep.length != 8) {
-      /*verifica se o cep tem 8 difitos*/
+      /*verifica se o cep tem 8 digitos*/
       valido = false;
       document.getElementById("cep-invalid-error").style.display =
         "block"; /*chama mensagem definida no html (cep invalido) e a deixa visivel*/
