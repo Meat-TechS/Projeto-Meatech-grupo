@@ -152,7 +152,8 @@ criarGrafico();
 infoCamaras();
 
 setInterval(() => {
-  criarGrafico();
   infoCamaras();
+  criarGrafico();
 }, 10000)
+
 

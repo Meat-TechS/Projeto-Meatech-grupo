@@ -55,15 +55,14 @@ const serial = async (
         const sensorDigital = parseInt(valores[0]);
         const sensorAnalogico = parseFloat(valores[1]);
 
-        let sensorAnalogFormatado = sensorAnalogico - 22
-        let sensorAnalogFormatado2 = sensorAnalogico - 28
-        let sensorAnalogFormatado3 = sensorAnalogico - 21
+        let sensorAnalogFormatado = sensorAnalogico - 18
+        let sensorAnalogFormatado2 = sensorAnalogico - 18
+        let sensorAnalogFormatado3 = sensorAnalogico - 23
         let sensorAnalogFormatado4 = sensorAnalogico - 20
         let sensorAnalogFormatado5 = sensorAnalogico - 18
-        let sensorAnalogFormatado6 = sensorAnalogico - 17
+        let sensorAnalogFormatado6 = sensorAnalogico - 18
         let sensorAnalogFormatado7 = sensorAnalogico - 20
-        let sensorAnalogFormatado8 = sensorAnalogico - 18
-
+        let sensorAnalogFormatado8 = sensorAnalogico - 15
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresSensorAnalogico.push(sensorAnalogFormatado);
