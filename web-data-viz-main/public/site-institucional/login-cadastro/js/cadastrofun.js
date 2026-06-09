@@ -79,19 +79,14 @@ function cadastrar() {
     let contemNumero = false;
     let contemCaractere = false;
 
-    // comprimento mínimo
     if (senha.length < 8) {
-
       valido = false;
       document.getElementById("senha-comprimento-error").style.display = "block";
 
     } else {
-
       document.getElementById("senha-comprimento-error").style.display = "none";
-
     }
 
-    // número
     for (let cont = 0; cont < numeros.length; cont++) {
 
       if (senha.includes(numeros[cont])) {
@@ -113,7 +108,6 @@ function cadastrar() {
 
     }
 
-    // caractere especial
     for (let cont = 0; cont < caracteres.length; cont++) {
 
       if (senha.includes(caracteres[cont])) {
@@ -135,7 +129,6 @@ function cadastrar() {
 
     }
 
-    // letra maiúscula
     if (senha == senha.toLowerCase()) {
 
       valido = false;
@@ -147,7 +140,6 @@ function cadastrar() {
 
     }
 
-    // letra minúscula
     if (senha == senha.toUpperCase()) {
 
       valido = false;
@@ -182,7 +174,6 @@ function cadastrar() {
     }
   }
 
-  // CADASTRO
   if (valido) {
 
     let fkEmpresa = sessionStorage.FK_EMPRESA;

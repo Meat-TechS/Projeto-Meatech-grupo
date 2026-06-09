@@ -1,4 +1,3 @@
-// Função principal de login
 function login() {
   let loginInput = input_validacao.value;
   let senha = input_senha.value;
@@ -22,7 +21,6 @@ function login() {
     document.getElementById("senha-required-error").style.display = "none";
   }
 
-  // Se válido, prossegue com o login
     if (valido) {
       fetch("/usuarios/autenticar", {
         method: "POST",
