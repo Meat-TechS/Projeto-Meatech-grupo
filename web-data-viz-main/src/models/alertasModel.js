@@ -37,7 +37,7 @@ function buscarHistorico(idEmpresa) {
             a.tipoAlerta, 
             a.descricao, 
             DATE_FORMAT(a.dataHora, '%d/%m/%Y %H:%i:%s') AS data 
-        FROM Alerta a
+        FROM alerta a
         LEFT JOIN registro r ON a.fkRegistro = r.idRegistro
         LEFT JOIN sensor s ON r.fkSensor = s.idSensor
         LEFT JOIN camarafria c ON s.fkCamara = c.idCamara
