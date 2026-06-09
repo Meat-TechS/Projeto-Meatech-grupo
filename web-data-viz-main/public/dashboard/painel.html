@@ -126,41 +126,6 @@
 
 </html>
 
-
-<script>
-
-    // var paginacao = {};
-    // var tempo = {};
-
-    // function obterDados(grafico, endpoint) {
-    //     fetch('http://localhost:3300/sensores/' + endpoint)
-    //         .then(response => response.json())
-    //         .then(valores => {
-    //             if (paginacao[endpoint] == null) {
-    //                 paginacao[endpoint] = 0;
-    //             }
-    //             if (tempo[endpoint] == null) {
-    //                 tempo[endpoint] = 0;
-    //             }
-
-    //             var ultimaPaginacao = paginacao[endpoint];
-    //             paginacao[endpoint] = valores.length;
-    //             valores = valores.slice(ultimaPaginacao);
-
-    //             valores.forEach((valor) => {
-    //                 grafico.data.datasets[0].data[12] = valor;
-    //                 grafico.update();
-    //             });
-    //         })
-    //         .catch(error => console.error('Erro ao obter dados:', error));
-    // }
-
-    // setInterval(() => {
-    //     obterDados(graficoBarras, 'analogico');
-    // }, 1000);
-
-</script>
-
 <script src="./js/painel.js"></script>
 <script src="./js/alertas.js"></script>
 <script src="./js/historico.js"></script>
