@@ -1,6 +1,5 @@
 var dashboardModel = require("../models/dashboardModel");
 
-// PORTAS ABERTAS
 function contarPortasAbertasMais10Min(req, res) {
   var idEmpresa = req.params.idEmpresa;
 
@@ -28,7 +27,6 @@ function contarPortasAbertasMais10Min(req, res) {
     });
 }
 
-// CÂMARAS CRÍTICAS
 function contarCamarasCriticas(req, res) {
   var idEmpresa = req.params.idEmpresa;
 
@@ -43,7 +41,6 @@ function contarCamarasCriticas(req, res) {
     });
 }
 
-// CÂMARAS IDEAL
 function camarasIdeal(req, res) {
   var idEmpresa = req.params.idEmpresa;
 
@@ -58,7 +55,6 @@ function camarasIdeal(req, res) {
     });
 }
 
-// TOTAL CÂMARAS
 function totalCamaras(req, res) {
   var idEmpresa = req.params.idEmpresa;
 
@@ -73,7 +69,6 @@ function totalCamaras(req, res) {
     });
 }
 
-// PORTA IDEAL
 function portaIdeal(req, res) {
   var idEmpresa = req.params.idEmpresa;
 
@@ -88,7 +83,6 @@ function portaIdeal(req, res) {
     });
 }
 
-// TEMPERATURAS
 function buscarTemperaturasCamaras(req, res) {
   var idEmpresa = req.params.idEmpresa;
 

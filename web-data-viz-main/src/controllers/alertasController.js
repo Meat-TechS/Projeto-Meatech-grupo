@@ -3,7 +3,7 @@ var alertasModel = require("../models/alertasModel");
 function salvarAlerta(req, res) {
     var tipoAlerta = req.body.tipoAlerta;
     var descricao = req.body.descricao;
-    var fkRegistro = req.body.fkRegistro; // Agora precisamos do ID do registro
+    var fkRegistro = req.body.fkRegistro; 
 
     if (tipoAlerta == undefined || descricao == undefined || fkRegistro == undefined) {
         res.status(400).send("Dados incompletos para a tabela Alerta.");

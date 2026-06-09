@@ -7,7 +7,6 @@ var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 // A sintaxe do operador ternário é: condição ? valor_se_verdadeiro : valor_se_falso
 
 require("dotenv").config({ path: caminho_env });
-// configurando o gemini (IA)
 const chatIA = new GoogleGenAI({ apiKey: process.env.MINHA_CHAVE });
 
 var express = require("express");
@@ -37,7 +36,6 @@ app.use("/camaras", camaraRouter);
 app.use("/alertas", alertasRouter);
 
 
-// rota para receber perguntas e gerar respostas
 app.post("/perguntar", async (req, res) => {
     const pergunta = req.body.pergunta;
 
@@ -50,11 +48,9 @@ app.post("/perguntar", async (req, res) => {
 
 });
 
-// função para gerar respostas usando o gemini
 async function gerarResposta(mensagem) {
 
     try {
-        // gerando conteúdo com base na pergunta
         const modeloIA = chatIA.models.generateContent({
             model: "gemini-2.5-flash",
             contents: `Em um paragráfo responda: ${mensagem}`
