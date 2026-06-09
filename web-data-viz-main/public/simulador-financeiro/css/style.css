@@ -53,69 +53,128 @@ body {
 }
 
 
+.container-calculadora{
+    max-width: 800px;
+    margin: 50px auto 50px;
+    padding: 20px;
+}
 
-h1 {
+.texto-calculadora{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.texto-calculadora h1{
+    color: #6A0101;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.texto-calculadora p{
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #5b4a4a;
+    line-height: 1.6;
+}
+
+#formulario{
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 2px 15px rgba(0,0,0,.1);
+}
+
+.titulo-card{
+    margin-bottom: 25px;
+}
+
+.titulo-card h2{
     color: #8b0000;
-    margin-top: 30px;
+    font-size: 38px;
 }
 
-body > * 
-{
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+.titulo-card span{
+    font-size: 16px;
+    color: #777;
+    letter-spacing: 1px;
 }
 
-input {
-    border-radius: 20px;
-    padding: 8px;
-    border: 1px solid #8b0000;
-    width: 90%;
-    margin-bottom: 10px;
-    background-color: #fffaf5;
+#formulario p{
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #5b2c2c;
 }
-button {
-    border-radius: 20px;
-    padding: 10px;
+
+#formulario input{
+    width: 100%;
+    border: none;
+    background: #efe7d7;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 15px;
+}
+
+#btn_calcular{
+    width: 50%;
+    margin-top: 25px;
+    font-size: 26px;
+    border-radius: 8px;
     background-color: #8b0000;
     color: #ffffff;
+    border-radius: 25px;
+    padding: 10px;
     border: none;
-    margin-top: 10px;
-    width: 10%;
     font-weight: bold;
 }
-#mensagem {
-    width: 90%;
-    margin: 20px auto;
-    padding: 15px;
-    border-radius: 18px;
-    border: 1px solid #8b0000;
-    background-color: #fffaf5;
+
+#mensagem{
+    width: 100%;
+    max-width: 1000px;
+    margin: 10px auto;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 2px 15px rgba(0,0,0,.1);
     text-align: left;
+     margin-top: -80px;
 }
-#mensagem:empty {
+.texto{
+    color: #333;
+    font-size: 16px;
+}
+
+.prejuizo{
+    color: #8b0000;
+    font-weight: bold;
+}
+
+.lucro{
+    color: #0a8f3d;
+    font-weight: bold;
+}
+
+#mensagem button{
+    background: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+}
+#mensagem:empty{
     display: none;
 }
-
-#formulario {
-    width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #fffaf5; 
-    border: 1px solid #8b0000;
+#mensagem h2{
+    color: #8b0000;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
 }
-.prejuizo {
-    color: #b30000; 
-    font-weight: bold;
-}
-
-.lucro {
-    color: #1b8f3a; 
-    font-weight: bold;
-}
-
-.texto {
-    color: #000;
-}
-

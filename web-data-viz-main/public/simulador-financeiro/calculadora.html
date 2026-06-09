@@ -27,30 +27,50 @@
   </div>
 </header>
 
+<section class="container-calculadora">
 
-    <h1><br>Calculadora Financeira</h1>
+    <div class="texto-calculadora">
 
-    <div id="formulario">
+ <h1>
+            Análise de Impacto <br>
+             Financeiro
+            
+        </h1>
 
-        <p>Quantidade de carcaças armazenadas:</p>
-        <input type="text" id="input_qtd">
-
-        <p>Peso médio por carcaça (kg):</p>
-        <input type="text" id="input_peso">
-
-        <p>Preço médio por kg (R$):</p>
-        <input type="text" id="input_preco">
-
-        <p>Porcentagem de perda por temperatura(%):</p>
-        <input type="text" id="input_porcentagem">
+        <p>
+            Calcule as perdas operacionais e a eficiência do seu estoque
+            frigorífico com precisão industrial. Insira os parâmetros de
+            armazenamento para visualizar projeções de lucro e margem.
+        </p>
 
     </div>
 
-    <br><br>
+    <div id="formulario">
 
-    <button id="btn_calcular" onclick="calculo()">Calcular</button>
+        <div class="titulo-card">
+            <h2>Calculadora</h2>
+            <span>INSIRA OS DADOS PARA SIMULAÇÃO</span>
+        </div>
 
-    <div id="mensagem"></div>
+        <p>Quantidade de carcaças armazenadas:</p>
+        <input type="text" id="input_qtd" placeholder="Ex: 500">
+
+        <p>Peso médio por carcaça (kg):</p>
+        <input type="text" id="input_peso" placeholder="Ex: 280.5">
+
+        <p>Preço médio por kg (R$):</p>
+        <input type="text" id="input_preco" placeholder="Ex: 22.50">
+
+        <p>Porcentagem de perda por temperatura (%):</p>
+        <input type="text" id="input_porcentagem" placeholder="Ex: 1.5">
+
+        <button id="btn_calcular" onclick="calculo()"> Calcular </button>
+
+    </div>
+
+</section>
+
+<div id="mensagem"></div>
 
 </body>
 
@@ -99,7 +119,11 @@ function calculo() {
 
     
    mensagem.innerHTML = `
-    
+
+   <h2 style="color:#5b4a4a; margin-bottom:20px;">
+Resultado da Simulação
+</h2> 
+
 <p class="texto">
 <b class="prejuizo">Sem o sistema de monitoramento:</b><br><br>
 
