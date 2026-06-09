@@ -2,9 +2,19 @@ var database = require("../database/config")
 
 function contarPortasAbertasMais10Min(idEmpresa) {
     const instrucaoSql = `
-    SELECT COUNT(*) AS portas_abertas_10min
-        FROM vw_portas_abertas_criticas
-        WHERE fkEmpresa = ${idEmpresa};
+    SELECT
+        r.dtHora
+    FROM sensor s
+    JOIN registro r ON r.fkSensor = s.idSensor
+    JOIN camarafria c ON c.idCamara = s.fkCamara
+    WHERE c.fkEmpresa = ${idEmpresa}
+    AND s.tipoSensor = 'porta'
+    AND r.registroPorta = 1
+    AND r.idRegistro IN (
+        SELECT MAX(idRegistro)
+        FROM registro
+        GROUP BY fkSensor
+    );
     `;
 
     return database.executar(instrucaoSql);

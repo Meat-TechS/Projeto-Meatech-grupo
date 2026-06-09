@@ -78,15 +78,14 @@ function historicoTemperatura(idCamara) {
 
     const instrucaoSql = `
         SELECT 
-            DATE_FORMAT(r.dtHora, '%H:%i') AS hora,
+            r.dtHora AS hora,
             r.registroTemp AS temperatura
         FROM registro r
         JOIN sensor s 
             ON s.idSensor = r.fkSensor
         WHERE s.fkCamara = ${idCamara}
-          AND s.tipoSensor = 'temperatura'
-          AND DATE(r.dtHora) = CURDATE()
-        ORDER BY r.dtHora ASC; 
+        AND s.tipoSensor = 'temperatura'
+        ORDER BY r.dtHora ASC;
     `;
 
     return database.executar(instrucaoSql);

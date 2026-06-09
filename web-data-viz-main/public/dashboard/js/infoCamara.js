@@ -61,7 +61,14 @@ function criarGrafico() {
       let temperaturas = [];
 
       for (let i = 0; i < dados.length; i++) {
-        labels.push(dados[i].hora);
+
+        const horaFormatada = new Date(dados[i].hora)
+          .toLocaleTimeString('pt-BR', {
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+
+        labels.push(horaFormatada);
         temperaturas.push(dados[i].temperatura);
       }
 
