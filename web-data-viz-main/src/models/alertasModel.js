@@ -23,7 +23,7 @@ function salvarAlerta(tipoAlerta, descricao, fkRegistro) {
         INSERT INTO alerta (tipoAlerta, descricao, dataHora, fkRegistro)
         SELECT '${tipoAlerta}', '${descricao}', NOW(), ${fkValidado}
         WHERE NOT EXISTS (
-            SELECT 1 FROM Alerta WHERE fkRegistro = ${fkValidado}
+            SELECT 1 FROM alerta WHERE fkRegistro = ${fkValidado}
         );
     `;
     

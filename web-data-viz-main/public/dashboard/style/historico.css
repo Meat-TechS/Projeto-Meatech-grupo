@@ -1,4 +1,3 @@
-/* Customização e Ajuste do Espaço Principal */
 .main {
     display: flex;
     flex-direction: column;
@@ -22,15 +21,13 @@
     font-size: 14px;
 }
 
-/* Container da Grade de Alertas (Grid elástico) */
 .mural-alertas {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     width: 100%;
 }
 
-/* Estilização do Card de Alerta (Copiando o padrão visual das câmaras do seu projeto) */
 .card-alerta {
     background-color: #fff;
     border-radius: 15px;
@@ -43,8 +40,8 @@
     min-height: 160px;
     font-family: 'Inter', sans-serif;
     position: relative;
+    flex: 1 1 300px; 
 }
-
 .card-alerta-header {
     display: flex;
     justify-content: space-between;
@@ -79,7 +76,6 @@
     padding-top: 10px;
 }
 
-/* Badges Dinâmicas para combinar com o padrão (Crítico / Alerta) */
 .status-tag {
     font-size: 11px;
     font-weight: bold;

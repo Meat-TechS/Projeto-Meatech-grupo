@@ -40,11 +40,10 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
 
     container.appendChild(alerta); 
 
-    // Espera 10 segundos para sumir com o pop-up da tela e salvar no banco
     setTimeout(() => {
         const elementoAlerta = document.querySelector(`[data-id='${idAlerta}']`);
         if (elementoAlerta) {
-            elementoAlerta.remove(); // Remove apenas o HTML da tela
+            elementoAlerta.remove(); 
         }
     }, 10000);
 }

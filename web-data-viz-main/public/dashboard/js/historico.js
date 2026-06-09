@@ -35,7 +35,6 @@ function carregarHistoricoDoServidor() {
     return;
   }
 
-  // Faz o GET trazendo o ID da empresa logada
   fetch(`/alertas/buscarHistorico/${idEmpresa}`)
     .then((res) => res.json())
     .then((historico) => {

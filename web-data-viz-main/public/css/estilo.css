@@ -60,8 +60,6 @@ body {
   margin: 0;
 }
 
-/* BANNER */
-
 .banner {
   height: var(--tamanho-banner);
   color: white;
@@ -85,8 +83,6 @@ body {
 .banner .container span {
   font-weight: 800;
 }
-
-/* MISSÃO VISÃO VALORES */
 
 .social {
   background-color: #e5e5e5;
@@ -118,8 +114,6 @@ body {
   align-items: center;
 }
 
-/* FOOTER */
-
 .footer {
   background-color: #32b9cd;
   height: 150px;
@@ -137,11 +131,8 @@ body {
   font-size: 12px;
 }
 
-/* LOGIN */
-
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
   background-size: cover;
 }
 

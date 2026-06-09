@@ -18,7 +18,6 @@ function carregarKpiPortas10() {
                     `${data[0].idRegistro}`
                 );
             } else {
-                // Se não há mais portas críticas, libera o estado para futuros alertas
                 limparEstadoAlerta("porta_aberta");
             }
         })
@@ -56,13 +55,12 @@ function camarasFaixaIdeal() {
 
 function totalCamarasFrias() {
 
-    fetch(`totalCamaras/${idEmpresa}`) // chama a rota no backend
-        .then(res => res.json()) // converte resposta para JSON
-        .then(data => { // recebe o resultado do backend
+    fetch(`totalCamaras/${idEmpresa}`) 
+        .then(res => res.json()) 
+        .then(data => {
 
-            console.log("Total camaras", data) // debug da resposta
+            console.log("Total camaras", data) 
 
-            // backend retorna array, então acessamos o primeiro objeto
             document.getElementById("totalCamarasIdeal").innerHTML =
                 `/${data[0].total_camaras}`;
 
@@ -70,7 +68,7 @@ function totalCamarasFrias() {
                 `/${data[0].total_camaras}`;
         })
         .catch(erro => {
-            console.log("Erro ao buscar KPI", erro) // erro da API
+            console.log("Erro ao buscar KPI", erro) 
         })
 }
 
@@ -120,7 +118,6 @@ function atualizarGraficoTemperaturas(dados) {
         const idAlertaQuente = `${item.identificacao}_quente`;
 
         if (item.registroTemp < 0) {
-            // Se está crítico (frio), emite o alerta e limpa o estado oposto
             limparEstadoAlerta(idAlertaQuente);
             mostrarAlertaUnico(
                 idAlertaFrio,
@@ -129,7 +126,6 @@ function atualizarGraficoTemperaturas(dados) {
                 `${item.idRegistro}`
             );
         } else if (item.registroTemp > 7) {
-            // Se está crítico (quente), emite o alerta e limpa o estado oposto
             limparEstadoAlerta(idAlertaFrio);
             mostrarAlertaUnico(
                 idAlertaQuente,
@@ -138,7 +134,6 @@ function atualizarGraficoTemperaturas(dados) {
                 `${item.idRegistro}`
             );
         } else {
-            // Se a temperatura está IDEAL, limpa os estados de alerta dessa câmara
             limparEstadoAlerta(idAlertaFrio);
             limparEstadoAlerta(idAlertaQuente);
         }
