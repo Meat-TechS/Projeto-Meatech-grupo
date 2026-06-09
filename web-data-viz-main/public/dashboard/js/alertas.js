@@ -7,18 +7,18 @@ function atualizarMemoriaAlertas() {
 function mostrarAlertaUnico(idAlerta, titulo, mensagem, fkRegistro) {
     
     if (alertasAtivos.includes(idAlerta)) {
-        return; // Se já foi disparado antes (mesmo em outra sessão de página), não faz nada
+        return; 
     }
 
     alertasAtivos.push(idAlerta);
-    atualizarMemoriaAlertas(); // Grava na memória do navegador que este ID já foi alertado
+    atualizarMemoriaAlertas(); 
     
     criarAlerta(idAlerta, titulo, mensagem, fkRegistro);
 }
 
 function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
     const container = document.getElementById("containerAlertas");
-    if (!container) return; // Evita erros se a página atual não tiver o container
+    if (!container) return; 
 
     if (document.querySelector(`[data-id='${idAlerta}']`)) return
 
@@ -51,5 +51,5 @@ function criarAlerta(idAlerta, titulo, mensagem, fkRegistro) {
 
 function limparEstadoAlerta(idAlerta) {
     alertasAtivos = alertasAtivos.filter(item => item !== idAlerta);
-    atualizarMemoriaAlertas(); // Atualiza a memória do navegador sem o ID removido
+    atualizarMemoriaAlertas();
 }
